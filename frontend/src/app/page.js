@@ -1,20 +1,15 @@
-export default function HomePage() {
-  return (
-    <main>
-      <h2 className="text-2xl font-bold mb-4">Dobrodošli!</h2>
-      <p>Ovo je početna stranica.</p>
-    </main>
-  )
-}
-
+import HeaderImages from './components/HeaderImg'
 import Grid from './components/Grid'
+import Footer from './components/Footer'
+import MainNav from './components/MainNav'
 
 export default function HomePage() {
   return (
-    <main>
-      <h2 className="text-2xl font-bold mb-4">Dobrodošli!</h2>
-      <p>Ovo je početna stranica.</p>
+    <main className="bodypocetna">
+      <HeaderImages />
+      <MainNav />
       <Grid />
+      <Footer />
     </main>
   )
 }

@@ -1,4 +1,4 @@
-function HeaderImages() {
+export default function HeaderImages() {
   return (
     <header className="header-slike">
       <a href="#"><img src="/assets/images/kisa.png" alt="slika 1" /></a>
@@ -8,5 +8,3 @@ function HeaderImages() {
     </header>
   )
 }
-
-export default HeaderImages

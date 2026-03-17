@@ -1,0 +1,780 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    display:flex;
+    flex-direction:column;
+    align-items: stretch;
+    min-height:100vh;
+}
+
+main{
+    flex:1;
+}
+
+.bodypocetna {
+    font-size: 20px;
+    background: linear-gradient(
+        to bottom,
+        #00949b,
+        #75cedc
+    );
+}
+
+.bodysva4 {
+    font-size: 20px;
+    background: linear-gradient(
+        to bottom,
+        #f8b66f,
+        #f7bb7b
+    );
+}
+
+.bodydruga {
+    font-size: 20px;
+    background: linear-gradient(
+        to bottom,
+        #877391,
+        #d9bce7a8
+    );
+}
+
+.bodyslusam {
+    font-size: 20px;
+    background: linear-gradient(
+        to bottom,
+        #bd968f,
+        #b18a839f
+    );
+}
+
+.bodyslusam2 {
+    display:flex;
+    flex-direction:column;
+    align-items: stretch;
+    font-size: 20px;
+    background: #b2a2b9;
+}
+
+.bodyoprojektu{
+    font-size: 20px;
+    min-height: 100vh;
+    background: linear-gradient(
+        to bottom,
+        #2cc7df,
+        #b6e2e9
+    );
+}
+
+.header-slike img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+}
+
+.header-slike {
+    display: flex;
+    flex-direction: row;  
+    align-items: center;
+    padding:10px;
+    gap: 10px;
+    background-color: white;
+    width: 100%;
+    align-self:stretch;
+}
+
+.header-slike a {
+    width: 150px;
+    height: 90px;
+    display: flex;
+    flex-shrink: 0px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.iznadslika {
+    padding-left: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000000;
+    padding: 30px 20px 30px 20px;
+}
+
+/* NAV */ 
+
+
+.main-nav a.active {
+    font-weight: bold;
+}
+
+.nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-linkovi{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav {
+    background-color: white;
+    padding: 20px 20px 10px 20px;
+    margin: 0;
+    border-top: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    justify-content: right;
+    flex-wrap: wrap;
+}
+
+.main-nav .navnaslov a{
+    font-style: italic;
+    font-size: 25px;
+    font-weight: 500;
+    color: #4a9469;
+    white-space: nowrap;
+    margin-right: auto;
+    background-color: white;
+}
+
+.main-nav .navnaslov a:hover {
+    background-color:white;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.main-nav a:hover {
+    background-color: #babbbe;
+}
+
+@media (max-width: 768px) {
+    .main-nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-nav a {
+        width: 100%;
+    }
+}
+
+/* BREADCRUMBS */
+
+.breadcrumbs {
+    background-color: #f2f2f2;
+    padding: 10px 20px;
+    font-size: 12px;
+    color: #555;
+    border-bottom: #f2f2f2 2px solid;
+    display: flex;
+    gap: 8px;
+}
+
+.breadcrumbs a {
+    text-decoration: none;
+    color: #999;
+    font-weight: 600;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbs span:last-child {
+    color: #000;          
+    font-weight: 600;
+}
+
+.breadcrumbs .current {
+    font-weight: bold;
+    color: #000;
+}
+
+.breadcrumbs span {
+    margin: 0 5px;
+}
+
+/* FOOTER */
+
+.footer {
+    padding: 20px 40px 0 40px;
+    border-top: 2px solid #1157722a;
+    flex-wrap: wrap;
+    background-color: white;
+    margin-top:auto;
+}
+
+.footer .footersadrzaj {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer .footerlijevo {
+    display: flex;
+    gap: 15px;
+}
+
+.footer .footerlijevo img {
+    height: 160px;
+    width: 120px;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.footer .footerdesno {
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.footer .footerdesno a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.footer .footerdesno a:hover {
+    color: #115772;
+}
+
+.footer .footerispod {
+    margin-top: 15px;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    color: #000000;
+    border-top: 1px solid #1157722a;
+}
+
+/* SLIKE */
+
+.okvirslike {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.div-slike {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.glavne-slike {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.glavne-slike .slike-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+.glavne-slike .glslike {
+    width: 500px;
+    
+}
+
+.glavne-slike .sredina{
+    grid-column: 1 / -1;   
+    justify-self: center;
+}
+
+.glavne-slike .glslike img {
+    width: 100%;
+    aspect-ratio: 4 / 3;  
+    height: auto;
+    display: block;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glavne-slike .glslike img:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+.glavne-slike .glslike p {
+    margin-top: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+
+/* SLIKE2 – ŠTO SVE ZNAM */
+
+.glavne-slike .slike2 {
+    width: 500px;
+}
+
+.glavne-slike .slike2 img {
+    width: 100%;
+    aspect-ratio: 4 / 3;     
+    object-fit: contain;     
+    background-color: #fff; 
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: block;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glavne-slike .slike2 p {
+    margin-top: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+
+.glavne-slike .slike2 img:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 20px rgba(190, 159, 19, 0.2);
+}
+
+.glavne-slike .slike2 .sredina{
+    grid-column: 1 / -1;   
+    justify-self: center;
+}
+
+
+
+/* BURGER */
+
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+}
+
+.burger span {
+    width: 20px;
+    height: 3px;
+    background-color: #000;
+    display: block;
+    transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+.burger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 1400px) {
+
+    .nav-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .burger {
+        display: flex;
+        order: 2;
+    }
+
+    .navnaslov {
+        order: 1;
+    }
+
+    .main-nav {
+        position: relative;
+        z-index: 10;
+    }
+
+    .main-nav ul {
+        display: flex;
+        width: 100%;
+        order: 3;
+        flex-direction: column;
+        background: #fff;
+        padding: 15px 0;
+        margin-top: 10px;
+        max-height: 0;
+        overflow: hidden;
+        opacity:0;
+        transform: translateY(-10px);
+        transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .main-nav ul.active {
+        display: flex;
+        max-height: 1000px;
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .nav-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 5;
+}
+
+.nav-overlay.active {
+        opacity: 1;
+        pointer-events: all;
+}
+
+body.menu-open {
+        overflow: hidden;
+}
+}
+
+.tri-okvira {
+        max-width: 1100px;
+        margin: 60px auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+}
+
+.okvir {
+    background-color: #6e94eb;
+    border-radius: 12px;
+    padding: 25px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.okvir img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.okvir h3 {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.okvir:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(37, 91, 227, 0.15);
+}
+
+/* Padajući - O projektu */
+.dropdown {
+    position: relative;
+}
+
+/* padajući izbornik – skriven */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #84a3ec;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    min-width: 180px;
+
+    display: none;      /* ← SKRIVEN */
+    opacity: 0;
+    visibility: hidden;
+
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    z-index: 999;
+}
+
+/* pojavljuje se SAMO na hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* linkovi */
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: #000;
+    text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #94a4c9;
+}
+
+.srednji-tekst {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 40px 30px;
+    background-color: #2cc7df;
+    border-radius: 12px;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    color: #000;
+}
+
+.srednji-tekst p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+.oprojektu-tekst {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #f2f4f8;
+    border-radius: 14px;
+    line-height: 1.9;
+    font-size: 1.05rem;
+    color: #000;
+}
+
+.oprojektu-tekst p {
+    margin-bottom: 22px;
+    text-align: justify;
+}
+
+/*  KVIZ */
+
+.kviz {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+#quiz{
+    display:none;
+    max-width: 520px;
+    min-height: 300px;
+    padding: 35px 30px;
+    background: linear-gradient(145deg, #ffffff, #f3f6ff);
+    border-radius: 22px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+}}
+
+
+.quiz-intro{
+    margin-top:50px auto;
+    text-align: center;
+    width: 600px;
+    padding: 35px 30px;
+    background: linear-gradient(145deg, #ffffff, #f3f6ff);
+    border-radius: 22px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.quiz-wrapper {
+  margin: 60px auto;
+  width: 700px;
+  display: center;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+#start-quiz {
+  padding: 8px 16px;     
+  font-size: 15px;  
+  border-radius: 14px;
+  border: none;
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+  display: inline-block; 
+  margin-top: 15px;
+  width: 150px;
+}
+
+#start-quiz:hover {
+  background-color: #afa3b4;
+}
+
+#retry {
+  margin-top: 20px;
+  padding: 10px 22px;
+  font-size: 1rem;
+  border-radius: 14px;
+  border: none;
+  background-color: #877391;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.2s;
+}
+
+#retry:hover {
+  background-color: #b2a2b9;
+  transform: scale(1.05);
+}
+
+#question {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    color: #333;
+}
+
+button {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#feedback {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 10px;
+  min-height: 24px;
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.correct {
+  color: green;
+}
+
+.wrong {
+  color: red;
+}
+
+#answers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+#answers button {
+    padding: 14px 10px;
+    font-size: 0.95rem;
+    border-radius: 14px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+    border: 0.5px ;
+    background: #d6d0da;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s;
+}
+
+#answers button:hover {
+  transform: translateY(-2px);
+  background: #eef3ff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+#answers button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.result-box {
+  padding: 35px 30px;
+  background: linear-gradient(135deg, #eef3ff, #ffffff);
+  border-radius: 24px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+
+.result-emoji {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.result-box h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.result-box p {
+  margin: 8px 0;
+  font-size: 1.05rem;
+}
+
+#progress {
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: bold;
+}
+
+#quiz-ready h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+#quiz-ready p {
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+}
+
