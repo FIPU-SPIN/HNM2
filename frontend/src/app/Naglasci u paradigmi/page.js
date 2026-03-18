@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-export default function StoSveZnamPage() {
+export default function ParadigmaPage() {
   return (
-    <main className="bodydruga">
+    <main className="bodyslusam2">
       <header className="header-slike">
         <Link href="#"><img src="/assets/images/kisa.png" alt="slika 1" /></Link>
         <Link href="#"><img src="/assets/images/sunce.png" alt="slika 2" /></Link>
@@ -17,7 +17,14 @@ export default function StoSveZnamPage() {
           </span>
 
           <ul>
-            <li><Link href="/oprojektu">O projektu</Link></li>
+            <li className="dropdown">
+              <Link href="/oprojektu">O projektu</Link>
+              <ul className="dropdown-menu">
+                <li><Link href="/oprojektu/ciljevi">Ciljevi</Link></li>
+                <li><Link href="/oprojektu/rezultati">Rezultati</Link></li>
+                <li><Link href="/oprojektu/tim">Tim</Link></li>
+              </ul>
+            </li>
             <li><Link href="/stosveznam">Što sve znam?</Link></li>
             <li><Link href="/slusam">Slušam</Link></li>
             <li><Link href="/izgovaram">Izgovaram</Link></li>
@@ -36,29 +43,12 @@ export default function StoSveZnamPage() {
       <div className="nav-overlay"></div>
       <nav id="breadcrumbs" className="breadcrumbs"></nav>
 
+      <div className="iznadslika">Rečenica</div>
+
       <div className="okvirslike">
         <section className="glavne-slike">
           <div className="slike-grid">
-            <div className="slike2">
-              <Link href="/govornarijec"><img src="/assets/images/Govorna_riječ.png" alt="govor" /></Link>
-              <p>Govorna riječ</p>
-            </div>
-            <div className="slike2">
-              <Link href="/kojimnaglascima"><img src="/assets/images/Kojim_naglascima_govorim.png" alt="koji" /></Link>
-              <p>Kojim naglascima govorim</p>
-            </div>
-            <div className="slike2">
-              <Link href="/inventar"><img src="/assets/images/Inventar.png" alt="inv" /></Link>
-              <p>Inventar</p>
-            </div>
-            <div className="slike2">
-              <Link href="/distribucijska"><img src="/assets/images/Distibucijska_pravila.png" alt="pravilo" /></Link>
-              <p>Distribucijska pravila</p>
-            </div>
-            <div className="slike2 sredina">
-              <Link href="/paradigma"><img src="/assets/images/Naglasci_u_paradigmi.png" alt="paradigma" /></Link>
-              <p>Naglasci u paradigmi</p>
-            </div>
+            {/* Ovdje možeš dodati slike/komponente ako želiš prikazati sadržaj paradigme */}
           </div>
         </section>
       </div>

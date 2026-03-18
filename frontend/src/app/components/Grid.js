@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Grid() {
   const items = [
     { href: "/oprojektu", img: "/assets/images/arena.png", label: "O projektu" },
@@ -14,9 +16,9 @@ export default function Grid() {
         <div className="slike-grid">
           {items.map((item, i) => (
             <div key={i} className="glslike">
-              <a href={item.href}>
+              <Link href={item.href}>
                 <img src={item.img} alt={item.label} />
-              </a>
+              </Link>
               <p>{item.label}</p>
             </div>
           ))}
@@ -25,3 +27,4 @@ export default function Grid() {
     </div>
   )
 }
+
