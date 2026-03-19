@@ -1,10 +1,10 @@
 import HeaderImg from "../components/HeaderImg";
 import Footer from "../components/Footer";
 
-export default function ParadigmaPage() {
+export default function GovornaRijecPage() {
   return (
     <main className="bodyslusam2">
-      
+
       <HeaderImg />
 
       <div className="iznadslika">Rečenica</div>
@@ -17,7 +17,7 @@ export default function ParadigmaPage() {
       </div>
 
       <Footer />
-      
+
     </main>
   );
 }

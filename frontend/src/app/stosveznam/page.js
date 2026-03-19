@@ -1,37 +1,13 @@
+import HeaderImages from "../components/HeaderImg";
+import MainNav from "../components/MainNav";
+import Footer from "../components/Footer";
 import Link from "next/link";
 
 export default function StoSveZnamPage() {
   return (
     <main className="bodydruga">
-      <header className="header-slike">
-        <Link href="#"><img src="/assets/images/kisa.png" alt="slika 1" /></Link>
-        <Link href="#"><img src="/assets/images/sunce.png" alt="slika 2" /></Link>
-        <Link href="#"><img src="/assets/images/trava.png" alt="slika 3" /></Link>
-        <Link href="#"><img src="/assets/images/rosa.png" alt="slika 4" /></Link>
-      </header>
-
-      <nav className="main-nav">
-        <div className="nav-row">
-          <span className="navnaslov">
-            <Link href="/">Hrvatski naglasci na mreži</Link>
-          </span>
-
-          <ul>
-            <li><Link href="/oprojektu">O projektu</Link></li>
-            <li><Link href="/stosveznam">Što sve znam?</Link></li>
-            <li><Link href="/slusam">Slušam</Link></li>
-            <li><Link href="/izgovaram">Izgovaram</Link></li>
-            <li><Link href="/sva4ponavljam">Sva 4 ponavljam</Link></li>
-            <li><Link href="/glagoli">Glagoli u mreži</Link></li>
-          </ul>
-
-          <div className="burger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-      </nav>
+      <HeaderImages />
+      <MainNav />
 
       <div className="nav-overlay"></div>
       <nav id="breadcrumbs" className="breadcrumbs"></nav>
@@ -40,44 +16,44 @@ export default function StoSveZnamPage() {
         <section className="glavne-slike">
           <div className="slike-grid">
             <div className="slike2">
-              <Link href="/govornarijec"><img src="/assets/images/Govorna_riječ.png" alt="govor" /></Link>
+              <Link href="/govornarijec">
+                <img src="/assets/images/Govorna_riječ.png" alt="govor" />
+              </Link>
               <p>Govorna riječ</p>
             </div>
+
             <div className="slike2">
-              <Link href="/kojimnaglascima"><img src="/assets/images/Kojim_naglascima_govorim.png" alt="koji" /></Link>
+              <Link href="/kojimnaglascima">
+                <img src="/assets/images/Kojim_naglascima_govorim.png" alt="koji" />
+              </Link>
               <p>Kojim naglascima govorim</p>
             </div>
+
             <div className="slike2">
-              <Link href="/inventar"><img src="/assets/images/Inventar.png" alt="inv" /></Link>
+              <Link href="/inventar">
+                <img src="/assets/images/Inventar.png" alt="inv" />
+              </Link>
               <p>Inventar</p>
             </div>
+
             <div className="slike2">
-              <Link href="/distribucijska"><img src="/assets/images/Distibucijska_pravila.png" alt="pravilo" /></Link>
+              <Link href="/distribucijska">
+                <img src="/assets/images/Distibucijska_pravila.png" alt="pravilo" />
+              </Link>
               <p>Distribucijska pravila</p>
             </div>
+
             <div className="slike2 sredina">
-              <Link href="/paradigma"><img src="/assets/images/Naglasci_u_paradigmi.png" alt="paradigma" /></Link>
+              <Link href="/paradigma">
+                <img src="/assets/images/Naglasci_u_paradigmi.png" alt="paradigma" />
+              </Link>
               <p>Naglasci u paradigmi</p>
             </div>
           </div>
         </section>
       </div>
 
-      <footer className="footer">
-        <div className="footersadrzaj">
-          <div className="footerlijevo">
-            <img src="/assets/images/knjiga1.png" alt="KSTR" />
-            <img src="/assets/images/knjiga2.png" alt="KSTR" />
-          </div>
-          <div className="footerdesno">
-            <a href="#">poveznica1</a>
-            <a href="#">poveznica2</a>
-          </div>
-        </div>
-        <div className="footerispod">
-          ©2025 Sva prava pridržana.
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }
