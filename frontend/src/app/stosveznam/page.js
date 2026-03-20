@@ -1,14 +1,8 @@
-import HeaderImages from "../components/HeaderImg";
-import MainNav from "../components/MainNav";
-import Footer from "../components/Footer";
 import Link from "next/link";
 
 export default function StoSveZnamPage() {
   return (
     <main className="bodydruga">
-      <HeaderImages />
-      <MainNav />
-
       <div className="nav-overlay"></div>
       <nav id="breadcrumbs" className="breadcrumbs"></nav>
 
@@ -52,8 +46,6 @@ export default function StoSveZnamPage() {
           </div>
         </section>
       </div>
-
-      <Footer />
-    </main>
+   </main>
   );
 }

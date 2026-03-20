@@ -1,11 +1,6 @@
-import HeaderImg from "../components/HeaderImg";
-import Footer from "../components/Footer";
-
 export default function DistribucijskaPage() {
   return (
     <main className="bodyslusam2">
-
-      <HeaderImg />
 
       <div className="iznadslika">Rečenica</div>
 
@@ -15,8 +10,6 @@ export default function DistribucijskaPage() {
           </div>
         </section>
       </div>
-
-      <Footer />
 
     </main>
   );

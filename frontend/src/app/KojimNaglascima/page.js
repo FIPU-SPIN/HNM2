@@ -1,12 +1,6 @@
-import HeaderImg from "../components/HeaderImg";
-import Footer from "../components/Footer";
-
 export default function KojimNaglascimaPage() {
   return (
     <main className="bodyslusam2">
-
-      <HeaderImg />
-
       <div className="quiz-wrapper">
 
         <div className="quiz-intro">
@@ -42,9 +36,6 @@ export default function KojimNaglascimaPage() {
         </div>
 
       </div>
-
-      <Footer />
-
     </main>
   );
 }

@@ -1,12 +1,6 @@
-import HeaderImg from "../components/HeaderImg";
-import Footer from "../components/Footer";
-
 export default function GovornaRijecPage() {
   return (
     <main className="bodyslusam2">
-
-      <HeaderImg />
-
       <div className="iznadslika">Rečenica</div>
 
       <div className="okvirslike">
@@ -15,9 +9,6 @@ export default function GovornaRijecPage() {
           </div>
         </section>
       </div>
-
-      <Footer />
-
     </main>
   );
 }

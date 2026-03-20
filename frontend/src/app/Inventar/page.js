@@ -4,9 +4,6 @@ import Footer from "../components/Footer";
 export default function InventarPage() {
   return (
     <main className="bodyslusam2">
-
-      <HeaderImg />
-
       <div className="iznadslika">Rečenica</div>
 
       <div className="okvirslike">
@@ -15,9 +12,6 @@ export default function InventarPage() {
           </div>
         </section>
       </div>
-
-      <Footer />
-
     </main>
   );
 }
