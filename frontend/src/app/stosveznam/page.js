@@ -1,51 +1,42 @@
-import Link from "next/link";
+import Grid from "../components/Grid";
 
 export default function StoSveZnamPage() {
+  const items = [
+    {
+      href: "/govornarijec",
+      img: "/assets/images/Govorna_riječ.png",
+      label: "Govorna riječ",
+      className: "slike2",
+    },
+    {
+      href: "/kojimnaglascima",
+      img: "/assets/images/Kojim_naglascima_govorim.png",
+      label: "Kojim naglascima govorim",
+      className: "slike2",
+    },
+    {
+      href: "/inventar",
+      img: "/assets/images/Inventar.png",
+      label: "Inventar",
+      className: "slike2",
+    },
+    {
+      href: "/distribucijska",
+      img: "/assets/images/Distibucijska_pravila.png",
+      label: "Distribucijska pravila",
+      className: "slike2",
+    },
+    {
+      href: "/paradigma",
+      img: "/assets/images/Naglasci_u_paradigmi.png",
+      label: "Naglasci u paradigmi",
+      className: "slike2 sredina",
+    },
+  ];
+
   return (
     <main className="bodydruga">
-      <div className="nav-overlay"></div>
-      <nav id="breadcrumbs" className="breadcrumbs"></nav>
-
-      <div className="okvirslike">
-        <section className="glavne-slike">
-          <div className="slike-grid">
-            <div className="slike2">
-              <Link href="/govornarijec">
-                <img src="/assets/images/Govorna_riječ.png" alt="govor" />
-              </Link>
-              <p>Govorna riječ</p>
-            </div>
-
-            <div className="slike2">
-              <Link href="/kojimnaglascima">
-                <img src="/assets/images/Kojim_naglascima_govorim.png" alt="koji" />
-              </Link>
-              <p>Kojim naglascima govorim</p>
-            </div>
-
-            <div className="slike2">
-              <Link href="/inventar">
-                <img src="/assets/images/Inventar.png" alt="inv" />
-              </Link>
-              <p>Inventar</p>
-            </div>
-
-            <div className="slike2">
-              <Link href="/distribucijska">
-                <img src="/assets/images/Distibucijska_pravila.png" alt="pravilo" />
-              </Link>
-              <p>Distribucijska pravila</p>
-            </div>
-
-            <div className="slike2 sredina">
-              <Link href="/paradigma">
-                <img src="/assets/images/Naglasci_u_paradigmi.png" alt="paradigma" />
-              </Link>
-              <p>Naglasci u paradigmi</p>
-            </div>
-          </div>
-        </section>
-      </div>
-   </main>
+      <Grid items={items} />
+    </main>
   );
 }

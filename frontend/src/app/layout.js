@@ -2,6 +2,7 @@ import "./style.css";
 import HeaderImg from "./components/HeaderImg";
 import MainNav from "./components/MainNav";
 import Footer from "./components/Footer";
+import Breadcrumbs from "./components/Breadcrumbs";
 
 export default function RootLayout({ children }) {
   return (
@@ -10,6 +11,7 @@ export default function RootLayout({ children }) {
 
         <HeaderImg />
         <MainNav />
+        <Breadcrumbs />
 
         {children}
 
