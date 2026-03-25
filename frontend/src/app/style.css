@@ -424,11 +424,17 @@ main{
 
     .main-nav {
         position: relative;
-        z-index: 10;
+        z-index: 1200;
+    }
+  
+    .nav-linkovi.active {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2000;
     }
 
     .main-nav ul {
-        display: flex;
         width: 100%;
         order: 3;
         flex-direction: column;
@@ -456,7 +462,7 @@ main{
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.3s ease;
-        z-index: 5;
+        z-index: 1500;
 }
 
 .nav-overlay.active {
@@ -468,6 +474,8 @@ body.menu-open {
         overflow: hidden;
 }
 }
+
+/* O PROJEKTU */
 
 .tri-okvira {
         max-width: 1100px;
@@ -503,6 +511,7 @@ body.menu-open {
     transform: translateY(-8px);
     box-shadow: 0 10px 25px rgba(37, 91, 227, 0.15);
 }
+
 
 /* Padajući - O projektu */
 .dropdown {
@@ -588,7 +597,7 @@ body.menu-open {
 }
 
 #quiz{
-    display:none;
+    display:block;
     max-width: 520px;
     min-height: 300px;
     padding: 35px 30px;
@@ -623,7 +632,7 @@ body.menu-open {
 .quiz-wrapper {
   margin: 60px auto;
   width: 700px;
-  display: center;
+  display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px;

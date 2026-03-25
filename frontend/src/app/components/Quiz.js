@@ -8,7 +8,7 @@ export default function Quiz() {
     { question: "Riječ: rȍditelj", correct: "kratkosilazni" }
   ];
 
-  const [step, setStep] = useState("intro"); // intro | ready | quiz | result
+  const [screen, setScreen] = useState("intro"); 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [feedback, setFeedback] = useState("");
@@ -28,13 +28,13 @@ export default function Quiz() {
         setCurrentQuestion(currentQuestion + 1);
         setFeedback("");
       } else {
-        setStep("result");
+        setScreen("result");
       }
     }, 1200);
   };
 
   const restartQuiz = () => {
-    setStep("intro");
+    setScreen("intro");
     setCurrentQuestion(0);
     setScore(0);
     setFeedback("");
@@ -62,28 +62,28 @@ export default function Quiz() {
 
   return (
     <div>
-      {step === "intro" && (
+      {screen === "intro" && (
         <div className="quiz-intro">
           <h2 className="kviz">Pogodi naglasak</h2>
           <p>
             U ovom kratkom kvizu provjerit ćeš možeš li prepoznati
             hrvatske naglaske u riječima.
           </p>
-          <button onClick={() => setStep("ready")}>Započni</button>
+          <button onClick={() => setScreen("ready")}>Započni</button>
         </div>
       )}
 
-      {step === "ready" && (
+      {screen === "ready" && (
         <div className="quiz-intro">
           <h2>🎧 Jeste li spremni?</h2>
           <p>
             Čekaju te <strong>3 pitanja</strong>.
           </p>
-          <button onClick={() => setStep("quiz")}>Krenimo!</button>
+          <button onClick={() => setScreen("quiz")}>Krenimo!</button>
         </div>
       )}
 
-      {step === "quiz" && (
+      {screen === "quiz" && (
         <div id="quiz">
           <p id="question">
             {questions[currentQuestion].question}
@@ -111,7 +111,7 @@ export default function Quiz() {
         </div>
       )}
 
-      {step === "result" && (
+      {screen === "result" && (
         <div className="result-box">
           <div className="result-emoji">{emoji}</div>
           <h2>🎉 Kviz završen!</h2>
