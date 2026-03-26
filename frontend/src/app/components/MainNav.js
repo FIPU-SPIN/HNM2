@@ -31,8 +31,8 @@ export default function MainNav() {
             </div>
             <ul className={`dropdown-menu ${openDropdown === "oprojektu" ? "open" : ""}`}>
               <li><Link href="/oprojektu/oprojektu-opis">Opis projekta</Link></li>
-              <li><Link href="/oprojektu/oprojektu-cilj">Ciljevi</Link></li>
-              <li><Link href="/oprojektu/oprojektu-rez">Rezultati</Link></li>
+              <li><Link href="/oprojektu/oprojektu-rez">Rezultati projekta</Link></li>
+              <li><Link href="/oprojektu/oprojektu-ostranici">O mrežnim stranicama i aplikaciji</Link></li>
             </ul>
           </li>
 

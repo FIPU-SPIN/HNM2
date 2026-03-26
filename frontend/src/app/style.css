@@ -541,76 +541,6 @@ body.menu-open {
   user-select: none;
 }
 
-
-
-/* O PROJEKTU */
-
-.tri-okvira {
-        max-width: 1100px;
-        margin: 60px auto;
-        padding: 0 20px;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-}
-
-.okvir {
-    background-color: #6e94eb;
-    border-radius: 12px;
-    padding: 25px 20px;
-    text-align: center;
-    text-decoration: none;
-    color: #000;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.okvir img {
-    width: 80px;
-    height: auto;
-    margin-bottom: 15px;
-}
-
-.okvir h3 {
-    font-size: 1.3rem;
-    margin: 0;
-}
-
-.okvir:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(37, 91, 227, 0.15);
-}
-
-.srednji-tekst {
-    max-width: 900px;
-    margin: 80px auto;
-    padding: 40px 30px;
-    background-color: #2cc7df;
-    border-radius: 12px;
-    line-height: 1.8;
-    font-size: 1.05rem;
-    color: #000;
-}
-
-.srednji-tekst p {
-    margin-bottom: 20px;
-    text-align: justify;
-}
-.oprojektu-tekst {
-    max-width: 1000px;
-    margin: 60px auto;
-    padding: 40px;
-    background-color: #f2f4f8;
-    border-radius: 14px;
-    line-height: 1.9;
-    font-size: 1.05rem;
-    color: #000;
-}
-
-.oprojektu-tekst p {
-    margin-bottom: 22px;
-    text-align: justify;
-}
-
 /*  KVIZ */
 
 .kviz {
@@ -836,3 +766,126 @@ button {
   color: #333;
 }
 
+/* --- STILOVI ZA PODSTRANICE 'O PROJEKTU' --- */
+
+.page-op {
+  background-color: #ce5d60; /* Svijetla narančasta */
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 4rem 20px;
+}
+
+.page-rezultati {
+  background-color: #b6e2e9; /* Svijetla plava */
+  color: #1a1a1a;
+  min-height: 100vh;
+  padding: 4rem 20px;
+}
+
+.page-aplikacije {
+  background-color: #fbc5bc; /* Svijetla roza */
+  color: #1a1a1a;
+  min-height: 100vh;
+  padding: 4rem 20px;
+}
+
+.content-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.glavni-naslov {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.podnaslov {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.tekst-odlomak {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.rad-citat {
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 4px solid rgba(0, 0, 0, 0.2);
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* --- STILOVI ZA GLAVNU STRANICU (HUB S BOTUNIMA) --- */
+
+.page-hub {
+  background-color: #ce5d60; 
+  color: #ffffff; 
+  min-height: 100vh;
+  padding: 4rem 20px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+/* Stil za kontejner slike */
+.slika-hub-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.5rem; 
+  width: 100%;
+}
+
+.slika-hub {
+  border-radius: 12px; 
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
+  max-width: 100%; 
+  height: auto;
+}
+
+.botuni-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  align-items: center;
+  justify-content: center; 
+  width: 100%;
+}
+
+/* --- ZAJEDNIČKI IZGLED ZA SVA 3 BOTUNA --- */
+.botun-op, .botun-rez, .botun-app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-decoration: none !important; /* Ovo miče onu ružnu ljubičastu crtu od linka */
+  border-radius: 12px;
+  background-color: #f6c078; /* Ista boja breskve/pijeska za SVE botune */
+  color: #1a1a1a !important; /* Ista tamna slova za SVE botune */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efekt kad se prođe mišem - vrijedi za sva 3 */
+.botun-op:hover, .botun-rez:hover, .botun-app:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.botun-app {
+  background-color: #f7bb7b; 
+  color: #1a1a1a;
+}
