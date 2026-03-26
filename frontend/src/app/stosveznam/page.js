@@ -36,6 +36,20 @@ export default function StoSveZnamPage() {
 
   return (
     <main className="bodydruga">
+
+      <div className="stosveznam-intro">
+        <h1>Općenito o naglasku</h1>
+
+        <p>
+          Ovo je mjesto za provjeru znanja o naglascima i naglasnoj normi, o
+          naglasnim sustavima, varijetetima i pravilima u hrvatskome jeziku.
+          Vježbe su podijeljene u nekoliko cjelina i tema: <i>Koji je Vaš naglasni
+          sustav?; Naglasni inventar; Distribucijska pravila; Govorna riječ s
+          klitikama; Naglasak u paradigmi. </i> Nakon ove razine spremni ste za
+          uvježbavanje percepcije i produkcije naglasaka.
+        </p>
+      </div>
+      
       <Grid items={items} />
     </main>
   );
