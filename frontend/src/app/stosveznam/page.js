@@ -1,56 +1,44 @@
-import Grid from "../components/Grid";
+"use client";
+
+import Image from "next/image";
 
 export default function StoSveZnamPage() {
-  const items = [
-    {
-      href: "/stosveznam/GovornaRijec",
-      img: "/assets/images/Govorna_riječ.png",
-      label: "Govorna riječ",
-      className: "slike2",
-    },
-    {
-      href: "/stosveznam/KojimNaglascima",
-      img: "/assets/images/Kojim_naglascima_govorim.png",
-      label: "Kojim naglascima govorim",
-      className: "slike2",
-    },
-    {
-      href: "/stosveznam/Inventar",
-      img: "/assets/images/Inventar.png",
-      label: "Inventar",
-      className: "slike2",
-    },
-    {
-      href: "/stosveznam/Distribucijska",
-      img: "/assets/images/Distibucijska_pravila.png",
-      label: "Distribucijska pravila",
-      className: "slike2",
-    },
-    {
-      href: "/stosveznam/paradigma",
-      img: "/assets/images/Naglasci_u_paradigmi.png",
-      label: "Naglasci u paradigmi",
-      className: "slike2 sredina",
-    },
-  ];
-
   return (
     <main className="bodydruga">
 
-      <div className="stosveznam-intro">
-        <h1>Općenito o naglasku</h1>
+      <div className="naslovna">
+        <div className="content-container stosveznam">
+          
+          <h1 className="glavni-naslov">Što sve znam</h1>
 
+          <div className="slika-stosveznam">
+            <Image
+              src="/assets/images/stosveznam.jpg"
+              alt="Naslovna slika stranice sto sve znam"
+              width={1000}
+              height={800}
+              priority
+            />
+          </div>
+
+        </div>
+      </div>
+
+      <div className="stosveznam-intro">
+        <h2>Općenito o naglasku</h2>
         <p>
           Ovo je mjesto za provjeru znanja o naglascima i naglasnoj normi, o
           naglasnim sustavima, varijetetima i pravilima u hrvatskome jeziku.
-          Vježbe su podijeljene u nekoliko cjelina i tema: <i>Koji je Vaš naglasni
-          sustav?; Naglasni inventar; Distribucijska pravila; Govorna riječ s
-          klitikama; Naglasak u paradigmi. </i> Nakon ove razine spremni ste za
-          uvježbavanje percepcije i produkcije naglasaka.
+          Vježbe su podijeljene u nekoliko cjelina i tema:{" "}
+          <i>
+            Koji je Vaš naglasni sustav?; Naglasni inventar; Distribucijska
+            pravila; Govorna riječ s klitikama; Naglasak u paradigmi.
+          </i>{" "}
+          Nakon ove razine spremni ste za uvježbavanje percepcije i produkcije
+          naglasaka.
         </p>
       </div>
-      
-      <Grid items={items} />
+
     </main>
   );
 }

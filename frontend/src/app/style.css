@@ -35,7 +35,7 @@ main{
 
 .bodydruga {
     font-size: 20px;
-    background: #a4d7bb;
+    background:#a4d7bb;
 }
 
 .bodyslusam {
@@ -330,8 +330,6 @@ main{
     color: #fff;
     text-align: center;
 }
-
-/* SLIKE2 – ŠTO SVE ZNAM */
 
 .glavne-slike .slike2 {
     width: 500px;
@@ -764,6 +762,183 @@ button {
   line-height: 1.8;
   max-width: 900px;
   color: #333;
+}
+
+.naslovna {
+  padding: 50px 20px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.content-container.stosveznam {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+.glavni-naslov {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #2f3e34;
+  letter-spacing: 0.5px;
+}
+
+.slika-stosveznam {
+  display: flex;
+  justify-content: center;
+}
+
+.slika-stosveznam img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.stosveznam-intro {
+  width: auto;
+  max-width: 1200px;
+  height: auto; 
+  margin: 50px auto;
+  padding: 20px 25px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(3px);
+}
+
+
+.stosveznam-intro h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  color: #2f3e34;
+}
+
+.stosveznam-intro p {
+  font-size: 1.05rem;
+  color: #2f3e34;
+}
+
+/* INVENTAR */
+
+.naslovna-inventar {
+  padding: 50px 20px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.content-container.inventar {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.glavni-naslov {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #2f3e34;
+}
+
+.content-container.inventar p {
+  max-width: 700px;     
+  margin: 0 auto 25px;   
+  font-size: 1.05rem;
+  color: #2f3e34;
+  line-height: 1.7;
+}
+
+.slika-inventar {
+  display: flex;
+  justify-content: center;
+}
+
+.slika-inventar img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.inventar-intro {
+  max-width: 700px;
+  margin: 40px auto 60px;
+  padding: 0 20px;
+  line-height: 1.8;
+}
+
+.inventar-intro p {
+  margin-bottom: 15px;
+  font-size: 1.05rem;
+  color: #2f3e34;
+}
+
+.inventar-intro {
+  width: auto;
+  max-width: 1000px;
+  height: auto; 
+  margin: 50px auto;
+  padding: 20px 25px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(3px);
+}
+
+.inventar-intro p {
+  font-size: 1.05rem;
+  color: #2f3e34;
+}
+
+.inventar-tablica {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.inventar-tablica h3 {
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #2f3e34;
+}
+
+.inventar-tablica table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+.inventar-tablica th,
+.inventar-tablica td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid rgba(47, 62, 52, 0.15);
+}
+
+.inventar-tablica th {
+  font-weight: 600;
+  border-bottom: 1.5px solid rgba(47, 62, 52, 0.25);
+}
+
+.inventar-tablica thead tr:first-child th {
+  border-top: none;
+}
+
+.inventar-tablica tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.inventar-tablica th:first-child,
+.inventar-tablica td:first-child {
+  border-left: none;
+}
+
+.inventar-tablica th:last-child,
+.inventar-tablica td:last-child {
+  border-right: none;
 }
 
 /* --- STILOVI ZA PODSTRANICE 'O PROJEKTU' --- */
