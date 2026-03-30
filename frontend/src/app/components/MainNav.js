@@ -56,8 +56,9 @@ export default function MainNav() {
               <span onClick={() => setDropdownOpen(openDropdown === "slusam" ? null : "slusam")}></span>
             </div>
             <ul className={`dropdown-menu ${openDropdown === "slusam" ? "open" : ""}`}>
-              <li><Link href="/slusam/placeholder1">placeholder</Link></li>
-            
+              <li><Link href="/slusam/MjestoTonTrajanje">Mjesto, ton i trajanje</Link></li>
+              <li><Link href="/slusam/Zanaglasna">Naglasci i zanaglasna dužina</Link></li>  
+              <li><Link href="/slusam/NaglasciUporaba">Naglasci u uporabi</Link></li>
             </ul>
           </li>
 

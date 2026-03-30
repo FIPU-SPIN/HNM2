@@ -2,20 +2,20 @@
 
 import Image from "next/image";
 
-export default function SlusamPage() {
+export default function ZanaglasnaPage() {
   return (
     <main className="bodyslusam">
       
 
       <div className="naslovna">
-        <div className="content-container slusam">
+        <div className="content-container duzina">
           
-          <h1 className="glavni-naslov">Slušam</h1>
+          <h1 className="glavni-naslov">Naglasci i zanaglasna dužina</h1>
 
-          <div className="slika-slusam">
+          <div className="slika-duzina">
             <Image
-              src="/assets/images/slusam.jpg"
-              alt="Naslovna slika stranice slušam"
+              src="/assets/images/zanaglasna.png"
+              alt="Naslovna slika stranice naglasci i zanaglasna dužina"
               width={1000}
               height={800}
               priority
@@ -25,7 +25,7 @@ export default function SlusamPage() {
         </div>
       </div>
 
-      <div className="slusam-intro">
+      <div className="duzina-intro">
         <h2>Naslov</h2>
         <p>
           Placeholder
