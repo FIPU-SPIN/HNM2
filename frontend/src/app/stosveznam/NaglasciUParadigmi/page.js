@@ -2,20 +2,20 @@
 
 import Image from "next/image";
 
-export default function GovornaRijecPage() {
+export default function NaglasciUParadigmiPage() {
   return (
     <main className="bodydruga">
       
 
       <div className="naslovna">
-        <div className="content-container rijec">
+        <div className="content-container paradigma">
           
-          <h1 className="glavni-naslov">Govorna riječ</h1>
+          <h1 className="glavni-naslov">Naglasci u paradigmi</h1>
 
-          <div className="slika-rijec">
+          <div className="slika-paradigma">
             <Image
-              src="/assets/images/Govorna_riječ.png"
-              alt="Naslovna slika stranice govorna riječ"
+              src="/assets/images/Naglasci_u_paradigmi.png"
+              alt="Naslovna slika stranice naglasci u paradigmi"
               width={1000}
               height={800}
               priority
@@ -25,7 +25,7 @@ export default function GovornaRijecPage() {
         </div>
       </div>
 
-      <div className="rijec-intro">
+      <div className="paradigma-intro">
         <h2>Naslov</h2>
         <p>
           Placeholder
