@@ -13,11 +13,22 @@ export default function NaglasciUParadigmiPage() {
           <h1 className="glavni-naslov">Naglasci u paradigmi</h1>
 
           <div className="slika-paradigma">
-            <Image
+            <Image 
               src="/assets/images/Naglasci_u_paradigmi.png"
               alt="Naslovna slika stranice naglasci u paradigmi"
-              width={1000}
-              height={800}
+              width={800}
+              height={600}
+              priority
+              className = "cloud"
+            />
+          </div>
+
+          <div className="slika-paradigma">
+            <Image 
+              src="/assets/images/Naglasci_u_paradigmi.png"
+              alt="Naslovna slika stranice naglasci u paradigmi"
+              width={800}
+              height={600}
               priority
             />
           </div>

@@ -2,7 +2,7 @@ import Grid from "./components/Grid";
 
 export default function HomePage() {
   const items = [
-    { href: "/oprojektu", img: "/assets/images/oprojektu.jpg" },
+    { href: "/oprojektu", img: "/assets/images/oprojektu.jpg"},
     { href: "/stosveznam", img: "/assets/images/stosveznam.jpg"},
     { href: "/slusam", img: "/assets/images/slusam.jpg" },
     { href: "/izgovaram", img: "/assets/images/izgovaram.jpg"},

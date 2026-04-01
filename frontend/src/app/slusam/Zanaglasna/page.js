@@ -13,7 +13,7 @@ export default function ZanaglasnaPage() {
           <h1 className="glavni-naslov">Naglasci i zanaglasna dužina</h1>
 
           <div className="slika-duzina">
-            <Image
+            <Image className = "gl slike cloud"
               src="/assets/images/zanaglasna.png"
               alt="Naslovna slika stranice naglasci i zanaglasna dužina"
               width={1000}
