@@ -136,6 +136,11 @@ main{
     justify-content: right;
     flex-wrap: wrap;
     color: #4a9469;
+    overflow: visible;
+}
+
+.main-nav ul.active {
+    overflow: visible;
 }
 
 .main-nav .navnaslov a{
@@ -168,6 +173,7 @@ main{
     .main-nav ul {
         flex-direction: column;
         align-items: flex-start;
+        overflow: visible;
     }
 
     .main-nav a {
@@ -434,7 +440,7 @@ main{
         padding: 15px 0;
         margin-top: 10px;
         max-height: 0;
-        overflow: hidden;
+        overflow: visible;
         opacity:0;
         transform: translateY(-10px);
         transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
@@ -442,7 +448,7 @@ main{
 
     .main-nav ul.active {
         display: flex;
-        max-height: 1000px;
+        max-height: none;
         transform: translateY(0);
         opacity: 1;
     }
@@ -463,7 +469,7 @@ main{
 }
 
 body.menu-open {
-        overflow: hidden;
+        overflow: visible;
 }
 }
 
@@ -495,7 +501,7 @@ body.menu-open {
   visibility: hidden;
   transform: translateY(10px);
   transition: all 0.25s ease;
-  z-index: 2000; 
+  z-index: 9999; 
 }
 
 /* linkovi */
