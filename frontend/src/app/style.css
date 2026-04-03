@@ -35,7 +35,7 @@ main{
 
 .bodydruga {
     font-size: 20px;
-    background:#a4d7bb;
+    background:#ffffff;
 }
 
 .bodyslusam {
@@ -74,7 +74,7 @@ main{
     align-items: center;
     padding:10px;
     gap: 10px;
-    background-color: white;
+    background-color: #00949b;
     width: 100%;
     align-self:stretch;
 }
@@ -121,11 +121,11 @@ main{
 }
 
 .main-nav {
-    background-color: white;
+    background-color: #00949b;
     padding: 20px 20px 10px 20px;
     margin: 0;
-    border-top: 2px solid #ddd;
-    border-bottom: 2px solid #ddd;
+    border-top: 2px solid #2e9fa5;
+    border-bottom: 2px solid #2e9fa5;
 }
 
 .main-nav ul {
@@ -146,19 +146,19 @@ main{
 .main-nav .navnaslov a{
     font-size: 25px;
     font-weight: 500;
-    color: #4a9469;
+    color: #ffffff;
     white-space: nowrap;
     margin-right: auto;
-    background-color: white;
+    background-color: #00949b;
 }
 
 .main-nav .navnaslov a:hover {
-    background-color:white;
+    background-color: #00949b;
 }
 
 .main-nav a {
     text-decoration: none;
-    color: #4a9469;
+    color: #ffffff;
     font-weight: bold;
     padding: 8px 12px;
     border-radius: 5px;
@@ -166,7 +166,7 @@ main{
 }
 
 .main-nav a:hover {
-    background-color: #babbbe;
+    background-color: #00949b;
 }
 
 @media (max-width: 768px) {
@@ -223,7 +223,7 @@ main{
     padding: 20px 40px 0 40px;
     border-top: 2px solid #1157722a;
     flex-wrap: wrap;
-    background-color: white;
+    background-color: #00949b;
     margin-top:auto;
 }
 
@@ -511,7 +511,7 @@ body.menu-open {
 }
 
 .dropdown-menu li a {
- display: block;
+  display: block;
   padding: 10px 15px;
   color: black;
   text-decoration: none;

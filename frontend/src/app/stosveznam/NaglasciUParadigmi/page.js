@@ -22,17 +22,6 @@ export default function NaglasciUParadigmiPage() {
               className = "cloud"
             />
           </div>
-
-          <div className="slika-paradigma">
-            <Image 
-              src="/assets/images/Naglasci_u_paradigmi.png"
-              alt="Naslovna slika stranice naglasci u paradigmi"
-              width={800}
-              height={600}
-              priority
-            />
-          </div>
-
         </div>
       </div>
 
