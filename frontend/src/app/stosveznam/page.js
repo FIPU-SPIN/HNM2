@@ -5,11 +5,8 @@ import Image from "next/image";
 export default function StoSveZnamPage() {
   return (
     <main className="bodydruga">
-      
-
       <div className="naslovna">
         <div className="content-container stosveznam">
-          
           <h1 className="glavni-naslov">Što sve znam</h1>
 
           <div className="slika-stosveznam">
@@ -21,7 +18,6 @@ export default function StoSveZnamPage() {
               priority
             />
           </div>
-
         </div>
       </div>
 
@@ -40,6 +36,82 @@ export default function StoSveZnamPage() {
         </p>
       </div>
 
+      <div className="stosveznam-tekst">
+        <p>
+          Hrvatski jezik obuhvaća mjesne govore, gradske govore i hrvatski
+          standardni jezik. Svaki govornik hrvatskoga jezika usvaja materinski
+          jezik kojemu je temelj u mjesnom govoru, a ovisno o mjestu rođenja i
+          izloženosti standardu temelj mu je i u gradskom govoru te inačici
+          razgovornoga standardnog jezika. Polaskom u školu uči se standardni
+          jezik koji je namijenjen formalnim komunikacijskim situacijama. Sve
+          to zajedno čini govornikovu jezičnu biografiju.
+        </p>
+        <p>
+          Standardni se jezik temelji na štokavskome narječju i
+          četveronaglasnome sustavu, sustavu s 4 naglaska. Kajkavski i čakavski
+          govori te staroštokavski govori razlikuju se brojem naglasaka od
+          standardnoga jezika pa su naglasne razlike više izražene od standarda
+          ako dolazite iz sjeverne regije (centar Zagreb) ili zapadne regije
+          (centar Rijeka). I unutar štokavskoga područja možemo uočiti brojne
+          razlike ako ste iz istočne regije (centar Osijek) ili južne regije
+          (centar Split) jer su dijalekti unutar narječja specifični po svojim
+          fonološkim i prozodijskim značajkama.
+        </p>
+        <p>
+          Hrvatski standardni jezik opisuje se kao jezik s visinskim naglasnim
+          sustavom (tonsko-dinamičkim, melodijskim, engl. pitch-accent
+          language) u kojemu su četiri različita naglaska: kratkosilazni,
+          dugosilazni, kratkouzlazni i dugouzlazni te zanaglasna dužina i
+          kračina. Takav četveronaglasni sustav ostvaruje se u mnogim hrvatskim
+          mjesnim govorima, osobito u Slavoniji (primjerice u Osijeku,
+          Vinkovcima, Vukovaru, Slavonskom Brodu, Požegi, Bjelovaru) i
+          Dalmaciji (primjerice u Zadru, Šibeniku, Splitu, Metkoviću,
+          Dubrovniku). Visinskim četveronaglasnim sustavima govori se i izvan
+          Hrvatske, npr. govori srpskoga ili bosanskoga jezika. Visinski
+          naglasni sustav imaju i ne(novo)štokavski govori koji imaju akut, a to
+          su neki čakavski, kajkavski i staroštokavski govori.
+        </p>
+        <p>
+          Osim visinskoga naglasnog sustava u hrvatskom jeziku (su)postoji i
+          udarni (dinamički) naglasni sustav, a naglasak koji se u njemu
+          ostvaruje nazivamo udarnim (jačinskim, ekspiratornim, dinamičkim,
+          engl. stress-accent). U udarnom sustavu relevantno je samo mjesto
+          naglaska u riječi. Udarni naglasak najsličniji je kratkosilaznom
+          naglasku iz visinskoga sustava. Udarni naglasni sustav veže se
+          ponajviše za gradske govore (primjerice u Zagrebu, Varaždinu,
+          Karlovcu, Rijeci, Puli, posebice mlađih govornika), no obilježjem je i
+          nekih kajkavskih i čakavskih dijalektnih govora (primjerice govor
+          Brovinja u Istri, neki donjosutlanski i međimurski govori, neki
+          govori u Gorskom kotaru i sl.).
+        </p>
+        <p>
+          U udarnome naglasnom sustavu mjesto naglaska često je drukčije nego u
+          visinskome naglasnom sustavu, pa je mjesto naglaska najjači znak i
+          najjednostavnije obilježje po kojem ga prepoznajemo. Ni visinski ni
+          udarni naglasni sustav nisu dvije jednostavne i jedinstvene
+          kategorije, već unutar njih postoje brojne varijante izgovora (npr.
+          visinski naglasni sustav u Slavoniji i Dalmaciji nije jednak, iako su
+          govori novoštokavski).
+        </p>
+        <p>
+          Kod govornika koji ostvaruju visinski četveronaglasni sustav i
+          djelomice zanaglasnu dužinu gotovo uvijek možemo prepoznati da imaju
+          slavonsko ili dalmatinsko porijeklo (govori osječke makroregije,
+          primjerice govor Osijeka, Vinkovaca, Vukovara, Požege, Slavonskoga
+          Broda, ili splitske makroregije, primjerice Zadra, Šibenika, Splita,
+          Dubrovnika). Kod govornika koji ostvaruju udarni naglasni sustav teško
+          je jednoznačno odrediti geografsko porijeklo samo na primjeru nekoliko
+          riječi ili rečenica jer su udarni naglasci zagrebačke i riječke
+          makroregije, tj. Zagreba, Varaždina, Karlovca, Rijeke ili Pule vrlo
+          slični pa se uvriježilo nazivati takav govor "zagrebački". Širi
+          fonetski ili jezični kontekst može pomoći u identifikaciji porijekla
+          pa se govornici mogu identificirati po izgovoru samoglasnika
+          (zatvorenijem ili otvorenijem od onoga koji percipiramo kao neutralni
+          standardni), po izgovoru suglasnika (primjerice mediteranski l,
+          izrazito labijalizirani ili izrazito umekšani frikativi i afrikate č,
+          ž, š, dž, umekšani ć i đ), a ponekad i po intonaciji.
+        </p>
+      </div>
     </main>
   );
 }
