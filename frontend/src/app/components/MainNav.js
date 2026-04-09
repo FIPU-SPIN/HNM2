@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Burger from "./Burger.js";
 
 export default function MainNav() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,12 +16,10 @@ export default function MainNav() {
           <Link href="/">Hrvatski naglasci na mreži</Link>
         </span>
 
-        <div
-          className={`burger ${menuOpen ? "active" : ""}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <span></span><span></span><span></span>
-        </div>
+        <Burger 
+          isOpen={menuOpen} 
+          onClick={() => setMenuOpen(!menuOpen)} 
+        />
 
         <ul className={`nav-linkovi ${menuOpen ? "active" : ""}`}>
 
@@ -101,6 +100,6 @@ export default function MainNav() {
       {menuOpen && (
         <div className="nav-overlay active" onClick={() => setMenuOpen(false)} />
       )}
-    </nav>
+    </nav> 
   );
 }

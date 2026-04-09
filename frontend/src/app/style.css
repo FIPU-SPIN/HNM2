@@ -1,8 +1,15 @@
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
   html, body {
       margin: 0;
       padding: 0;
       font-family:Arial, Helvetica, sans-serif;
       width: 100%;
+      overflow-x: hidden;
   }
 
   body{
@@ -18,48 +25,14 @@
 
   .bodypocetna {
       font-size: 20px;
-      background: linear-gradient(
-          to bottom,
-          #00949b,
-          #75cedc
-      );
+      background: #00949b;
+      width: 100%;
   }
 
-  .bodysva4 {
-      font-size: 20px;
-      background: linear-gradient(
-          to bottom,
-          #f8b66f,
-          #f7bb7b
-      );
-  }
-
-  .bodydruga {
+  .bodyostalo{
       font-size: 20px;
       background:#ffffff;
-  }
-
-  .bodyslusam {
-      font-size: 20px;
-      background:#fbc5bc;
-  }
-
-  .bodyslusam2 {
-      display:flex;
-      flex-direction:column;
-      align-items: stretch;
-      font-size: 20px;
-      background: #b2a2b9;
-  }
-
-  .bodyoprojektu{
-      font-size: 20px;
-      min-height: 100vh;
-      background: linear-gradient(
-          to bottom,
-          #2cc7df,
-          #b6e2e9
-      );
+      width: 100%;
   }
 
   .header-slike img {
@@ -118,13 +91,12 @@
       list-style: none;
       padding: 0;
       margin: 0;
-      color: #4a9469;
+      color: #ffffff;
       align-items: center;
   }
 
   .main-nav {
       background-color: #00949b;
-     
       margin: 0;
       border-top: 2px solid #2e9fa5;
       border-bottom: 2px solid #2e9fa5;
@@ -137,7 +109,7 @@
       padding: 0;
       justify-content: right;
       flex-wrap: wrap;
-      color: #4a9469;
+      color: #ffffff;
       overflow: visible;
   }
 
@@ -222,7 +194,7 @@
   /* FOOTER */
 
   .footer {
-      padding: 20px 40px 0 40px;
+      padding-top: 20px;
       border-top: 2px solid #1157722a;
       flex-wrap: wrap;
       background-color: #00949b;
@@ -379,105 +351,404 @@
   /* BURGER */
 
   .burger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      position: relative;
-      z-index: 10;
-  }
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1600;
+    padding: 10px 12px;
+    background: #ffffff;
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-  .burger span {
-      width: 20px;
-      height: 3px;
-      background-color: #000;
-      display: block;
-      transition: transform 0.3s ease, opacity 0.2s ease;
-  }
+.burger:hover {
+    background: #f0f0f0;
+    transform: scale(1.02);
+}
 
-  .burger.active span:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
-  }
+.burger span {
+    width: 25px;
+    height: 3px;
+    background-color: #00949b;
+    display: block;
+    transition: all 0.3s ease-in-out;
+    border-radius: 2px;
+}
 
+/* Kada je menu otvoren - X ikona */
+.burger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
 
-  .burger.active span:nth-child(2) {
-      opacity: 0;
-  }
+.burger.active span:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+}
 
-  .burger.active span:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
-  }
+.burger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Fokus za pristupačnost */
+.burger:focus-visible {
+    outline: 2px solid #00949b;
+    outline-offset: 2px;
+    border-radius: 8px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1400px) {
+    .burger {
+        display: flex;
+        order: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .burger {
+        gap: 4px;
+        padding: 8px 10px;
+    }
+    
+    .burger span {
+        width: 22px;
+        height: 2.5px;
+    }
+    
+    .burger.active span:nth-child(1) {
+        transform: translateY(6.5px) rotate(45deg);
+    }
+    
+    .burger.active span:nth-child(3) {
+        transform: translateY(-6.5px) rotate(-45deg);
+    }
+}
 
   @media (max-width: 1400px) {
 
-      .nav-row {
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
-          justify-content: space-between;
-      }
+    .nav-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-      .burger {
-          display: flex;
-          order: 2;
-      }
+    .burger {
+        display: flex;
+        order: 2;
+    }
 
-      .navnaslov {
-          order: 1;
-      }
+    .navnaslov {
+        order: 1;
+    }
 
-      .main-nav {
-          position: relative;
-          z-index: 1200;
-      }
+    .main-nav {
+        position: relative;
+        z-index: 1200;
+    }
+  
+    .nav-linkovi.active {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        z-index: 2000;
+    }
+
+    .main-nav ul {
+        width: 100%;
+        order: 3;
+        flex-direction: column;
+        background: #00949b;
+        padding: 0;
+        margin-top: 10px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
+        border-radius: 0 0 12px 12px;
+        list-style: none;
+        gap: 0;
+    }
+
+    .main-nav ul.active {
+        display: flex;
+        max-height: 80vh;
+        transform: translateY(0);
+        opacity: 1;
+        padding: 15px 0;
+        overflow-y: auto;
+    }
+
+    .main-nav ul li {
+        width: 100%;
+    }
+
+    .main-nav ul li a {
+        display: block;
+        padding: 12px 20px;
+        color: #ffffff !important;
+        font-size: 16px;
+        font-weight: 500;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        transition: background 0.2s ease;
+    }
+
+    .main-nav ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .main-nav ul li:last-child a {
+        border-bottom: none;
+    }
+
+    .dropdown-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .dropdown-header a {
+        flex: 1;
+        padding: 12px 20px;
+        color: #ffffff !important;
+        font-size: 16px;
+        font-weight: 500;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .dropdown-header span {
+        width: 50px;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        position: relative;
+    }
+
+    .dropdown-header span::after {
+        content: "▼";
+        font-size: 10px;
+        color: #ffffff;
+        transition: transform 0.3s ease;
+    }
+
+    .dropdown-header span.open::after {
+        transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+        display: none;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .dropdown-menu.open {
+        display: block;
+    }
+
+    .dropdown-menu li a {
+        padding: 10px 20px 10px 35px !important;
+        font-size: 14px !important;
+        background: rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-menu li a:hover {
+        background: rgba(255, 255, 255, 0.15) !important;
+    }
+
+    .nav-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 1500;
+    }
+
+    .nav-overlay.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    body.menu-open {
+        overflow: hidden;
+    }@media (max-width: 1400px) {
+
+    .nav-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #00949b;
+        padding: 10px 20px;
+    }
+
+    .navnaslov {
+        order: 1;
+    }
     
-      .nav-linkovi.active {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      z-index: 2000;
-      }
+    .navnaslov a {
+        color: #ffffff !important;
+        font-size: 18px;
+    }
 
-      .main-nav ul {
-          width: 100%;
-          order: 3;
-          flex-direction: column;
-          background: #fff;
-          padding: 15px 0;
-          margin-top: 10px;
-          max-height: 0;
-          overflow: visible;
-          opacity:0;
-          transform: translateY(-10px);
-          transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
-      }
+    .main-nav {
+        position: relative;
+        z-index: 1200;
+    }
+  
+    .main-nav ul {
+        width: 100%;
+        order: 3;
+        flex-direction: column;
+        background: #ffffff;
+        padding: 0;
+        margin-top: 10px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
+        border-radius: 0 0 12px 12px;
+        list-style: none;
+        gap: 0;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
 
-      .main-nav ul.active {
-          display: flex;
-          max-height: none;
-          transform: translateY(0);
-          opacity: 1;
-      }
+    .main-nav ul.active {
+        display: flex;
+        max-height: 80vh;
+        transform: translateY(0);
+        opacity: 1;
+        padding: 10px 0;
+        overflow-y: auto;
+    }
 
-      .nav-overlay {
-          position: fixed;
-          inset: 0;
-          background: rgba(0, 0, 0, 0.4);
-          opacity: 0;
-          pointer-events: none;
-          transition: opacity 0.3s ease;
-          z-index: 1500;
-  }
+    /* Linkovi u izborniku - tirkizni tekst */
+    .main-nav ul li {
+        width: 100%;
+    }
 
-  .nav-overlay.active {
-          opacity: 1;
-          pointer-events: all;
-  }
+    .main-nav ul li a {
+        display: block;
+        padding: 14px 20px;
+        color: #00949b !important;
+        font-size: 16px;
+        font-weight: 500;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0, 148, 155, 0.1);
+        transition: background 0.2s ease;
+    }
 
-  body.menu-open {
-          overflow: visible;
-  }
-  }
+    .main-nav ul li a:hover {
+        background-color: rgba(0, 148, 155, 0.05);
+        color: #007a80 !important;
+    }
+
+    /* DROPDOWN HEADER - tirkizni tekst */
+    .dropdown-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .dropdown-header a {
+        flex: 1;
+        padding: 14px 20px;
+        color: #00949b !important;
+        font-size: 16px;
+        font-weight: 500;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0, 148, 155, 0.1);
+    }
+
+    .dropdown-header a:hover {
+        background-color: rgba(0, 148, 155, 0.05);
+    }
+
+    /* Strelica - tirkizna */
+    .dropdown-header span {
+        width: 50px;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border-bottom: 1px solid rgba(0, 148, 155, 0.1);
+        position: relative;
+    }
+
+    .dropdown-header span::after {
+        content: "▼";
+        font-size: 10px;
+        color: #00949b;
+        transition: transform 0.3s ease;
+    }
+
+    .dropdown-header span.open::after {
+        transform: rotate(180deg);
+    }
+
+    /* Dropdown menu - podstavke */
+    .dropdown-menu {
+        display: none;
+        background: rgba(0, 148, 155, 0.03);
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .dropdown-menu.open {
+        display: block;
+    }
+
+    .dropdown-menu li a {
+        padding: 12px 20px 12px 35px !important;
+        font-size: 14px !important;
+        color: #007a80 !important;
+        border-bottom: 1px solid rgba(0, 148, 155, 0.08);
+    }
+
+    .dropdown-menu li a:hover {
+        background: rgba(0, 148, 155, 0.08) !important;
+        color: #00949b !important;
+    }
+
+    /* Overlay */
+    .nav-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 1500;
+    }
+
+    .nav-overlay.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    body.menu-open {
+        overflow: hidden;
+    }
+}
+}
 
   /* DROPDOWN */
 
@@ -844,14 +1115,6 @@
     width: 100%;
     text-align: center;
   }
-
-  .glavni-naslov {
-    font-size: 2.2rem;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: #2f3e34;
-  }
-
   .content-container.inventar p {
     max-width: 700px;     
     margin: 0 auto 25px;   
@@ -983,14 +1246,6 @@
     max-width: 900px;
     width: 100%;
     text-align: center;
-  }
-
-  .glavni-naslov {
-    font-size: 2.2rem;
-    font-weight: 600;
-    margin-bottom: 25px;
-    color: #2f3e34;
-    letter-spacing: 0.5px;
   }
 
   .slika-distribucijska {
@@ -1523,12 +1778,6 @@
   .content-container {
     max-width: 900px;
     margin: 0 auto;
-  }
-
-  .glavni-naslov {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
   }
 
   .podnaslov {
