@@ -880,124 +880,442 @@
 
   /* INVENTAR */
 
-  .naslovna-inventar {
-    padding: 50px 20px 20px;
-    display: flex;
-    justify-content: center;
-  }
+  /* INVENTAR STRANICA - KOMPLETAN CSS */
 
-  .content-container.inventar {
-    max-width: 800px;
-    width: 100%;
-    text-align: center;
-  }
+/* GLAVNI KONTEJNERI */
+.naslovna-inventar {
+  padding: 50px 20px 20px;
+  display: flex;
+  justify-content: center;
+}
 
+.content-container.inventar {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+.glavni-naslov {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2f3e34;
+  letter-spacing: 0.5px;
+}
+
+.uvodna-definicija {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #2c3e50;
+  background: rgba(110, 148, 235, 0.1);
+  padding: 20px 30px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+}
+
+.slika-inventar {
+  display: flex;
+  justify-content: center;
+}
+
+.slika-inventar img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* GLAVNI SADRŽAJ */
+.inventar-sadrzaj {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 60px 20px;
+}
+
+/* UVODNI TEKST */
+.inventar-intro {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e9edf2 100%);
+  padding: 30px 40px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+}
+
+.inventar-intro p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #2d3748;
+}
+
+.napomena-za-zvuk {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 12px 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/* TABLICE - OPĆI STIL */
+.inventar-tablica,
+.prozodemi-tablica,
+.ipa-tablica {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+}
+
+.inventar-tablica h3,
+.prozodemi-tablica h3,
+.ipa-tablica h3 {
+  font-size: 1.5rem;
+  color: #2f3e34;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  text-align: center;
+}
+
+th {
+  background: #6e94eb;
+  color: white;
+  font-weight: 600;
+}
+
+td {
+  color: #2d3748;
+}
+
+.zvuk-link {
+  cursor: pointer;
+  background: #e8f0fe;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.zvuk-link:hover {
+  background: #6e94eb;
+  color: white;
+  transform: scale(1.05);
+}
+
+.tablica-napomena {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+}
+
+/* PRIMJERI RIJEČI */
+.primjeri-rijeci {
+  margin-bottom: 50px;
+}
+
+.primjeri-rijeci h3 {
+  font-size: 1.5rem;
+  color: #2f3e34;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.primjeri-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.primjer-kartica {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.primjer-kartica:hover {
+  transform: translateY(-5px);
+}
+
+.naglasak-znak {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #6e94eb;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.naglasak-ime {
+  font-size: 0.9rem;
+  color: #666;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.rijeci {
+  font-size: 1.1rem;
+  color: #2d3748;
+  margin-bottom: 15px;
+}
+
+.zvuk-gumb {
+  background: #6e94eb;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.zvuk-gumb:hover {
+  background: #4a6bc9;
+  transform: scale(1.05);
+}
+
+.zvuk-gumb.mali {
+  padding: 5px 12px;
+  font-size: 0.85rem;
+}
+
+/* OSTALI PROZODEMI */
+.ostali-prozodemi {
+  background: #f8f9fa;
+  padding: 30px 40px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+}
+
+.ostali-prozodemi h2 {
+  font-size: 1.8rem;
+  color: #2f3e34;
+  margin-bottom: 20px;
+  border-left: 5px solid #6e94eb;
+  padding-left: 20px;
+}
+
+.ostali-prozodemi p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #2d3748;
+  margin-bottom: 15px;
+}
+
+/* BILJEŽENJE NAGLASAKA */
+.biljezenje-naglasaka {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.biljezenje-naglasaka h2 {
+  font-size: 1.8rem;
+  color: #2f3e34;
+  margin-bottom: 20px;
+}
+
+.biljezenje-naglasaka p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #2d3748;
+  margin-bottom: 15px;
+}
+
+.link-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.link-container a,
+.praat-slike-placeholder a {
+  display: inline-block;
+  background: #6e94eb;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.link-container a:hover,
+.praat-slike-placeholder a:hover {
+  background: #4a6bc9;
+  transform: scale(1.02);
+}
+
+/* IPA ZNAKOVLJE */
+.ipa-znakovlje {
+  margin-bottom: 40px;
+}
+
+.ipa-znakovlje h2 {
+  font-size: 1.8rem;
+  color: #2f3e34;
+  margin-bottom: 20px;
+}
+
+.ipa-znakovlje p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #2d3748;
+  margin-bottom: 20px;
+}
+
+/* FONETSKA ANALIZA */
+.fonetska-analiza {
+  background: linear-gradient(135deg, #e8f0fe 0%, #d4e0f7 100%);
+  padding: 30px 40px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+}
+
+.fonetska-analiza h2 {
+  font-size: 1.8rem;
+  color: #2f3e34;
+  margin-bottom: 20px;
+}
+
+.fonetska-analiza p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #2d3748;
+  margin-bottom: 20px;
+}
+
+.praat-slike-placeholder {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.placeholder-box {
+  background: #f0f2f5;
+  border: 2px dashed #6e94eb;
+  border-radius: 16px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.placeholder-box p {
+  margin-bottom: 10px;
+}
+
+.placeholder-napomena {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.praat-opis {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* MJESTA ZA PROVJERU */
+.mjesta-provjera {
+  background: #2f3e34;
+  padding: 30px 40px;
+  border-radius: 20px;
+  color: white;
+}
+
+.mjesta-provjera h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.link-lista {
+  list-style: none;
+  padding: 0;
+}
+
+.link-lista li {
+  margin-bottom: 12px;
+}
+
+.link-lista a {
+  color: #6e94eb;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.link-lista a:hover {
+  color: #ffc107;
+  transform: translateX(5px);
+}
+
+/* RESPONZIVNOST */
+@media (max-width: 768px) {
   .glavni-naslov {
-    font-size: 2.2rem;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: #2f3e34;
+    font-size: 1.8rem;
   }
 
-  .content-container.inventar p {
-    max-width: 700px;     
-    margin: 0 auto 25px;   
-    font-size: 1.05rem;
-    color: #2f3e34;
-    line-height: 1.7;
-  }
-
-  .slika-inventar {
-    display: flex;
-    justify-content: center;
-  }
-
-  .slika-inventar img {
-    width: 100%;
-    max-width: 700px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-    border-radius: 20px;
+  .uvodna-definicija {
+    font-size: 0.95rem;
+    padding: 15px 20px;
   }
 
   .inventar-intro {
-    max-width: 700px;
-    margin: 40px auto 60px;
-    padding: 0 20px;
-    line-height: 1.8;
+    padding: 20px;
   }
 
   .inventar-intro p {
-    margin-bottom: 15px;
-    font-size: 1.05rem;
-    color: #2f3e34;
+    font-size: 0.95rem;
   }
 
-  .inventar-intro {
-    width: auto;
-    max-width: 1000px;
-    height: auto; 
-    margin: 50px auto;
-    padding: 20px 25px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(3px);
+  .primjeri-grid {
+    grid-template-columns: 1fr;
   }
 
-  .inventar-intro p {
-    font-size: 1.05rem;
-    color: #2f3e34;
+  .ostali-prozodemi,
+  .biljezenje-naglasaka,
+  .fonetska-analiza,
+  .mjesta-provjera {
+    padding: 20px;
   }
 
-  .inventar-tablica {
-    max-width: 700px;
-    margin: 30px auto;
-    padding: 0 20px;
-    text-align: center;
+  .ostali-prozodemi h2,
+  .biljezenje-naglasaka h2,
+  .fonetska-analiza h2,
+  .mjesta-provjera h2 {
+    font-size: 1.4rem;
   }
 
-  .inventar-tablica h3 {
-    margin-bottom: 15px;
-    font-weight: 600;
-    color: #2f3e34;
+  th, td {
+    padding: 8px 10px;
+    font-size: 0.85rem;
   }
 
-  .inventar-tablica table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 1rem;
+  .naglasak-znak {
+    font-size: 1.8rem;
   }
+}
 
-  .inventar-tablica th,
-  .inventar-tablica td {
-    padding: 10px;
-    text-align: center;
-    border: 1px solid rgba(47, 62, 52, 0.15);
+@media (min-width: 1200px) {
+  .inventar-sadrzaj {
+    max-width: 1300px;
   }
-
-  .inventar-tablica th {
-    font-weight: 600;
-    border-bottom: 1.5px solid rgba(47, 62, 52, 0.25);
-  }
-
-  .inventar-tablica thead tr:first-child th {
-    border-top: none;
-  }
-
-  .inventar-tablica tbody tr:last-child td {
-    border-bottom: none;
-  }
-
-  .inventar-tablica th:first-child,
-  .inventar-tablica td:first-child {
-    border-left: none;
-  }
-
-  .inventar-tablica th:last-child,
-  .inventar-tablica td:last-child {
-    border-right: none;
-  }
+}
 
   /* DISTRIBUCIJSKA PRAVILA */
 
