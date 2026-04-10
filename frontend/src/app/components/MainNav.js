@@ -2,16 +2,23 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Burger from "./Burger.js";
+import Burger from "./Burger";
 
 export default function MainNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setDropdownOpen] = useState(null);
 
+  const toggleDropdown = (dropdownName) => {
+    if (openDropdown === dropdownName) {
+      setDropdownOpen(null);  
+    } else {
+      setDropdownOpen(dropdownName);  
+    }
+  };
+
   return (
     <nav className="main-nav">
       <div className="nav-row">
-
         <span className="navnaslov">
           <Link href="/">Hrvatski naglasci na mreži</Link>
         </span>
@@ -22,11 +29,16 @@ export default function MainNav() {
         />
 
         <ul className={`nav-linkovi ${menuOpen ? "active" : ""}`}>
-
+          {/* O PROJEKTU */}
           <li className="dropdown">
             <div className="dropdown-header">
               <Link href="/oprojektu" className="dropdown-trigger">O projektu</Link>
-              <span onClick={() => setDropdownOpen(openDropdown === "oprojektu" ? null : "oprojektu")}></span>
+              <span 
+                className={openDropdown === "oprojektu" ? "open" : ""}
+                onClick={() => toggleDropdown("oprojektu")}
+              >
+                ▼
+              </span>
             </div>
             <ul className={`dropdown-menu ${openDropdown === "oprojektu" ? "open" : ""}`}>
               <li><Link href="/oprojektu/oprojektu-opis">Opis projekta</Link></li>
@@ -35,10 +47,16 @@ export default function MainNav() {
             </ul>
           </li>
 
+          {/* ŠTO SVE ZNAM */}
           <li className="dropdown">
             <div className="dropdown-header">
               <Link href="/stosveznam" className="dropdown-trigger">Što sve znam?</Link>
-              <span onClick={() => setDropdownOpen(openDropdown === "stosveznam" ? null : "stosveznam")}></span>
+              <span 
+                className={openDropdown === "stosveznam" ? "open" : ""}
+                onClick={() => toggleDropdown("stosveznam")}
+              >
+                ▼
+              </span>
             </div>
             <ul className={`dropdown-menu ${openDropdown === "stosveznam" ? "open" : ""}`}>
               <li><Link href="/stosveznam/GovornaRijec">Govorna riječ</Link></li>
@@ -49,10 +67,16 @@ export default function MainNav() {
             </ul>
           </li>
 
+          {/* SLUŠAM */}
           <li className="dropdown">
             <div className="dropdown-header">
               <Link href="/slusam" className="dropdown-trigger">Slušam</Link>
-              <span onClick={() => setDropdownOpen(openDropdown === "slusam" ? null : "slusam")}></span>
+              <span 
+                className={openDropdown === "slusam" ? "open" : ""}
+                onClick={() => toggleDropdown("slusam")}
+              >
+                ▼
+              </span>
             </div>
             <ul className={`dropdown-menu ${openDropdown === "slusam" ? "open" : ""}`}>
               <li><Link href="/slusam/MjestoTonTrajanje">Mjesto, ton i trajanje</Link></li>
@@ -61,45 +85,59 @@ export default function MainNav() {
             </ul>
           </li>
 
+          {/* IZGOVARAM */}
           <li className="dropdown">
             <div className="dropdown-header">
               <Link href="/izgovaram" className="dropdown-trigger">Izgovaram</Link>
-              <span onClick={() => setDropdownOpen(openDropdown === "izgovaram" ? null : "izgovaram")}></span>
+              <span 
+                className={openDropdown === "izgovaram" ? "open" : ""}
+                onClick={() => toggleDropdown("izgovaram")}
+              >
+                ▼
+              </span>
             </div>
             <ul className={`dropdown-menu ${openDropdown === "izgovaram" ? "open" : ""}`}>
               <li><Link href="/izgovaram/placeholder1">placeholder</Link></li>
-              
             </ul>
           </li>
 
+          {/* SVA 4 PONAVLJAM */}
           <li className="dropdown">
             <div className="dropdown-header">
               <Link href="/sva4ponavljam" className="dropdown-trigger">Sva 4 ponavljam</Link>
-              <span onClick={() => setDropdownOpen(openDropdown === "sva4ponavljam" ? null : "sva4ponavljam")}></span>
+              <span 
+                className={openDropdown === "sva4ponavljam" ? "open" : ""}
+                onClick={() => toggleDropdown("sva4ponavljam")}
+              >
+                ▼
+              </span>
             </div>
             <ul className={`dropdown-menu ${openDropdown === "sva4ponavljam" ? "open" : ""}`}>
               <li><Link href="/sva4ponavljam/placeholder1">placeholder</Link></li>
-              
             </ul>
           </li>
 
+          {/* GLAGOLI U MREŽI */}
           <li className="dropdown">
             <div className="dropdown-header">
               <Link href="/glagoli-u-mrezi" className="dropdown-trigger">Glagoli u mreži</Link>
-              <span onClick={() => setDropdownOpen(openDropdown === "glagoli-u-mrezi" ? null : "glagoli-u-mrezi")}></span>
+              <span 
+                className={openDropdown === "glagoli-u-mrezi" ? "open" : ""}
+                onClick={() => toggleDropdown("glagoli-u-mrezi")}
+              >
+                ▼
+              </span>
             </div>
             <ul className={`dropdown-menu ${openDropdown === "glagoli-u-mrezi" ? "open" : ""}`}>
               <li><Link href="/glagoli-u-mrezi/placeholder1">placeholder</Link></li>
-              
             </ul>
           </li>
-
         </ul>
       </div>
 
       {menuOpen && (
         <div className="nav-overlay active" onClick={() => setMenuOpen(false)} />
       )}
-    </nav> 
+    </nav>
   );
 }

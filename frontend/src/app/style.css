@@ -349,39 +349,37 @@
 
 
   /* BURGER */
-
-  .burger {
+  
+.burger {
     display: none;
     flex-direction: column;
-    gap: 5px;
+    gap: 7px;
     cursor: pointer;
     position: relative;
     z-index: 1600;
-    padding: 10px 12px;
-    background: #ffffff;
+    padding: 12px 16px;
+    background: #00949b;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .burger:hover {
-    background: #f0f0f0;
+    background: #f0f0f03a;
     transform: scale(1.02);
 }
 
 .burger span {
-    width: 25px;
-    height: 3px;
-    background-color: #00949b;
+    width: 30px;
+    height: 4px;
+    background-color: #ffffff;
     display: block;
     transition: all 0.3s ease-in-out;
-    border-radius: 2px;
+    border-radius: 3px;
 }
 
-/* Kada je menu otvoren - X ikona */
 .burger.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(11px) rotate(45deg);
 }
 
 .burger.active span:nth-child(2) {
@@ -390,17 +388,9 @@
 }
 
 .burger.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-11px) rotate(-45deg);
 }
 
-/* Fokus za pristupačnost */
-.burger:focus-visible {
-    outline: 2px solid #00949b;
-    outline-offset: 2px;
-    border-radius: 8px;
-}
-
-/* RESPONSIVE */
 @media (max-width: 1400px) {
     .burger {
         display: flex;
@@ -410,36 +400,29 @@
 
 @media (max-width: 768px) {
     .burger {
-        gap: 4px;
-        padding: 8px 10px;
+        gap: 6px;
+        
     }
-    
     .burger span {
-        width: 22px;
-        height: 2.5px;
+        width: 26px;
+        height: 3.5px;
     }
-    
     .burger.active span:nth-child(1) {
-        transform: translateY(6.5px) rotate(45deg);
+        transform: translateY(9.5px) rotate(45deg);
     }
-    
     .burger.active span:nth-child(3) {
-        transform: translateY(-6.5px) rotate(-45deg);
+        transform: translateY(-9.5px) rotate(-45deg);
     }
 }
 
-  @media (max-width: 1400px) {
+/* MOBILNI IZBORNIK */
 
+@media (max-width: 1400px) {
     .nav-row {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
-    }
-
-    .burger {
-        display: flex;
-        order: 2;
     }
 
     .navnaslov {
@@ -448,217 +431,62 @@
 
     .main-nav {
         position: relative;
-        z-index: 1200;
-    }
-  
-    .nav-linkovi.active {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        z-index: 2000;
+        z-index: 1000;
     }
 
-    .main-nav ul {
+    /* Glavni izbornik */
+
+    .main-nav ul.nav-linkovi {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
         width: 100%;
         order: 3;
         flex-direction: column;
-        background: #00949b;
+        background: #fffffff3;
         padding: 0;
-        margin-top: 10px;
+        margin: 0;
         max-height: 0;
         overflow: hidden;
         opacity: 0;
         transform: translateY(-10px);
         transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
         border-radius: 0 0 12px 12px;
-        list-style: none;
         gap: 0;
-    }
-
-    .main-nav ul.active {
-        display: flex;
-        max-height: 80vh;
-        transform: translateY(0);
-        opacity: 1;
-        padding: 15px 0;
-        overflow-y: auto;
-    }
-
-    .main-nav ul li {
-        width: 100%;
-    }
-
-    .main-nav ul li a {
-        display: block;
-        padding: 12px 20px;
-        color: #ffffff !important;
-        font-size: 16px;
-        font-weight: 500;
-        text-decoration: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-        transition: background 0.2s ease;
-    }
-
-    .main-nav ul li a:hover {
-        background-color: rgba(255, 255, 255, 0.15);
-    }
-
-    .main-nav ul li:last-child a {
-        border-bottom: none;
-    }
-
-    .dropdown-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-    }
-
-    .dropdown-header a {
-        flex: 1;
-        padding: 12px 20px;
-        color: #ffffff !important;
-        font-size: 16px;
-        font-weight: 500;
-        text-decoration: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    .dropdown-header span {
-        width: 50px;
-        min-height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-        position: relative;
-    }
-
-    .dropdown-header span::after {
-        content: "▼";
-        font-size: 10px;
-        color: #ffffff;
-        transition: transform 0.3s ease;
-    }
-
-    .dropdown-header span.open::after {
-        transform: rotate(180deg);
-    }
-
-    .dropdown-menu {
-        display: none;
-        background: rgba(255, 255, 255, 0.1);
-        padding: 0;
-        margin: 0;
-        list-style: none;
-    }
-
-    .dropdown-menu.open {
-        display: block;
-    }
-
-    .dropdown-menu li a {
-        padding: 10px 20px 10px 35px !important;
-        font-size: 14px !important;
-        background: rgba(0, 0, 0, 0.1);
-    }
-
-    .dropdown-menu li a:hover {
-        background: rgba(255, 255, 255, 0.15) !important;
-    }
-
-    .nav-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.5);
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s ease;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         z-index: 1500;
     }
 
-    .nav-overlay.active {
-        opacity: 1;
-        pointer-events: all;
-    }
-
-    body.menu-open {
-        overflow: hidden;
-    }@media (max-width: 1400px) {
-
-    .nav-row {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        background-color: #00949b;
-        padding: 10px 20px;
-    }
-
-    .navnaslov {
-        order: 1;
-    }
-    
-    .navnaslov a {
-        color: #ffffff !important;
-        font-size: 18px;
-    }
-
-    .main-nav {
-        position: relative;
-        z-index: 1200;
-    }
-  
-    .main-nav ul {
-        width: 100%;
-        order: 3;
-        flex-direction: column;
-        background: #ffffff;
-        padding: 0;
-        margin-top: 10px;
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transform: translateY(-10px);
-        transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
-        border-radius: 0 0 12px 12px;
-        list-style: none;
-        gap: 0;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .main-nav ul.active {
-        display: flex;
+    .main-nav ul.nav-linkovi.active {
         max-height: 80vh;
         transform: translateY(0);
         opacity: 1;
-        padding: 10px 0;
+        padding: 20px 0;  
         overflow-y: auto;
     }
 
-    /* Linkovi u izborniku - tirkizni tekst */
-    .main-nav ul li {
+    .main-nav ul.nav-linkovi li {
         width: 100%;
+        list-style: none;
     }
 
-    .main-nav ul li a {
+    .main-nav ul.nav-linkovi li a {
         display: block;
-        padding: 14px 20px;
-        color: #00949b !important;
+        padding: 16px 20px;  
+        color: #000000 !important;
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 700;
         text-decoration: none;
-        border-bottom: 1px solid rgba(0, 148, 155, 0.1);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         transition: background 0.2s ease;
     }
 
-    .main-nav ul li a:hover {
-        background-color: rgba(0, 148, 155, 0.05);
-        color: #007a80 !important;
+    .main-nav ul.nav-linkovi li a:hover {
+        background-color: rgba(0, 148, 155, 0.1);
+        color: #00949b !important;
     }
 
-    /* DROPDOWN HEADER - tirkizni tekst */
     .dropdown-header {
         display: flex;
         justify-content: space-between;
@@ -668,63 +496,46 @@
 
     .dropdown-header a {
         flex: 1;
-        padding: 14px 20px;
-        color: #00949b !important;
+        padding: 14px 20px; 
+        color: #000000 !important;
         font-size: 16px;
         font-weight: 500;
         text-decoration: none;
-        border-bottom: 1px solid rgba(0, 148, 155, 0.1);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     .dropdown-header a:hover {
-        background-color: rgba(0, 148, 155, 0.05);
+        background-color: rgba(0, 148, 155, 0.1);
+        color: #00949b !important;
     }
 
-    /* Strelica - tirkizna */
     .dropdown-header span {
-        width: 50px;
-        min-height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        border-bottom: 1px solid rgba(0, 148, 155, 0.1);
-        position: relative;
+        display: none;
     }
 
-    .dropdown-header span::after {
-        content: "▼";
-        font-size: 10px;
-        color: #00949b;
-        transition: transform 0.3s ease;
-    }
-
-    .dropdown-header span.open::after {
-        transform: rotate(180deg);
-    }
-
-    /* Dropdown menu - podstavke */
+    /* Podizbornik */
     .dropdown-menu {
         display: none;
-        background: rgba(0, 148, 155, 0.03);
+        background: rgba(0, 148, 155, 0.05);
         padding: 0;
         margin: 0;
         list-style: none;
     }
 
-    .dropdown-menu.open {
+    .dropdown:hover .dropdown-menu {
         display: block;
     }
 
+    /* Podstranice u podizborniku */
     .dropdown-menu li a {
-        padding: 12px 20px 12px 35px !important;
+        padding: 14px 24px 14px 40px !important;  
         font-size: 14px !important;
-        color: #007a80 !important;
-        border-bottom: 1px solid rgba(0, 148, 155, 0.08);
+        color: #000000 !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     }
 
     .dropdown-menu li a:hover {
-        background: rgba(0, 148, 155, 0.08) !important;
+        background: rgba(0, 148, 155, 0.1) !important;
         color: #00949b !important;
     }
 
@@ -736,7 +547,7 @@
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.3s ease;
-        z-index: 1500;
+        z-index: 1400;
     }
 
     .nav-overlay.active {
@@ -748,8 +559,6 @@
         overflow: hidden;
     }
 }
-}
-
   /* DROPDOWN */
 
   /*  wrap */
