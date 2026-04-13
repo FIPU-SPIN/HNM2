@@ -829,14 +829,14 @@
   /* STO SVE ZNAM */
 
   .stosveznam-intro {
-    width: 100%;
-    padding: 80px 10vw 40px 10vw;
-    text-align: left;
-    background: linear-gradient(
-      to bottom,
-      rgba(110, 148, 235, 0.12),
-      rgba(255, 255, 255, 0)
-    );
+    width: auto;
+    max-width: 1200px;
+    height: auto; 
+    margin: 50px auto;
+    padding: 20px 25px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(3px);
   }
 
   .stosveznam-intro h1 {
@@ -885,19 +885,6 @@
     box-shadow: 0 8px 18px rgba(0,0,0,0.15);
     border-radius: 20px;
   }
-
-  .stosveznam-intro {
-    width: auto;
-    max-width: 1200px;
-    height: auto; 
-    margin: 50px auto;
-    padding: 20px 25px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(3px);
-    align-items: center;
-  }
-
 
   .stosveznam-intro h2 {
     font-size: 1.8rem;
@@ -1117,173 +1104,211 @@
     margin-right: 6px;
   }
 
-  /* GOVORNA RIJEČ*/
+/* GOVORNA RIJEČ*/
 
-  .rijec-intro {
-    width: 100%;
-    padding: 80px 10vw 40px 10vw;
-    text-align: left;
-    background: linear-gradient(
-      to bottom,
-      rgba(110, 148, 235, 0.12),
-      rgba(255, 255, 255, 0)
-    );
-  }
 
-  .rijec-intro h1 {
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-    font-weight: 700;
-  }
+.content-container.rijec {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
 
-  .rijec-intro p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    max-width: 900px;
-    color: #333;
-  }
+.slika-rijec {
+  display: flex;
+  justify-content: center;
+}
 
-  .content-container.rijec {
-    max-width: 900px;
-    width: 100%;
-    text-align: center;
-  }
+.slika-rijec img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
 
-  .slika-rijec {
-    display: flex;
-    justify-content: center;
-  }
+.rijec-intro {
+  width: 100%;
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 60px 8vw;
 
-  .slika-rijec img {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    border-radius: 6px;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-    border-radius: 20px;
-  }
+  text-align: left;
+  border-radius: 14px;
 
-  .rijec-intro {
-    width: auto;
-    max-width: 1200px;
-    height: auto; 
-    margin: 50px auto;
-    padding: 20px 25px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(3px);
-  }
+  background: linear-gradient(
+    to bottom,
+    rgba(110, 220, 210, 0.15),
+    rgba(255, 255, 255, 0.6)
+  );
 
-  .rijec-intro h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    color: #2f3e34;
-  }
+  backdrop-filter: blur(4px);
+  box-shadow: 0 10px 25px rgba(110, 220, 210, 0.15);
+}
 
-  .rijec-intro p {
-    font-size: 1.05rem;
-    color: #2f3e34;
-  }
+.rijec-intro h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #2f3e34;
+}
 
-  /* NAGLASCI U PARADIGMI */
+.rijec-intro h3 {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  color: #3aa6a0;
+}
 
-  .paradigma-intro {
-    width: 100%;
-    padding: 80px 10vw 40px 10vw;
-    text-align: left;
-    background: linear-gradient(
-      to bottom,
-      rgba(110, 148, 235, 0.12),
-      rgba(255, 255, 255, 0)
-    );
-  }
+.rijec-intro p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: #2f3e34;
+}
 
-  .paradigma-intro h1 {
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-    font-weight: 700;
-  }
+.rijec-intro ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
 
-  .paradigma-intro p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    max-width: 900px;
-    color: #333;
-  }
+.rijec-intro li {
+  margin-bottom: 8px;
+}
 
-  .content-container.paradigma {
-    max-width: 900px;
-    width: 100%;
-    text-align: center;
-  }
+.primjer-box {
+  background: rgba(110, 220, 210, 0.1);
+  border-left: 4px solid #6edcd2;
+  padding: 15px 20px;
+  margin: 25px 0;
+  border-radius: 10px;
+}
 
-  .slika-paradigma {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    filter: drop-shadow(0 25px 35px rgba(4, 56, 43, 0.25));
-  }
+.primjer {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
 
-  .slika-paradigma .cloud {
-    width: 100%;
-    max-width: 600px;
-    display: block;
-    position: relative;
+.slika-blok {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
 
-    -webkit-mask-image: url("/assets/masks/cloud2.svg");
-    mask-image: url("/assets/masks/cloud2.svg");
+.slika-blok img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(110, 220, 210, 0.25);
+}
 
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
+.citat-blok {
+  max-width: 700px;
+  margin: 20px auto 40px auto;
+  padding: 20px 25px;
+  background: rgba(110, 220, 210, 0.08);
+  border-left: 4px solid #6edcd2;
+  text-align: center;
+  border-radius: 12px;
+  font-style: italic;
+  line-height: 1.7;
+}
 
-    -webkit-mask-position: center;
-    mask-position: center;
+.citat-blok p {
+  margin-bottom: 8px;
+}
 
-    -webkit-mask-size: 142% 142%;
-    mask-size: 142% 142%;
+.citat-izvor {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #5f7f7c;
+  font-style: normal;
+}
 
-    background: radial-gradient(
-      circle at center,
-      rgba(0,0,0,0) 55%,
-      rgba(0,0,0,0.25) 100%
-    );
-  }
+/* NAGLASCI U PARADIGMI */
 
-  .slika-paradigma .cloud img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    border-radius: 20px;
-    filter:
-      brightness(0.95)
-      contrast(1.05)
-      drop-shadow(0 0 25px rgba(0, 0, 0, 0.15));
-  }
+.content-container.paradigma {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
 
-  .paradigma-intro {
-    width: auto;
-    max-width: 1200px;
-    height: auto; 
-    margin: 50px auto;
-    padding: 20px 25px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(3px);
-  }
+.slika-paradigma {
+  display: flex;
+  justify-content: center;
+}
 
-  .paradigma-intro h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    color: #2f3e34;
-  }
+.slika-paradigma img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(110, 220, 210, 0.25);
+}
 
-  .paradigma-intro p {
-    font-size: 1.05rem;
-    color: #2f3e34;
-  }
+/* GLAVNI BLOK */
+
+.paradigma-intro {
+  width: 100%;
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 60px 8vw;
+
+  text-align: left;
+  border-radius: 14px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(110, 220, 210, 0.15),
+    rgba(255, 255, 255, 0.6)
+  );
+
+  backdrop-filter: blur(4px);
+  box-shadow: 0 10px 25px rgba(110, 220, 210, 0.15);
+}
+
+/* NASLOVI */
+
+.paradigma-intro h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #2f3e34;
+}
+
+.paradigma-intro h3 {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  color: #3aa6a0;
+}
+
+/* TEKST */
+
+.paradigma-intro p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: #2f3e34;
+}
+
+/* LISTE */
+
+.paradigma-intro ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.paradigma-intro li {
+  margin-bottom: 8px;
+}
+
+/* PRIMJERI */
+
+.primjer-box {
+  background: rgba(110, 220, 210, 0.1);
+  border-left: 4px solid #6edcd2;
+  padding: 15px 20px;
+  margin: 25px 0;
+  border-radius: 10px;
+}
 
   /* SLUŠAM */
 
