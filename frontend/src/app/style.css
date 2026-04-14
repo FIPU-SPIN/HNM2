@@ -77,6 +77,7 @@
 
   .main-nav a.active {
       font-weight: bold;
+      color: #00949b;
   }
 
   .nav-row {
@@ -100,6 +101,8 @@
       margin: 0;
       border-top: 2px solid #2e9fa5;
       border-bottom: 2px solid #2e9fa5;
+      padding-bottom: 10px;
+      padding-top: 10px;
   }
 
   .main-nav ul {
@@ -122,8 +125,9 @@
       font-weight: 500;
       color: #ffffff;
       white-space: nowrap;
-      margin-right: auto;
       background-color: #00949b;
+      padding: 0;
+      padding-left: 20px;
   }
 
   .main-nav .navnaslov a:hover {
@@ -158,18 +162,20 @@
   /* BREADCRUMBS */
 
   .breadcrumbs {
-      background-color: #f2f2f2;
-      padding: 10px 20px;
-      font-size: 12px;
-      color: #555;
-      border-bottom: #f2f2f2 2px solid;
+      background-color: #017c8393;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      padding-top:10px;
+      padding-bottom: 10px;
+      padding-left:20px;
+      font-size: 13px;
+      color: #a7a4a4;
       display: flex;
       gap: 8px;
   }
 
   .breadcrumbs a {
       text-decoration: none;
-      color: #999;
+      color: #e4edee;
       font-weight: 600;
   }
 
@@ -178,13 +184,15 @@
   }
 
   .breadcrumbs span:last-child {
-      color: #000;          
+      color: #00949b;          
       font-weight: 600;
+      
   }
 
   .breadcrumbs .current {
       font-weight: bold;
-      color: #000;
+      color: #00949b;
+      
   }
 
   .breadcrumbs span {
@@ -348,8 +356,10 @@
 
 
 
-  /* BURGER */
-  
+/* =========================
+   BURGER
+========================= */
+
 .burger {
     display: none;
     flex-direction: column;
@@ -391,6 +401,7 @@
     transform: translateY(-11px) rotate(-45deg);
 }
 
+/* show burger */
 @media (max-width: 1400px) {
     .burger {
         display: flex;
@@ -398,26 +409,10 @@
     }
 }
 
-@media (max-width: 768px) {
-    .burger {
-        gap: 6px;
-        
-    }
-    .burger span {
-        width: 26px;
-        height: 3.5px;
-    }
-    .burger.active span:nth-child(1) {
-        transform: translateY(9.5px) rotate(45deg);
-    }
-    .burger.active span:nth-child(3) {
-        transform: translateY(-9.5px) rotate(-45deg);
-    }
-}
-
-/* MOBILNI IZBORNIK */
+/* NAV */
 
 @media (max-width: 1400px) {
+
     .nav-row {
         display: flex;
         flex-wrap: wrap;
@@ -434,35 +429,31 @@
         z-index: 1000;
     }
 
-    /* Glavni izbornik */
-
     .main-nav ul.nav-linkovi {
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
         width: 100%;
-        order: 3;
         flex-direction: column;
         background: #fffffff3;
-        padding: 0;
         margin: 0;
+        padding: 0;
         max-height: 0;
         overflow: hidden;
         opacity: 0;
         transform: translateY(-10px);
         transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
         border-radius: 0 0 12px 12px;
-        gap: 0;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         z-index: 1500;
     }
 
     .main-nav ul.nav-linkovi.active {
         max-height: 80vh;
-        transform: translateY(0);
+        padding: 20px 0;
         opacity: 1;
-        padding: 20px 0;  
+        transform: translateY(0);
         overflow-y: auto;
     }
 
@@ -473,77 +464,91 @@
 
     .main-nav ul.nav-linkovi li a {
         display: block;
-        padding: 16px 20px;  
-        color: #000000 !important;
+        padding: 16px 20px;
         font-size: 16px;
         font-weight: 700;
+        color: #000 !important;
         text-decoration: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        transition: background 0.2s ease;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
     }
 
     .main-nav ul.nav-linkovi li a:hover {
-        background-color: rgba(0, 148, 155, 0.1);
+        background: rgba(0,148,155,0.1);
         color: #00949b !important;
     }
 
+    /* dropdown header */
     .dropdown-header {
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        justify-content: space-between;
         width: 100%;
     }
 
     .dropdown-header a {
         flex: 1;
-        padding: 14px 20px; 
-        color: #000000 !important;
+        padding: 14px 20px;
         font-size: 16px;
         font-weight: 500;
+        color: #000 !important;
         text-decoration: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid rgba(0,0,0,0.1);
     }
 
     .dropdown-header a:hover {
-        background-color: rgba(0, 148, 155, 0.1);
+        background: rgba(0,148,155,0.1);
         color: #00949b !important;
     }
 
-    .dropdown-header span {
-        display: none;
-    }
+    /* DROPDOWN MOBILE */
 
-    /* Podizbornik */
     .dropdown-menu {
         display: none;
-        background: rgba(0, 148, 155, 0.05);
+        position: static;
+        background: rgba(0,148,155,0.05);
+        box-shadow: none;
+        border-radius: 0;
         padding: 0;
         margin: 0;
-        list-style: none;
     }
 
-    .dropdown:hover .dropdown-menu {
+    .dropdown-menu.open {
         display: block;
     }
 
-    /* Podstranice u podizborniku */
     .dropdown-menu li a {
-        padding: 14px 24px 14px 40px !important;  
+        padding: 14px 24px 14px 40px !important;
         font-size: 14px !important;
-        color: #000000 !important;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+        color: #000 !important;
     }
 
     .dropdown-menu li a:hover {
-        background: rgba(0, 148, 155, 0.1) !important;
+        background: rgba(0,148,155,0.1) !important;
         color: #00949b !important;
     }
 
-    /* Overlay */
+    .dropdown:hover .dropdown-menu {
+        display: none !important;
+        opacity: 0 !important;
+    }
+
+    /* ARROW (SAMO ZA MOBILE) */
+    .arrow {
+        display: inline-block;
+        margin-left: auto;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .arrow.open {
+        transform: rotate(180deg);
+    }
+
     .nav-overlay {
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.3);
+        background: rgba(0,0,0,0.3);
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.3s ease;
@@ -559,273 +564,277 @@
         overflow: hidden;
     }
 }
-  /* DROPDOWN */
 
-  /*  wrap */
-  .dropdown {
+/* DROPDOWN DESKTOP */
+
+.dropdown {
     position: relative;
-  }
+}
 
-  /* trigger */
-  .dropdown-trigger {
-    cursor: pointer;
-    display: inline-block;
-    padding: 10px;
-  }
-
-  /* menu */
-  .dropdown-menu {
+.dropdown-menu {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+    background: white;
+    min-width: 220px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     position: absolute;
     top: 100%;
     left: 0;
-    background: white;
-    min-width: 220px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    border-radius: 12px;
-    padding: 10px 0;
+    display: none;
     opacity: 0;
-    visibility: hidden;
     transform: translateY(10px);
-    transition: all 0.25s ease;
-    z-index: 9999; 
-  }
+    transition: all 0.2s ease;
+    z-index: 9999;
+}
 
-  /* linkovi */
-  .dropdown-menu li {
-    list-style: none;
-    width: 100%;
-  }
+.dropdown-menu.open {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
 
-  .dropdown-menu li a {
+.dropdown-menu li a {
     display: block;
     padding: 10px 15px;
     color: black;
     text-decoration: none;
-  }
+}
 
-
-  .dropdown-menu li a:hover {
+.dropdown-menu li a:hover {
     background: #8dc0a3;
-  }
+}
 
-  /* hover desktop */
-  .dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
+/* desktop hover */
 
-  .dropdown-header {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .dropdown-arrow {
-    cursor: pointer;
-    padding: 8px;
-    user-select: none;
-  }
-
-  /*  KVIZ */
-
-  .kviz {
-      text-align: center;
-      margin-top: 0px;
-      margin-bottom: 20px;
-  }
-
-  #quiz{
-      display:block;
-      max-width: 520px;
-      min-height: 300px;
-      padding: 35px 30px;
-      background: linear-gradient(145deg, #ffffff, #f3f6ff);
-      border-radius: 22px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-      text-align: center;
-      animation: fadeIn 0.5s ease;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(15px);
+@media (min-width: 1401px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-  }}
 
-
-  .quiz-intro{
-      margin-top:50px auto;
-      text-align: center;
-      width: 600px;
-      padding: 35px 30px;
-      background: linear-gradient(145deg, #ffffff, #f3f6ff);
-      border-radius: 22px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-  }
-
-  .quiz-wrapper {
-    margin: 60px auto;
-    width: 700px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-  }
-
-  #start-quiz {
-    padding: 8px 16px;     
-    font-size: 15px;  
-    border-radius: 14px;
-    border: none;
-    background-color: #000000;
-    color: white;
-    cursor: pointer;
-    display: inline-block; 
-    margin-top: 15px;
-    width: 150px;
-  }
-
-  #start-quiz:hover {
-    background-color: #afa3b4;
-  }
-
-  #retry {
-    margin-top: 20px;
-    padding: 10px 22px;
-    font-size: 1rem;
-    border-radius: 14px;
-    border: none;
-    background-color: #877391;
-    color: white;
-    cursor: pointer;
-    transition: transform 0.15s ease, background 0.2s;
-  }
-
-  #retry:hover {
-    background-color: #b2a2b9;
-    transform: scale(1.05);
-  }
-
-  #question {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 30px;
-      letter-spacing: 1px;
-      color: #333;
-  }
-
-  button {
-    display: block;
-    width: 100%;
-    margin: 8px 0;
-    padding: 10px;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-
-  #feedback {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-top: 10px;
-    min-height: 24px;
-    animation: pop 0.3s ease;
-  }
-
-  @keyframes pop {
-    0% {
-      transform: scale(0.9);
-      opacity: 0;
+    .dropdown-menu {
+        top: calc(100% + 8px);
     }
-    100% {
-      transform: scale(1);
-      opacity: 1;
+}
+
+.arrow {
+    display: none;
+}
+
+@media (max-width: 1400px) {
+    .arrow {
+        display: inline-block;
     }
-  }
+}
 
-  .correct {
-    color: green;
-  }
+/* KVIZ */
 
-  .wrong {
-    color: red;
-  }
+.quiz-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
 
-  #answers {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-bottom: 25px;
-  }
+.quiz-card {
+  background: white;
+  border-radius: 24px;
+  padding: 35px;
+  margin-bottom: 35px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
 
-  #answers button {
-      padding: 14px 10px;
-      font-size: 0.95rem;
-      border-radius: 14px;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
-      border: 0.5px ;
-      background: #d6d0da;
-      cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s;
-  }
+.glavni-naslov {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #09949b;
+}
 
-  #answers button:hover {
-    transform: translateY(-2px);
-    background: #eef3ff;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  }
+.quiz-image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
 
-  #answers button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none;
-  }
+.quiz-image img {
+  border-radius: 18px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
 
-  .result-box {
-    padding: 35px 30px;
-    background: linear-gradient(135deg, #eef3ff, #ffffff);
-    border-radius: 24px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-    text-align: center;
-    animation: fadeIn 0.4s ease;
-  }
+.quiz-intro-box {
+  background: #f5f7ff;
+  padding: 20px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
 
-  .result-emoji {
-    font-size: 3rem;
-    margin-bottom: 10px;
-  }
+.note-box {
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: #e8f0fe;
+  font-weight: 500;
+}
 
-  .result-box h2 {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-  }
+.question-text {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
 
-  .result-box p {
-    margin: 8px 0;
-    font-size: 1.05rem;
-  }
+.options-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
 
-  #progress {
-    margin-top: 18px;
-    font-size: 0.9rem;
-    color: #666;
-    font-weight: bold;
-  }
+.option-pill {
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: none;
+  background: #e6e1ea;
+  cursor: pointer;
+  transition: 0.25s;
+  font-size: 1rem;
+}
 
-  #quiz-ready h2 {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-  }
+.option-pill:hover {
+  transform: translateY(-2px);
+}
 
-  #quiz-ready p {
-    font-size: 1.05rem;
-    margin-bottom: 20px;
-  }
+.option-pill.active {
+  background: #09949b !important;
+  color: white;
+}
 
+/* Audio */
+.audio-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.audio-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 16px;
+  background: #f3f6ff;
+}
+
+.play-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #d6d0da;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.disabled {
+  opacity: 0.6;
+}
+
+/* Lampica */
+
+.lamp-btn {
+  margin-top: 18px;
+  padding: 10px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(110, 148, 235, 0.25);
+  background: rgba(110, 148, 235, 0.08);
+  color: #00949b;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+}
+
+.lamp-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  background: rgba(110, 148, 235, 0.15);
+  box-shadow: 0 10px 22px rgba(110, 148, 235, 0.18);
+}
+
+/* Objašnjenje */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  width: 420px;
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.nav-buttons button {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: none;
+  background: #6e94eb;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.nav-buttons button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.nav-buttons button:hover {
+  transform: scale(1.05);
+}
+
+.modal-close {
+  margin-top: 18px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: none;
+  background: #f1f3f5;
+  color: #2d3436;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background: #e9ecef;
+  transform: scale(1.05);
+}
+
+.modal-close {
+  border: 1px solid rgba(0,0,0,0.08);
+}
   /* STO SVE ZNAM */
 
   .stosveznam-intro {
