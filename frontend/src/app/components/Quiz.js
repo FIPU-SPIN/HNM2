@@ -29,7 +29,7 @@ export default function Quiz() {
     /* --- 1. --- */ 
     {
       type: "select",
-      id: "q1",
+      id: "q1a",
       question:
         "Mjesto u kojemu sam najduže boravio/boravila pripada ______ narječju. ",
       options: ["kajkavskom", "čakavskom", "štokavskom"],
@@ -37,7 +37,7 @@ export default function Quiz() {
 
     {
       type: "select",
-      id: "q2",
+      id: "q1b",
       question:
         "Govor mojih roditelja/staratelja pripada ______ narječju.",
       options: ["istom", "različitom"],
@@ -48,7 +48,7 @@ export default function Quiz() {
     {
       type: "select",
       title: "Odredi regiju koja je obilježila Vaš govor. ",
-      id: "q3",
+      id: "q2",
       question:
         "Moje mjesto najdužega boravka pripada _________________ regiji.",
       options: ["zapadnoj", "sjevernoj", "južnoj", "istočnoj"],
@@ -65,7 +65,7 @@ export default function Quiz() {
 
     {
       type: "select",
-      id: "q4",
+      id: "q3",
       question:
         "Možete li prepoznati iz koje regije dolaze govornici?",
       options: ["sjeverna", "zapadna", "južna", "istočna"],
@@ -82,7 +82,7 @@ export default function Quiz() {
 
     {
       type: "select",
-      id: "q5",
+      id: "q4",
       question:
         "Moj je naglasni sustav sličniji ____________.",
       options: ["govorniku 1", "govorniku 2"],
@@ -94,7 +94,7 @@ export default function Quiz() {
     {
       type: "select",
       title: "Ako je Vaš izgovor sličniji prvome govorniku, vjerojatno je Vaš naglasni sustav VISINSKI, a ako je sličniji drugome, onda je Vaš naglasni sustav vjerojatno UDARNI. Postoje i sustavi u kojemu su značajke i jednoga i drugoga, nastale dodirom dvaju sustava (često migracijama govornika) pa se takav sustav ponegdje naziva prijelazni ili miješani.",
-      id: "q6",
+      id: "q5",
       question:
         "Moj je naglasni sustav __________.",
       options: ["udarni", "visinski", "miješani", "prijelazni"],
@@ -106,12 +106,12 @@ export default function Quiz() {
      {
       type: "audio",
       title: "Poslušajte izgovor rečenica Ovo je naglasni priručnik. \"Nakon kiše pojavi se duga.\" dviju govornica iz visinskoga naglasnog sustava i dviju govornica iz udarnoga sustava.",
-      voices: ["govornica iz Osijeka", "govornika iz Splita", "govornica iz Rijeke", "govornica iz Pule"],
+      voices: ["govornica iz Osijeka", "govornica iz Splita", "govornica iz Rijeke", "govornica iz Pule"],
     },
 
     {
       type: "select",
-      id: "q7",
+      id: "q6",
       question:
         "Koji izgovor pripada visinskom naglasnom sustavu, tj. čuje se uzlazni ton (obratite pozornost na riječi priručnik i duga)?",
       options: ["Osijek", "Split", "Rijeka", "Pula"],
@@ -121,6 +121,13 @@ export default function Quiz() {
 
     /* --- 7. --- to be dodano */ 
     
+    {
+      type: "feedback",
+      title: "🎉 Čestitamo! 🎉",
+      message: "Uspješno ste riješili kviz o naglasnim sustavima!",
+      details: "Vaši odgovori su pohranjeni. Hvala vam što ste sudjelovali u istraživanju naglasaka hrvatskoga jezika.",
+      buttonText: "Pogledaj svoje odgovore",
+    }
   ];
 
   const current = steps[step];
@@ -136,10 +143,11 @@ export default function Quiz() {
 
             <Image
               src={current.image}
-              width={900}
+              width={600}
               height={500}
               alt="karta"
               className="quiz-image"
+              style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto' }}
             />
 
             <p>{current.text}</p>
@@ -204,18 +212,42 @@ export default function Quiz() {
           </button>
         )}
 
-        {/* NAV */}
         <div className="nav-buttons">
+          {step < steps.length - 1 && (
           <button disabled={step === 0} onClick={() => setStep(step - 1)}>
-            Nazad
+            Povratak
           </button>
+        )}
 
-          <button onClick={() => setStep(step + 1)}>Dalje</button>
+          {step < steps.length - 2 ? (
+            <button onClick={() => setStep(step + 1)}>Nastavak</button>
+          ) : step === steps.length - 2 ? (
+            <button onClick={() => setStep(step + 1)}>Završi kviz</button>
+          ) : null}
         </div>
 
-      </div>
+        {current.type === "feedback" && (
+          <>
+            <h1 className="glavni-naslov">{current.title}</h1>
 
-      {/* POPUP */}
+            <p className="feedback-message">{current.message}</p>
+            <p className="feedback-details">{current.details}</p>
+
+            <button
+              className="feedback-button"
+              onClick={() => {
+                console.log("Odgovori:", answers);
+                localStorage.setItem("quizAnswers", JSON.stringify(answers));
+                alert("Odgovori su spremljeni!");
+              }}
+            >
+              {current.buttonText}
+            </button>
+          </>
+        )}
+
+      </div>      
+
       {lamp && (
         <div className="modal-overlay" onClick={() => setLamp(null)}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
@@ -226,6 +258,8 @@ export default function Quiz() {
           </div>
         </div>
       )}
+
+      
 
     </div>
   );

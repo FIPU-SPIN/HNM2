@@ -10,6 +10,7 @@
       font-family:Arial, Helvetica, sans-serif;
       width: 100%;
       overflow-x: hidden;
+      
   }
 
   body{
@@ -17,6 +18,7 @@
       flex-direction:column;
       align-items: stretch;
       min-height:100vh;
+      
   }
 
   main{
@@ -207,6 +209,7 @@
       flex-wrap: wrap;
       background-color: #00949b;
       margin-top:auto;
+      padding-left: 20px;
   }
 
   .footer .footersadrzaj {
@@ -473,7 +476,7 @@
     }
 
     .main-nav ul.nav-linkovi li a:hover {
-        background: rgba(0,148,155,0.1);
+        background: #00949b;
         color: #00949b !important;
     }
 
@@ -496,7 +499,7 @@
     }
 
     .dropdown-header a:hover {
-        background: rgba(0,148,155,0.1);
+        background: #00949b;
         color: #00949b !important;
     }
 
@@ -524,7 +527,7 @@
     }
 
     .dropdown-menu li a:hover {
-        background: rgba(0,148,155,0.1) !important;
+        background: #09949b !important;
         color: #00949b !important;
     }
 
@@ -646,6 +649,25 @@
   box-shadow: 0 12px 30px rgba(0,0,0,0.08);
 }
 
+.quiz-card .option-pill {
+  background: #f0f0f0;  
+  color: #333;
+  font-weight: 600;
+}
+
+.quiz-card .option-pill.active {
+  background: #09949b; 
+  color: white;
+}
+
+.quiz-card .option-pill:hover {
+  background: #68b0b4;  
+}
+
+.quiz-card:has(.feedback-message) {
+  text-align: center;
+}
+
 .glavni-naslov {
   font-size: 2.2rem;
   font-weight: 700;
@@ -707,7 +729,7 @@
 }
 
 .option-pill.active {
-  background: #09949b !important;
+  background: #ffffff !important;
   color: white;
 }
 
@@ -732,7 +754,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #d6d0da;
+  background: #d5d9da;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -763,7 +785,7 @@
 
 .lamp-btn:hover {
   transform: translateY(-2px) scale(1.02);
-  background: rgba(110, 148, 235, 0.15);
+  background: #09949b;
   box-shadow: 0 10px 22px rgba(110, 148, 235, 0.18);
 }
 
@@ -781,8 +803,15 @@
 .modal {
   width: 420px;
   background: white;
-  padding: 25px;
+  padding: 30px;
   border-radius: 18px;
+}
+
+.modal p {
+  line-height: 1.7;
+  font-size: 1.05rem;
+  color: #2d3436;
+  letter-spacing: 0.2px;
 }
 
 .nav-buttons {
@@ -795,7 +824,7 @@
   padding: 10px 18px;
   border-radius: 999px;
   border: none;
-  background: #6e94eb;
+  background-color: #09949b !important;
   color: white;
   cursor: pointer;
   transition: 0.2s;
@@ -804,6 +833,7 @@
 .nav-buttons button:disabled {
   opacity: 0.4;
   cursor: not-allowed;
+  background-color: #042a2c;
 }
 
 .nav-buttons button:hover {
@@ -835,7 +865,71 @@
 .modal-close {
   border: 1px solid rgba(0,0,0,0.08);
 }
-  /* STO SVE ZNAM */
+
+.feedback-screen {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.feedback-screen {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.feedback-message {
+  font-size: 1.3rem;
+  margin: 20px 0;
+  color: #09949b;
+}
+
+.feedback-details {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.feedback-button {
+  background: #09949b;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-top: 20px;
+}
+
+.feedback-button:hover {
+  background: #077a80;
+  transform: scale(1.05);
+}
+
+.answers-review {
+  text-align: left;
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 16px;
+  margin: 20px 0;
+}
+
+.answers-review h3 {
+  margin-bottom: 10px;
+  color: #09949b;
+}
+
+.answers-review ul {
+  list-style: none;
+  padding: 0;
+}
+
+.answers-review li {
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+
+/* STO SVE ZNAM */
 
   .stosveznam-intro {
     width: auto;
