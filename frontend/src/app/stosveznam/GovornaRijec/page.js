@@ -1,8 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import Quiz from "../../components/Quiz";
+import kviz2 from "../../data/kviz2";
+import { useState } from "react";
 
 export default function GovornaRijecPage() {
+const [showQuiz, setShowQuiz] = useState(false);
   return (
     <main className="bodydruga">
 
@@ -193,7 +197,20 @@ export default function GovornaRijecPage() {
   češće uz prijedloge nego uz veznike.
 </p>
 
-      </div>
+  </div>
+
+    <div className="kviz-cta">
+  <h3>Provjeri znanje</h3>
+
+  <p>
+    Nakon što si pročitao/la lekciju, možeš riješiti kratki kviz i provjeriti razumijevanje.
+  </p>
+    <button onClick={() => setShowQuiz(true)} className="start-quiz-btn">
+      KRENI NA KVIZ
+    </button>
+    </div>
+
+    {showQuiz && <Quiz steps={kviz2} />}
 
     </main>
   );
