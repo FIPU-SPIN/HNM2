@@ -1,9 +1,10 @@
 const kviz2 = [
     {
-      type: "intro",
-      title: "Moja govorna riječ",
-      image: "/assets/images/kviz_govorna.png",
-    },
+  type: "intro",
+  title: "Moja govorna riječ",
+  image: "/assets/images/kviz_govorna.png",
+  text: "U ovom kvizu istražujemo govorne riječi, naglaske i klitike kroz praktične primjere."
+},
 
       
     /* --- 1. --- */ 

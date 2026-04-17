@@ -10,7 +10,7 @@ export default function Quiz({ steps }) {
   const [groups, setGroups] = useState({});
   const current = steps[step];
 
-   useEffect(() => {
+  useEffect(() => {
     if (!current) return;
 
     if (current.type === "group-sort" && current.id && !groups[current.id]) {
@@ -20,8 +20,8 @@ export default function Quiz({ steps }) {
           a: [],
           b: [],
           c: [],
-          pool: current.items
-        }
+          pool: current.items,
+        },
       }));
     }
   }, [current, groups]);
@@ -36,28 +36,48 @@ export default function Quiz({ steps }) {
   return (
     <div className="quiz-page">
 
+      <div className="progress-bar">
+        <div
+          className="progress-fill"
+          style={{
+            width: `${((step + 1) / steps.length) * 100}%`,
+          }}
+        />
+      </div>
+
       <div className="quiz-card">
 
+        {/* Intro */}
         {current.type === "intro" && (
           <>
             <h1 className="glavni-naslov">{current.title}</h1>
 
-            <Image
-              src={current.image}
-              width={600}
-              height={500}
-              alt="karta"
-              className="quiz-image"
-              style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto' }}
-            />
+            {current.image && (
+              <Image
+                src={current.image}
+                width={600}
+                height={500}
+                alt="intro"
+                className="quiz-image"
+                style={{ display: "block", margin: "0 auto" }}
+              />
+            )}
 
-            <p>{current.text}</p>
-            <div className="note-box">{current.note}</div>
+            {current.text && <p>{current.text}</p>}
+            {current.note && <div className="note-box">{current.note}</div>}
           </>
         )}
 
-        {current.type === "info" && <p>{current.text}</p>}
-        {current.type === "audio" && (
+        {/* Info */}
+        {current.type === "info" && (
+          <>
+            {current.title && <h2>{current.title}</h2>}
+            <p className="question-text">{current.text}</p>
+          </>
+        )}
+
+        {/* Audio */}
+        {(current.type === "audio" || current.type === "audio2") && (
           <>
             <h2>{current.title}</h2>
 
@@ -72,92 +92,44 @@ export default function Quiz({ steps }) {
           </>
         )}
 
-        {current.type === "audio2" && (
-          <>
-            <h2>{current.title}</h2>
-
-            <div className="audio-grid">
-              {current.voices.map((v, i) => (
-                <div key={i} className="audio-item disabled">
-                  <div className="play-btn">▶</div>
-                  <span>{v}</span>
-                </div>
-              ))}
-            </div>
-          </>
-        )}
-
+        {/* Odabir */}
         {current.type === "select" && (
           <>
-            <p className="question-text">{current.question || current.text}</p>
+            <p className="question-text">{current.question}</p>
 
-            {current.options && (
-              <div className="options-grid">
-                {current.options.map((opt, i) => (
-                  <button
-                    key={i}
-                    onClick={() => handleSelect(current.id, opt)}
-                  >
-                    {opt}
-                  </button>
-                ))}
-              </div>
-            )}
+            <div className="options-grid">
+              {current.options.map((opt, i) => (
+                <button
+                  key={i}
+                  className={`option-pill ${
+                    answers[current.id] === opt ? "active" : ""
+                  }`}
+                  onClick={() => handleSelect(current.id, opt)}
+                >
+                  {opt}
+                </button>
+              ))}
+            </div>
           </>
         )}
+
+        {/* Unesi odgovor */}
         {current.type === "input" && (
-            <>
-              <p className="question-text">{current.question}</p>
+          <>
+            <p className="question-text">{current.question}</p>
 
-              <input
-                type="text"
-                placeholder={current.placeholder}
-                value={answers[current.id] || ""}
-                onChange={(e) =>
-                  handleSelect(current.id, e.target.value)
-                }
-                className="quiz-input"
-              />
-            </>
-          )}
-
-        {current.lamp && (
-          <button className="lamp-btn" onClick={() => setLamp(current.lamp)}>
-            💡 
-          </button>
+            <input
+              type="text"
+              value={answers[current.id] || ""}
+              onChange={(e) =>
+                handleSelect(current.id, e.target.value)
+              }
+              className="quiz-input"
+            />
+          </>
         )}
 
-        <div className="nav-buttons">
-          {step < steps.length - 1 && (
-          <button disabled={step === 0} onClick={() => setStep(step - 1)}>
-            Povratak
-          </button>
-        )}
-
-          {step < steps.length - 2 ? (
-            <button
-              onClick={() => setStep(step + 1)}
-              disabled={
-                current.type === "select"
-                  ? !answers[current.id]
-                  : current.type === "input"
-                  ? !answers[current.id]
-                  : false
-              }
-              className={
-                (current.type === "select" && !answers[current.id]) ||
-                (current.type === "input" && !answers[current.id])
-                  ? "disabled-btn"
-                  : ""
-              }
-            >
-              Nastavak
-            </button>
-          ) : step === steps.length - 2 ? (
-            <button onClick={() => setStep(step + 1)}>Završi kviz</button>
-          ) : null}
-        </div>
-
+        {/* Segment Input */}
         {current.type === "segment-input" && (
           <>
             <p className="question-text">{current.question}</p>
@@ -171,9 +143,7 @@ export default function Quiz({ steps }) {
                     <input
                       key={i}
                       type="text"
-                      value={
-                        answers[current.id]?.[si]?.[i] || ""
-                      }
+                      value={answers[current.id]?.[si]?.[i] || ""}
                       onChange={(e) =>
                         setAnswers((prev) => {
                           const prevQ = prev[current.id] || {};
@@ -200,6 +170,7 @@ export default function Quiz({ steps }) {
           </>
         )}
 
+        {/* Višestruki odabir */}
         {current.type === "multi-select" && (
           <>
             <p className="question-text">{current.question}</p>
@@ -231,126 +202,37 @@ export default function Quiz({ steps }) {
           </>
         )}
 
-        {current.type === "categorize-input" && (
-          <>
-            <p className="question-text">{current.question}</p>
-
-            {current.categories.map((cat, ci) => (
-              <div key={ci} className="category-box">
-                <h4>{cat}</h4>
-
-                <div className="drop-zone">
-                  {(answers[current.id]?.[ci] || []).map((item, i) => (
-                    <span key={i} className="tag">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-
-            <div className="items-box">
-              {current.items.map((item, i) => (
-                <button
-                  key={i}
-                  className="option-pill"
-                  onClick={() => {
-                    setAnswers((prev) => {
-                      const prevQ = prev[current.id] || {};
-
-                      // ako već postoji, dodaj u kategoriju 0 (privremeno)
-                      return {
-                        ...prev,
-                        [current.id]: {
-                          ...prevQ,
-                          0: [...(prevQ[0] || []), item],
-                        },
-                      };
-                    });
-                  }}
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
-          </>
-        )}
-
+        {/* Grupiranje */}
         {current.type === "group-sort" && groups[current.id] && (
           <>
             <p className="question-text">{current.question}</p>
 
             <div className="group-container">
 
-              {/* NAGLASNICE */}
-              <div className="group-box">
-                <h4>{current.groups.a}</h4>
+              {["a", "b", "c"].map((groupKey) => (
+                <div key={groupKey} className="group-box">
+                  <h4>{current.groups[groupKey]}</h4>
 
-                {groups[current.id].a.map((item, i) => (
-                  <button
-                    key={i}
-                    className="word-pill"
-                    onClick={() => {
-                      setGroups((prev) => {
-                        const updated = { ...prev[current.id] };
+                  {groups[current.id][groupKey].map((item, i) => (
+                    <button
+                      key={i}
+                      className="word-pill"
+                      onClick={() => {
+                        setGroups((prev) => {
+                          const updated = { ...prev[current.id] };
 
-                        updated.a = updated.a.filter(x => x !== item);
-                        updated.pool.push(item);
+                          updated[groupKey] = updated[groupKey].filter(x => x !== item);
+                          updated.pool.push(item);
 
-                        return { ...prev, [current.id]: updated };
-                      });
-                    }}
-                  >
-                    {item}
-                  </button>
-                ))}
-              </div>
-
-              <div className="group-box">
-                <h4>{current.groups.b}</h4>
-
-                {groups[current.id].b.map((item, i) => (
-                  <button
-                    key={i}
-                    className="word-pill"
-                    onClick={() => {
-                      setGroups((prev) => {
-                        const updated = { ...prev[current.id] };
-
-                        updated.b = updated.b.filter(x => x !== item);
-                        updated.pool.push(item);
-
-                        return { ...prev, [current.id]: updated };
-                      });
-                    }}
-                  >
-                    {item}
-                  </button>
-                ))}
-              </div>
-
-              <div className="group-box">
-                <h4>{current.groups.c}</h4>
-
-                {groups[current.id].c.map((item, i) => (
-                  <button
-                    key={i}
-                    className="word-pill"
-                    onClick={() => {
-                      setGroups((prev) => {
-                        const updated = { ...prev[current.id] };
-
-                        updated.c = updated.c.filter(x => x !== item);
-                        updated.pool.push(item);
-
-                        return { ...prev, [current.id]: updated };
-                      });
-                    }}
-                  >
-                    {item}
-                  </button>
-                ))}
-              </div>
+                          return { ...prev, [current.id]: updated };
+                        });
+                      }}
+                    >
+                      {item}
+                    </button>
+                  ))}
+                </div>
+              ))}
 
               <div className="group-box">
                 <h4>Riječi</h4>
@@ -360,17 +242,24 @@ export default function Quiz({ steps }) {
                     key={i}
                     className="option-pill"
                     onClick={() => {
-                      const target = prompt("a / b / c");
+                      const target = prompt("Upiši grupu: a, b ili c");
 
-                      if (!target) return;
+                      if (!["a", "b", "c"].includes(target)) return;
 
                       setGroups((prev) => {
-                        const updated = { ...prev[current.id] };
+                        const currentGroup = prev[current.id];
 
-                        updated.pool = updated.pool.filter(x => x !== item);
-                        updated[target].push(item);
+                        const newPool = [...currentGroup.pool];
+                        const [moved] = newPool.splice(i, 1);
 
-                        return { ...prev, [current.id]: updated };
+                        return {
+                          ...prev,
+                          [current.id]: {
+                            ...currentGroup,
+                            pool: newPool,
+                            [target]: [...currentGroup[target], moved],
+                          },
+                        };
                       });
                     }}
                   >
@@ -383,6 +272,7 @@ export default function Quiz({ steps }) {
           </>
         )}
 
+        {/* Feedback*/}
         {current.type === "feedback" && (
           <>
             <h1 className="glavni-naslov">{current.title}</h1>
@@ -393,7 +283,6 @@ export default function Quiz({ steps }) {
             <button
               className="feedback-button"
               onClick={() => {
-                console.log("Odgovori:", answers);
                 localStorage.setItem("quizAnswers", JSON.stringify(answers));
                 alert("Odgovori su spremljeni!");
               }}
@@ -403,8 +292,46 @@ export default function Quiz({ steps }) {
           </>
         )}
 
-      </div>      
+        {/* Lampica */}
+        {current.lamp && (
+          <button className="lamp-btn" onClick={() => setLamp(current.lamp)}>
+            💡
+          </button>
+        )}
 
+        {/* NAV */}
+        <div className="nav-buttons">
+          <button
+            disabled={step === 0}
+            onClick={() => setStep(step - 1)}
+          >
+            Povratak
+          </button>
+
+          {step < steps.length - 1 && (
+            <button
+              onClick={() => setStep(step + 1)}
+              disabled={
+                (current.type === "select" && !answers[current.id]) ||
+                (current.type === "input" && !answers[current.id]) ||
+                (current.type === "multi-select" && (!answers[current.id] || answers[current.id].length === 0)) ||
+                (current.type === "segment-input" &&
+                  !answers[current.id] ||
+                  Object.values(answers[current.id] || {})
+                    .flatMap((sentence) => Object.values(sentence || {}))
+                    .every((val) => val === "")) ||
+                (current.type === "group-sort" &&
+                  (!groups[current.id] || groups[current.id].pool.length !== 0))
+              }
+            >
+              {step === steps.length - 2 ? "Završi kviz" : "Nastavak"}
+            </button>
+          )}
+        </div>
+
+      </div>
+
+      {/* Modal */}
       {lamp && (
         <div className="modal-overlay" onClick={() => setLamp(null)}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
@@ -415,9 +342,6 @@ export default function Quiz({ steps }) {
           </div>
         </div>
       )}
-
-      
-
     </div>
   );
 }
