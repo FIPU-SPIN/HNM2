@@ -63,7 +63,7 @@ export default function Quiz({ steps }) {
               />
             )}
 
-            {current.text && <p>{current.text}</p>}
+            {current.text && <p className="quiz-text">{current.text}</p>}
             {current.note && <div className="note-box">{current.note}</div>}
           </>
         )}
@@ -314,14 +314,18 @@ export default function Quiz({ steps }) {
               disabled={
                 (current.type === "select" && !answers[current.id]) ||
                 (current.type === "input" && !answers[current.id]) ||
-                (current.type === "multi-select" && (!answers[current.id] || answers[current.id].length === 0)) ||
+                (current.type === "multi-select" &&
+                  (!answers[current.id] || answers[current.id].length === 0)) ||
                 (current.type === "segment-input" &&
-                  !answers[current.id] ||
-                  Object.values(answers[current.id] || {})
-                    .flatMap((sentence) => Object.values(sentence || {}))
-                    .every((val) => val === "")) ||
+                  (
+                    !answers[current.id] ||
+                    Object.values(answers[current.id] || {})
+                      .flatMap((sentence) => Object.values(sentence || {}))
+                      .every((val) => val === "")
+                  )
+                ) ||
                 (current.type === "group-sort" &&
-                  (!groups[current.id] || groups[current.id].pool.length !== 0))
+                  groups[current.id]?.pool?.length > 0)
               }
             >
               {step === steps.length - 2 ? "Završi kviz" : "Nastavak"}

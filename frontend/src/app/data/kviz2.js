@@ -172,18 +172,12 @@ const kviz2 = [
                 "ćeš","je","pa","kiša"
             ]
         },
-            
-
-
-    
-
-
-
+           
     /* --- feedback --- */    
         {
         type: "feedback",
         title: "🎉 Čestitamo! 🎉",
-        message: "Uspješno ste riješili kviz o naglasnim sustavima!",
+        message: "Uspješno ste riješili kviz!",
         details: "Vaši odgovori su pohranjeni. Hvala vam što ste sudjelovali u istraživanju naglasaka hrvatskoga jezika.",
         buttonText: "Pogledaj svoje odgovore",
         }

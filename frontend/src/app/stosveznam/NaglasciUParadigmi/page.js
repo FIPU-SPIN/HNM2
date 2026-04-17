@@ -1,8 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import Quiz from "../../components/Quiz";
+import kviz3 from "../../data/kviz3";
+import { useState } from "react";
 
 export default function NaglasciUParadigmiPage() {
+  const [showQuiz, setShowQuiz] = useState(false);
   return (
     <main className="bodydruga">
 
@@ -130,7 +134,18 @@ export default function NaglasciUParadigmiPage() {
         </p>
 
       </div>
+      <div className="kviz-cta">
+      <h3>Provjeri znanje</h3>
+      <p>
+        Nakon što si pročitao/la lekciju, možeš riješiti kratki kviz i provjeriti razumijevanje.
+      </p>
+      <button onClick={() => setShowQuiz(true)} className="start-quiz-btn">
+        KRENI NA KVIZ
+      </button>
+      </div>
 
+      {showQuiz && <Quiz steps={kviz3} />}
+     
     </main>
   );
 }
