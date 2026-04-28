@@ -1164,9 +1164,7 @@
     color: #2f3e34;
   }
 
-  /* ============================================
-   INVENTAR STRANICA - SAMO OVO DODAJ NA KRAJ CSS-a
-   ============================================ */
+/* INVENTAR */
 
 .naslovna-inventar {
   padding: 50px 20px 20px;
@@ -1175,28 +1173,34 @@
 }
 
 .content-container.inventar {
-  max-width: 900px;
+  max-width: 1100px;
   width: 100%;
   text-align: center;
 }
 
 .content-container.inventar .glavni-naslov {
-  font-size: 2.8rem;
-  font-weight: 700;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #28837d;
   margin-bottom: 25px;
-  color: #1a4a47;
-  letter-spacing: -0.5px;
+  letter-spacing: normal;
 }
 
-.content-container.inventar .uvodna-definicija {
-  font-size: 1.15rem;
-  line-height: 1.8;
+.uvodna-definicija {
+  width: 100%;
+  max-width: none;
+  margin: 30px 0 40px 0;
+  padding: 30px 60px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 148, 155, 0.08),
+    rgba(0, 148, 155, 0.03)
+  );
+  border-radius: 24px;
+  border: 1px solid rgba(0, 148, 155, 0.12);
   color: #2c3e50;
-  background: linear-gradient(135deg, rgba(0, 148, 155, 0.08), rgba(0, 148, 155, 0.03));
-  padding: 25px 35px;
-  border-radius: 20px;
-  margin-bottom: 35px;
-  border-left: 5px solid #00949b;
+  font-size: 1.05rem;
+  line-height: 1.8;
 }
 
 .slika-inventar {
@@ -1230,8 +1234,8 @@
   padding: 35px 40px;
   border-radius: 24px;
   margin-bottom: 40px;
-  box-shadow: 0 10px 30px rgba(0, 148, 155, 0.06);
-  border: 1px solid rgba(0, 148, 155, 0.08);
+  box-shadow: 0 6px 18px rgba(26, 74, 71, 0.06);
+  border: 1px solid rgba(42, 163, 154, 0.08);
 }
 
 .inventar-intro p {
@@ -1256,15 +1260,16 @@
 
 .inventar-tablica,
 .prozodemi-tablica,
-.ipa-tablica {
+.ipa-tablica{
   background: white;
-  border-radius: 20px;
+  border-radius: 24px;
   padding: 30px;
   margin-bottom: 45px;
-  box-shadow: 0 10px 30px rgba(0, 148, 155, 0.06);
-  border: 1px solid rgba(0, 148, 155, 0.08);
+  box-shadow: 0 6px 18px rgba(26, 74, 71, 0.06);
+  border: 1px solid rgba(110, 220, 210, 0.18);
   overflow-x: auto;
 }
+
 
 .inventar-tablica h3,
 .prozodemi-tablica h3,
@@ -1276,62 +1281,61 @@
   font-weight: 600;
 }
 
-.inventar-sadrzaj table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  font-size: 1rem;
-}
-
 .inventar-sadrzaj th {
-  background: linear-gradient(135deg, #00949b, #007a80);
-  color: white;
+  background: rgba(110, 220, 210, 0.25);
+  color: #2f3e34;
   font-weight: 600;
   padding: 16px 15px;
   text-align: center;
-  border: none;
+  border-bottom: 2px solid rgba(110, 220, 210, 0.35);
 }
 
-.inventar-sadrzaj th:first-child {
-  border-top-left-radius: 12px;
-}
-
-.inventar-sadrzaj th:last-child {
-  border-top-right-radius: 12px;
+.inventar-sadrzaj table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 20px;
+  overflow: hidden;
+  background: white;
 }
 
 .inventar-sadrzaj td {
   padding: 14px 15px;
   text-align: center;
-  border-bottom: 1px solid rgba(0, 148, 155, 0.1);
+  border-bottom: 1px solid rgba(42, 163, 154, 0.08);
   background: white;
   color: #2c3e50;
+  transition: background 0.3s ease;
 }
 
-.inventar-sadrzaj tbody tr:hover td {
-  background: #f0f9f9;
+.inventar-sadrzaj th {
+  border-right: none;
+  font-weight: normal;
+  text-align: left !important;
 }
 
-.inventar-sadrzaj tbody tr:last-child td:first-child {
-  border-bottom-left-radius: 12px;
+.inventar-sadrzaj td {
+  border-right: 1px solid rgba(110, 220, 210, 0.35);
+  font-weight: 700;
+  text-align: left !important;
 }
 
-.inventar-sadrzaj tbody tr:last-child td:last-child {
-  border-bottom-right-radius: 12px;
+.inventar-sadrzaj td:last-child,
+.inventar-sadrzaj th:last-child {
+  border-right: none;
 }
 
 .zvuk-link {
   cursor: pointer;
-  background: rgba(0, 148, 155, 0.06);
-  transition: all 0.3s ease;
-  font-weight: bold;
-  font-size: 1.3rem;
-  color: #00949b;
+  background: #ffffff;
+  transition: all 0.25s ease;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #2aa39a;
+  border-radius: 8px;
 }
 
 .zvuk-link:hover {
-  background: #00949b;
-  color: white;
+  background: rgba(42, 163, 154, 0.15);
   transform: scale(1.02);
 }
 
@@ -1365,21 +1369,21 @@
   border-radius: 20px;
   padding: 25px 20px;
   text-align: center;
-  box-shadow: 0 8px 25px rgba(0, 148, 155, 0.08);
-  transition: all 0.3s ease;
-  border: 1px solid rgba(0, 148, 155, 0.08);
+  box-shadow: 0 6px 18px rgba(26, 74, 71, 0.06);
+  border: 1px solid rgba(42, 163, 154, 0.08);
+  transition: none;
 }
 
 .primjer-kartica:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 35px rgba(0, 148, 155, 0.12);
-  border-color: #00949b;
+  transform: none;
+  box-shadow: 0 6px 18px rgba(26, 74, 71, 0.06);
+  border-color: rgba(42, 163, 154, 0.08);
 }
 
 .naglasak-znak {
   font-size: 2.8rem;
   font-weight: bold;
-  color: #00949b;
+  color: #2aa39a;
   display: block;
   margin-bottom: 8px;
 }
@@ -1401,21 +1405,23 @@
 }
 
 .zvuk-gumb {
-  background: linear-gradient(135deg, #00949b, #007a80);
-  color: white;
-  border: none;
-  padding: 10px 20px;
+  background: #ffffff;
+  color: #2aa39a;
+  border: 2px solid #2aa39a;
   border-radius: 40px;
-  cursor: pointer;
+  padding: 10px 20px;
   font-size: 1.1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 148, 155, 0.25);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
 
 .zvuk-gumb:hover {
-  background: linear-gradient(135deg, #00a8b0, #00949b);
+  background: #bcd8d6;
+  color: #ffffff;
   transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(0, 148, 155, 0.35);
+  box-shadow: 0 6px 18px rgba(42, 163, 154, 0.35);
 }
 
 .zvuk-gumb.mali {
@@ -1428,14 +1434,14 @@
   padding: 40px;
   border-radius: 24px;
   margin-bottom: 45px;
-  border: 1px solid rgba(0, 148, 155, 0.1);
+  border: 1px solid rgba(42, 163, 154, 0.1);
 }
 
 .ostali-prozodemi h2 {
   font-size: 2rem;
   color: #1a4a47;
   margin-bottom: 25px;
-  border-left: 6px solid #00949b;
+  border-left: 6px solid #2aa39a;
   padding-left: 25px;
   font-weight: 700;
 }
@@ -1448,7 +1454,7 @@
 }
 
 .ostali-prozodemi strong {
-  color: #00949b;
+  color: #2aa39a;
 }
 
 .biljezenje-naglasaka {
@@ -1456,8 +1462,8 @@
   padding: 40px;
   border-radius: 24px;
   margin-bottom: 45px;
-  box-shadow: 0 10px 30px rgba(0, 148, 155, 0.06);
-  border: 1px solid rgba(0, 148, 155, 0.08);
+  box-shadow: 0 6px 18px rgba(26, 74, 71, 0.06);
+  border: 1px solid rgba(42, 163, 154, 0.08);
 }
 
 .biljezenje-naglasaka h2 {
@@ -1482,32 +1488,37 @@
 .biljezenje-naglasaka .link-container a,
 .praat-slike-placeholder a {
   display: inline-block;
-  background: linear-gradient(135deg, #00949b, #007a80);
+  background: linear-gradient(135deg, #2aa39a, #1f8f87);
   color: white;
   padding: 14px 30px;
   border-radius: 40px;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 18px rgba(0, 148, 155, 0.2);
+  box-shadow: 0 6px 18px rgba(42, 163, 154, 0.2);
 }
 
 .biljezenje-naglasaka .link-container a:hover,
 .praat-slike-placeholder a:hover {
-  background: linear-gradient(135deg, #00a8b0, #00949b);
   transform: translateX(5px);
-  box-shadow: 0 8px 22px rgba(0, 148, 155, 0.3);
+  box-shadow: 0 8px 22px rgba(42, 163, 154, 0.3);
 }
 
 .ipa-znakovlje {
-  margin-bottom: 45px;
+  background: linear-gradient(145deg, #f8fbfb, #f0f7f6);
+  padding: 40px;
+  border-radius: 24px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(42, 163, 154, 0.1);
 }
 
 .ipa-znakovlje h2 {
   font-size: 2rem;
   color: #1a4a47;
   margin-bottom: 25px;
-  font-weight: 700;
+  border-left: 6px solid #2aa39a;
+  padding-left: 25px;
+  font-weight: 600;
 }
 
 .ipa-znakovlje p {
@@ -1553,7 +1564,7 @@
 
 .placeholder-box {
   background: white;
-  border: 2px dashed #00949b;
+  border: 2px dashed #2aa39a;
   border-radius: 20px;
   padding: 50px 30px;
   text-align: center;
@@ -1579,17 +1590,17 @@
 }
 
 .mjesta-provjera {
-  background: linear-gradient(135deg, #1a4a47, #143633);
+  background: linear-gradient(135deg, #e8f6f5, #ddf0ee);;
   padding: 40px;
   border-radius: 24px;
-  color: white;
+  color: #1a4a47;
 }
 
 .mjesta-provjera h2 {
   font-size: 2rem;
   margin-bottom: 30px;
-  color: white;
-  font-weight: 700;
+  color: #1a4a47;
+  font-weight: 600;
 }
 
 .link-lista {
@@ -1603,7 +1614,7 @@
 }
 
 .link-lista a {
-  color: #7dd8d2;
+  color: #1a4a47;
   text-decoration: none;
   font-size: 1.1rem;
   transition: all 0.3s ease;
@@ -1613,7 +1624,7 @@
 }
 
 .link-lista a:hover {
-  color: #ffffff;
+  color: #000000;
   transform: translateX(8px);
   border-bottom-color: #7dd8d2;
 }
@@ -1621,15 +1632,34 @@
 @media (max-width: 768px) {
   .content-container.inventar .glavni-naslov {
     font-size: 2rem;
+    max-width: 1100px;
   }
 
-  .content-container.inventar .uvodna-definicija {
-    font-size: 1rem;
-    padding: 20px;
-  }
+  .content-container.inventar .glavni-naslov {
+   text-shadow: none;
+   box-shadow: none;
+}
+
+.uvodna-definicija {
+  width: 100%;
+  max-width: 1100px;
+  margin: 30px auto 40px auto;
+  padding: 30px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 148, 155, 0.08),
+    rgba(0, 148, 155, 0.03)
+  );
+  border-radius: 24px;
+  border: 1px solid rgba(0, 148, 155, 0.12);
+  color: #2c3e50;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
 
   .inventar-sadrzaj {
     padding: 15px 15px 40px 15px;
+
   }
 
   .inventar-intro {
@@ -1668,6 +1698,7 @@
   .inventar-sadrzaj td {
     padding: 10px 8px;
     font-size: 0.9rem;
+    text-align: left !important;
   }
 
   .naglasak-znak {
@@ -1779,7 +1810,6 @@
   }
 
 /* GOVORNA RIJEČ*/
-
 
 .content-container.rijec {
   max-width: 900px;

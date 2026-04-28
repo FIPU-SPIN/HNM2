@@ -9,12 +9,6 @@ export default function InventarPage() {
       <div className="naslovna-inventar">
         <div className="content-container inventar">
           <h1 className="glavni-naslov">Inventar</h1>
-          <p className="uvodna-definicija">
-            <i>
-              Naglasak je isticanje jednoga sloga u odnosu na druge slogove unutar riječi.
-              Naglasak je istodobni ostvaraj jačine (siline, intenziteta), trajanja (kvantitete) i tona (tonske visine).
-            </i>
-          </p>
 
           <div className="slika-inventar">
             <Image
@@ -25,9 +19,17 @@ export default function InventarPage() {
               priority
             />
           </div>
+
+          <p className="uvodna-definicija">
+            <i>
+              Naglasak je isticanje jednoga sloga u odnosu na druge slogove unutar riječi.
+              Naglasak je istodobni ostvaraj jačine (siline, intenziteta), trajanja (kvantitete) i tona (tonske visine).
+            </i>
+          </p>
+
         </div>
       </div>
-
+       
       {/* GLAVNI SADRŽAJ */}
       <div className="inventar-sadrzaj">
         {/* UVODNI TEKST */}
@@ -204,16 +206,16 @@ export default function InventarPage() {
           </p>
         </div>
 
-        {/* IPA ZNAKOVLJE */}
-        <div className="ipa-znakovlje">
+        {/* IPA ZNAKOVLJE I TABLICA*/}
+  
+          <div className="ipa-tablica">
+            <div className="ipa-znakovlje">
           <h2>Međunarodno fonetsko znakovlje (IPA)</h2>
           <p>
             Mnogo je načina bilježenja naglasaka, no u našem je jezikoslovlju uvriježeno tradicionalno znakovlje, a uz njega se u 
             znanstvenim radovima javlja i znakovlje Međunarodne fonetske organizacije (IPA), u kojemu se odvojeno prikazuju trajanje i ton. 
             Trajanje može biti kratko (a) ili dugo (a:), a ton uzlazan (ă) ili silazan (â).
           </p>
-
-          <div className="ipa-tablica">
             <h3>Usporedba znakovlja</h3>
             <table>
               <thead>
@@ -266,7 +268,7 @@ export default function InventarPage() {
           </p>
           <p>
             S obzirom na jačinu slogovi mogu biti naglašeni ili nenaglašeni, s obzirom na trajanje mogu biti dugi ili kratki, a s obzirom na 
-            visinu naglasci mogu biti ravni, uzlazni ili silazni.
+            visinu naglasci mogu biti uzlazni ili silazni.
           </p>
 
           <div className="praat-sekcija">

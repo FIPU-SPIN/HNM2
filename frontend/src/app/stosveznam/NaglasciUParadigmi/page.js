@@ -37,8 +37,8 @@ export default function NaglasciUParadigmiPage() {
         </p>
 
         <div className="primjer-box">
-          <p><b>Promjenljivi tip:</b> vrijéme – vrȅmena – vremèna</p>
-          <p><b>Nepromjenljivi tip:</b> ljúbav – ljúbavi</p>
+          <p><b>Promjenljivi tip:</b> vrijéme - vrȅmena - vremèna</p>
+          <p><b>Nepromjenljivi tip:</b> ljúbav - ljúbavi</p>
         </div>
 
         <p>

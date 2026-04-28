@@ -102,8 +102,45 @@ const kviz1 = [
         "U govoru govornica iz Osijeka i Splita čuju se uzlazni naglasci, primjerice u riječima priručnik i duga, a kod govornica iz Rijeke i Pule sve su riječi izgovorene jednim, udarnim naglaskom. Ako ste prethodno odgovorili da je Vaš naglasni sustav udarni, tada je Vaš izgovor sličniji govornicama iz Rijeke i Pule, a ako ste odgovorili da je Vaš izgovor visinski, tada je Vaš izgovor sličniji govornicama iz Osijeka ili Splita s obzirom na naglasak riječi.",
     },
 
-    /* --- 7. --- to be dodano */ 
+    /* --- 7. ---  */ 
+    {
+      type: "audio",
+      title: "Poslušajte rečenicu Na Hrvatskoj televiziji govornik na dijalektu objašnjava recept kako napraviti dobar kolač. u tri različita izgovora. ",
+      voices: ["izgovor 1", "izgovor 2", "izgovor 3"],
+      lamp: "Sve rečenice u prethodnoj vježbi izgovorio je spiker. Izgovor 1 oprimjeruje govor s naglascima i dužinama koji su propisani u normativnim priručnicima te ilustrira visoki varijetet. Izgovor 2 oprimjeruje govor s ponešto izmijenjenim raspodjelnim pravilima i gotovo dokinutom zanaglasnom dužinom te ilustrira neutralni (prihvatljiv i prihvaćen) varijetet. Izgovor 3 oprimjeruje govor s udarnim naglaskom i mjestima naglaska kojima ilustriramo niski varijetet.",
+    },
     
+    {
+      type: "select",
+      id: "q7_1",
+      question: "Koji od triju izgovora smatrate „običnim”, „češćim”?",
+      options: ["1", "2", "3"],
+      correct: "2",
+      lamp: "Ovi primjeri ilustriraju varijetetnost standarda. I Vaš će se izgovor vjerojatno razlikovati ovisno o komunikacijskoj situaciji, mjestu na kojemu govorite. Izgovor 2 smatra se neutralnijim, običnijim standardom, s obzirom na mjesto naglaska, u sociofonetskim istraživanjima.",
+    },
+    {
+      type: "select",
+      id: "q7_2",
+      question: "Koji izgovor percipirate kao „visoki stil”,„naučen”, „akademski”, „biraniji stil”?",
+      options: ["1", "2", "3"],
+      lamp:"Iako se Izgovor 1 smatra visokim i biranijim stilom, mnogi ga danas doživljavaju zastarjelim ili regionalno obilježenim (ovisno o podrijetlu i dobi onoga tko procjenjuje izgovore). Ovaj bi izgovor mogao biti najbliži onima iz južne regije (zbog izgovora posuđenice televizija).",
+    },
+    {
+      type: "select",
+      id: "q7_3",
+      question: "Koji izgovor smatrate „razgovornim”, „zagrebačkim” ili specifičnim za neki drugi lokalni govor, ali ne biste očekivali, primjerice, od nastavnika hrvatskoga jezika ili spikera na Hrvatskoj radioteleviziji da tako govore? ________?",
+      options: ["1", "2", "3"],
+      correct: "3",
+      lamp:"Ako ste takvim procijenili izgovor 3, to znači da ste tijekom školovanja stekli temeljna znanja o značajkama standardnoga izgovora te da ih možete prepoznavati.",
+    },
+    {
+      type: "select",
+      id: "q7_4",
+      question: "Je li Vaš govor sličniji prvom, drugom ili trećem izgovoru?",
+      options: ["1", "2", "3"],
+      lamp:"Ako je Vaš govor najsličniji izgovoru 3, ponovno ste potvrdili da je Vaš naglasni sustav udarni, a ako je Vaš odgovor izgovor 1 ili 2, potvrdili ste da je Vaš naglasni sustav visinski ili miješani/prijelazni. Za detaljniju analizu Vašega naglasnog sutava potrebno je testirati i percepciju (izgovor), a to činimo naknadno, u aplikaciji Izgovaram.",
+    },
+        
     {
       type: "feedback",
       title: "🎉 Čestitamo! 🎉",
