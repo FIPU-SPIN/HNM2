@@ -46,13 +46,13 @@ export default function Quiz({ steps }) {
       </div>
 
       <div className="quiz-card">
-
+          
         {/* Intro */}
         {current.type === "intro" && (
           <>
             <h1 className="glavni-naslov">{current.title}</h1>
 
-            {current.image && (
+             {current.image && (
               <Image
                 src={current.image}
                 width={600}
@@ -72,6 +72,18 @@ export default function Quiz({ steps }) {
         {current.type === "info" && (
           <>
             {current.title && <h2>{current.title}</h2>}
+
+             {current.image && (
+              <Image
+                src={current.image}
+                width={600}
+                height={500}
+                alt="intro"
+                className="quiz-image"
+                style={{ display: "block", margin: "0 auto" }}
+              />
+            )}
+
             <p className="question-text">{current.text}</p>
           </>
         )}
@@ -80,6 +92,17 @@ export default function Quiz({ steps }) {
         {(current.type === "audio" || current.type === "audio2") && (
           <>
             <h2>{current.title}</h2>
+
+             {current.image && (
+              <Image
+                src={current.image}
+                width={600}
+                height={500}
+                alt="intro"
+                className="quiz-image"
+                style={{ display: "block", margin: "0 auto" }}
+              />
+            )}
 
             <div className="audio-grid">
               {current.voices.map((v, i) => (
@@ -96,6 +119,17 @@ export default function Quiz({ steps }) {
         {current.type === "select" && (
           <>
             <p className="question-text">{current.question}</p>
+
+             {current.image && (
+              <Image
+                src={current.image}
+                width={600}
+                height={500}
+                alt="intro"
+                className="quiz-image"
+                style={{ display: "block", margin: "0 auto" }}
+              />
+            )}
 
             <div className="options-grid">
               {current.options.map((opt, i) => (
@@ -118,6 +152,17 @@ export default function Quiz({ steps }) {
           <>
             <p className="question-text">{current.question}</p>
 
+             {current.image && (
+              <Image
+                src={current.image}
+                width={600}
+                height={500}
+                alt="intro"
+                className="quiz-image"
+                style={{ display: "block", margin: "0 auto" }}
+              />
+            )}
+
             <input
               type="text"
               value={answers[current.id] || ""}
@@ -133,6 +178,17 @@ export default function Quiz({ steps }) {
         {current.type === "segment-input" && (
           <>
             <p className="question-text">{current.question}</p>
+
+             {current.image && (
+              <Image
+                src={current.image}
+                width={600}
+                height={500}
+                alt="intro"
+                className="quiz-image"
+                style={{ display: "block", margin: "0 auto" }}
+              />
+            )}
 
             {current.sentences.map((s, si) => (
               <div key={si} className="segment-row">
@@ -175,6 +231,17 @@ export default function Quiz({ steps }) {
           <>
             <p className="question-text">{current.question}</p>
 
+             {current.image && (
+              <Image
+                src={current.image}
+                width={600}
+                height={500}
+                alt="intro"
+                className="quiz-image"
+                style={{ display: "block", margin: "0 auto" }}
+              />
+            )}
+
             <div className="options-grid">
               {current.options.map((opt, i) => (
                 <button
@@ -206,6 +273,17 @@ export default function Quiz({ steps }) {
         {current.type === "group-sort" && groups[current.id] && (
           <>
             <p className="question-text">{current.question}</p>
+
+             {current.image && (
+              <Image
+                src={current.image}
+                width={600}
+                height={500}
+                alt="intro"
+                className="quiz-image"
+                style={{ display: "block", margin: "0 auto" }}
+              />
+            )}
 
             <div className="group-container">
 
@@ -273,51 +351,62 @@ export default function Quiz({ steps }) {
         )}
 
         {/* MATCH / POVEZIVANJE */}
-        {current.type === "match" && (
-          <>
-            <p className="question-text">{current.question}</p>
+      {current.type === "match" && (
+        <>
+          <p className="question-text">{current.question}</p>
 
-            <div className="match-container">
+         {current.image && (
+              <Image
+                src={current.image}
+                width={600}
+                height={500}
+                alt="intro"
+                className="quiz-image"
+                style={{ display: "block", margin: "0 auto" }}
+              />
+            )}
+            
+          <div className="match-container">
 
-              {/* LIJEVA STRANA */}
-              <div className="match-column">
-                {current.left.map((item, i) => (
-                  <div key={i} className="match-item">
-                    {item}
-                  </div>
-                ))}
-              </div>
-
-              {/* DESNA STRANA */}
-              <div className="match-column">
-                {current.right.map((item, i) => (
-                  <button
-                    key={i}
-                    className="option-pill"
-                    onClick={() => {
-                      const leftIndex = prompt(
-                        `Na koji pojam spajaš "${item}"? (upiši 0-${current.left.length - 1})`
-                      );
-
-                      if (leftIndex === null) return;
-
-                      setAnswers((prev) => ({
-                        ...prev,
-                        [current.id]: {
-                          ...prev[current.id],
-                          [leftIndex]: i,
-                        },
-                      }));
-                    }}
-                  >
-                    {item}
-                  </button>
-                ))}
-              </div>
-
+            {/* LIJEVA STRANA */}
+            <div className="match-column">
+              {current.left.map((item, i) => (
+                <div key={i} className="match-item">
+                  {item}
+                </div>
+              ))}
             </div>
-          </>
-        )}
+
+            {/* DESNA STRANA */}
+            <div className="match-column">
+              {current.right.map((item, i) => (
+                <button
+                  key={i}
+                  className="option-pill"
+                  onClick={() => {
+                    const leftIndex = prompt(
+                      `Na koji pojam spajaš "${item}"? (upiši 0-${current.left.length - 1})`
+                    );
+
+                    if (leftIndex === null) return;
+
+                    setAnswers((prev) => ({
+                      ...prev,
+                      [current.id]: {
+                        ...prev[current.id],
+                        [leftIndex]: i,
+                      },
+                    }));
+                  }}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+
+          </div>
+        </>
+      )}
 
         {/* Feedback*/}
         {current.type === "feedback" && (
