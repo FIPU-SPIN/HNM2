@@ -1,8 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import Quiz from "../../components/Quiz";
+import kviz4 from "../../data/kviz4";
+import { useState } from "react";
 
 export default function InventarPage() {
+  const [showQuiz, setShowQuiz] = useState(false);
   return (
     <main className="bodydruga">
       {/* NASLOVNI DIO */}
@@ -324,6 +328,23 @@ export default function InventarPage() {
           </ul>
         </div>
       </div>
+
+      <div className="kviz-cta">
+        <h3>🧠 Provjeri svoje znanje</h3>
+
+        <p>
+          Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumiješ naglasne sustave.
+        </p>
+
+        <button
+          onClick={() => setShowQuiz(true)}
+          className="start-quiz-btn"
+        >
+          Pokreni kviz
+        </button>
+      </div>
+
+      {showQuiz && <Quiz steps={kviz4} />}
     </main>
   );
 }

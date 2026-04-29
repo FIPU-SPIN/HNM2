@@ -272,6 +272,53 @@ export default function Quiz({ steps }) {
           </>
         )}
 
+        {/* MATCH / POVEZIVANJE */}
+        {current.type === "match" && (
+          <>
+            <p className="question-text">{current.question}</p>
+
+            <div className="match-container">
+
+              {/* LIJEVA STRANA */}
+              <div className="match-column">
+                {current.left.map((item, i) => (
+                  <div key={i} className="match-item">
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              {/* DESNA STRANA */}
+              <div className="match-column">
+                {current.right.map((item, i) => (
+                  <button
+                    key={i}
+                    className="option-pill"
+                    onClick={() => {
+                      const leftIndex = prompt(
+                        `Na koji pojam spajaš "${item}"? (upiši 0-${current.left.length - 1})`
+                      );
+
+                      if (leftIndex === null) return;
+
+                      setAnswers((prev) => ({
+                        ...prev,
+                        [current.id]: {
+                          ...prev[current.id],
+                          [leftIndex]: i,
+                        },
+                      }));
+                    }}
+                  >
+                    {item}
+                  </button>
+                ))}
+              </div>
+
+            </div>
+          </>
+        )}
+
         {/* Feedback*/}
         {current.type === "feedback" && (
           <>

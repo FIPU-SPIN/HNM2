@@ -135,13 +135,18 @@ export default function NaglasciUParadigmiPage() {
 
       </div>
       <div className="kviz-cta">
-      <h3>Provjeri znanje</h3>
-      <p>
-        Nakon što si pročitao/la lekciju, možeš riješiti kratki kviz i provjeriti razumijevanje.
-      </p>
-      <button onClick={() => setShowQuiz(true)} className="start-quiz-btn">
-        KRENI NA KVIZ
-      </button>
+        <h3>🧠 Provjeri svoje znanje</h3>
+
+        <p>
+          Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumiješ naglasne sustave.
+        </p>
+
+        <button
+          onClick={() => setShowQuiz(true)}
+          className="start-quiz-btn"
+        >
+          Pokreni kviz
+        </button>
       </div>
 
       {showQuiz && <Quiz steps={kviz3} />}
