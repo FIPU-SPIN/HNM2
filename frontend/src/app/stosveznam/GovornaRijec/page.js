@@ -114,108 +114,107 @@ const [showQuiz, setShowQuiz] = useState(false);
 
         <p>
           Danas pomicanje naglaska nije obvezno i često je regionalno obilježeno.
-        </p>
+        </p>      
 
-      
+      <div className="slika-blok">
+        <Image
+          src="/assets/images/diskovi.png"  
+          alt="Prikaz pomicanja naglaska"
+          width={900}
+          height={600}
+        />
+      </div>
 
-<div className="slika-blok">
-  <Image
-    src="/assets/images/diskovi.png"  
-    alt="Prikaz pomicanja naglaska"
-    width={900}
-    height={600}
-  />
-</div>
+      <div className="citat-blok">
+        <p>Ni mi, ni vi nećemo u grad.</p>
+        <p>Skoči preko zida u vrt.</p>
+        <p>Pazi da ne prođeš preko šume.</p>
+        <p>Bez muke nema nauke.</p>
+        <span className="citat-izvor">(Ivšić i Kravar, 1955)</span>
+      </div>
 
-<div className="citat-blok">
-  <p>Ni mi, ni vi nećemo u grad.</p>
-  <p>Skoči preko zida u vrt.</p>
-  <p>Pazi da ne prođeš preko šume.</p>
-  <p>Bez muke nema nauke.</p>
-  <span className="citat-izvor">(Ivšić i Kravar, 1955)</span>
-</div>
+      <h3>Pomicanje naglaska na prednaglasnicu</h3>
 
-<h3>Pomicanje naglaska na prednaglasnicu</h3>
+      <p>
+        Naglasak se na prednaglasnicu pomiče dvojako: <b>neoslabljeno</b>, kojim se
+        ostvaruje kratkosilazni naglasak (<i>ȕ grād, ȉznad grāda, nȁ mōre</i>) ili
+        <b> oslabljeno</b>, kojim se ostvaruje kratkouzlazni naglasak (<i>ù kući,
+        izà kućē, nè znām</i>).
+      </p>
 
-<p>
-  Naglasak se na prednaglasnicu pomiče dvojako: <b>neoslabljeno</b>, kojim se
-  ostvaruje kratkosilazni naglasak (<i>ȕ grād, ȉznad grāda, nȁ mōre</i>) ili
-  <b> oslabljeno</b>, kojim se ostvaruje kratkouzlazni naglasak (<i>ù kući,
-  izà kućē, nè znām</i>).
-</p>
+      <p>
+        Pomicanje naglaska znači da prednaglasnica postaje dio naglasne cjeline.
+      </p>
 
-<p>
-  Pomicanje naglaska znači da prednaglasnica postaje dio naglasne cjeline.
-</p>
+      <div className="primjer-box">
+        <p><b>Neoslabljeno (preskakanje):</b> prȅko grāda</p>
+        <p><b>Oslabljeno (prenošenje):</b> pokràj kućē</p>
+      </div>
 
-<div className="primjer-box">
-  <p><b>Neoslabljeno (preskakanje):</b> prȅko grāda</p>
-  <p><b>Oslabljeno (prenošenje):</b> pokràj kućē</p>
-</div>
+      <p>
+        Neoslabljeno pomicanje naziva se i <b>preskakanje naglaska</b>, a oslabljeno
+        <b> prenošenje naglaska</b>.
+      </p>
 
-<p>
-  Neoslabljeno pomicanje naziva se i <b>preskakanje naglaska</b>, a oslabljeno
-  <b> prenošenje naglaska</b>.
-</p>
+      <p>
+        Iznimno se može ostvariti i zanaglasna dužina:
+      </p>
 
-<p>
-  Iznimno se može ostvariti i zanaglasna dužina:
-</p>
+      <div className="primjer-box">
+        <p>prȅdā me, ȕzā te, ȕzā se, pȍdā nj</p>
+        <p>zá me, ná te, ná se, pȏ nj, zȃ nj</p>
+      </div>
 
-<div className="primjer-box">
-  <p>prȅdā me, ȕzā te, ȕzā se, pȍdā nj</p>
-  <p>zá me, ná te, ná se, pȏ nj, zȃ nj</p>
-</div>
+      <p>
+        Te su govorne riječi ustaljene i pokazuju da su ti oblici nekada bili
+        naglašeni.
+      </p>
 
-<p>
-  Te su govorne riječi ustaljene i pokazuju da su ti oblici nekada bili
-  naglašeni.
-</p>
+      <h3>Povijesna uvjetovanost</h3>
 
-<h3>Povijesna uvjetovanost</h3>
+      <p>
+        Ostvaraj silaznog ili uzlaznog tona na prednaglasnici povijesno je uvjetovan.
+        Naglasak se neoslabljeno pomiče s riječi koje imaju izvorni silazni naglasak,
+        a oslabljeno s riječi kod kojih je nastao naknadno.
+      </p>
 
-<p>
-  Ostvaraj silaznog ili uzlaznog tona na prednaglasnici povijesno je uvjetovan.
-  Naglasak se neoslabljeno pomiče s riječi koje imaju izvorni silazni naglasak,
-  a oslabljeno s riječi kod kojih je nastao naknadno.
-</p>
+      <h3>Stanje u suvremenom jeziku</h3>
 
-<h3>Stanje u suvremenom jeziku</h3>
+      <p>
+        Danas je pomicanje naglaska obvezno kod negacije <b>ne</b> i u izrazu
+        <i>sa mnom</i>.
+      </p>
 
-<p>
-  Danas je pomicanje naglaska obvezno kod negacije <b>ne</b> i u izrazu
-  <i>sa mnom</i>.
-</p>
+      <p>
+        U ostalim slučajevima ovisi o regiji – češće je u južnim govorima nego u
+        istočnima.
+      </p>
 
-<p>
-  U ostalim slučajevima ovisi o regiji – češće je u južnim govorima nego u
-  istočnima.
-</p>
+      <p>
+        U standardu se češće pojavljuje uz zamjenice nego uz druge vrste riječi te
+        češće uz prijedloge nego uz veznike.
+      </p>
 
-<p>
-  U standardu se češće pojavljuje uz zamjenice nego uz druge vrste riječi te
-  češće uz prijedloge nego uz veznike.
-</p>
+        </div>
 
-  </div>
+      {!showQuiz && (
+          <div className="kviz-cta">
+            <h3>🧠 Provjeri svoje znanje</h3>
 
-    <div className="kviz-cta">
-  <h3>🧠 Provjeri svoje znanje</h3>
+            <p>
+              Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumiješ naglasne sustave.
+            </p>
 
-  <p>
-    Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumiješ naglasne sustave.
-  </p>
+            <button
+              onClick={() => setShowQuiz(true)}
+              className="start-quiz-btn"
+            >
+              Pokreni kviz
+            </button>
+          </div>
+        )}
 
-  <button
-    onClick={() => setShowQuiz(true)}
-    className="start-quiz-btn"
-  >
-    Pokreni kviz
-  </button>
-</div>
-
-
-    {showQuiz && <Quiz steps={kviz2} />}
+      {showQuiz && <Quiz steps={kviz2} />}
 
     </main>
   );

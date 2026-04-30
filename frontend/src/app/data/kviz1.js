@@ -1,7 +1,7 @@
 const kviz1 = [
     {
       type: "intro",
-      title: "Kojim naglaskom govorim?",
+      title: "Koji je moj naglasni sustav?",
       image: "/assets/images/karta-narjecja.png",
       text:
         "Odredite narječje koje je obilježilo Vaš govor. Pronađite na karti mjesto Vašega najdužega boravka i školovanja. Uzmite u obzir i podrijetlo roditelja/staratelja.",

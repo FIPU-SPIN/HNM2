@@ -9,12 +9,14 @@ export default function InventarPage() {
   const [showQuiz, setShowQuiz] = useState(false);
   return (
     <main className="bodydruga">
-      {/* NASLOVNI DIO */}
-      <div className="naslovna-inventar">
-        <div className="content-container inventar">
-          <h1 className="glavni-naslov">Inventar</h1>
 
-          <div className="slika-inventar">
+       {/* NASLOVNI DIO */}
+      <div className="naslovna-rijec">
+        <div className="content-container rijec">
+
+        <h1 className="glavni-naslov">Inventar</h1>
+
+          <div className="slika-rijec">
             <Image
               src="/assets/images/mjesto.png"
               alt="Naslovna slika stranice inventar"
@@ -220,6 +222,7 @@ export default function InventarPage() {
             znanstvenim radovima javlja i znakovlje Međunarodne fonetske organizacije (IPA), u kojemu se odvojeno prikazuju trajanje i ton. 
             Trajanje može biti kratko (a) ili dugo (a:), a ton uzlazan (ă) ili silazan (â).
           </p>
+          </div>
             <h3>Usporedba znakovlja</h3>
             <table>
               <thead>
@@ -257,7 +260,7 @@ export default function InventarPage() {
                 </tr>
               </tbody>
             </table>
-          </div>
+          
         </div>
 
         {/* FONETSKA ANALIZA */}
@@ -329,22 +332,25 @@ export default function InventarPage() {
         </div>
       </div>
 
-      <div className="kviz-cta">
-        <h3>🧠 Provjeri svoje znanje</h3>
+      {!showQuiz && (
+        <div className="kviz-cta">
+          <h3>🧠 Provjeri svoje znanje</h3>
 
-        <p>
-          Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumiješ naglasne sustave.
-        </p>
+          <p>
+            Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumiješ naglasne sustave.
+          </p>
 
-        <button
-          onClick={() => setShowQuiz(true)}
-          className="start-quiz-btn"
-        >
-          Pokreni kviz
-        </button>
-      </div>
+          <button
+            onClick={() => setShowQuiz(true)}
+            className="start-quiz-btn"
+          >
+            Pokreni kviz
+          </button>
+        </div>
+      )}
 
       {showQuiz && <Quiz steps={kviz4} />}
+
     </main>
   );
 }

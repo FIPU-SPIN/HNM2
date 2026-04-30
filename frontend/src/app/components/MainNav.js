@@ -77,7 +77,7 @@ export default function MainNav() {
 
             <ul className={`dropdown-menu ${openDropdown === "stosveznam" ? "open" : ""}`}>
               <li><Link href="/stosveznam/GovornaRijec">Govorna riječ</Link></li>
-              <li><Link href="/stosveznam/KojimNaglascima">Kojim naglascima govorim</Link></li>
+              
               <li><Link href="/stosveznam/Inventar">Inventar</Link></li>
               <li><Link href="/stosveznam/Distribucijska">Distribucijska pravila</Link></li>
               <li><Link href="/stosveznam/NaglasciUParadigmi">Naglasci u paradigmi</Link></li>

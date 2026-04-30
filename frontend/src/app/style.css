@@ -649,7 +649,7 @@
 }
 
 .quiz-page {
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 60px 20px;
 }
@@ -844,7 +844,7 @@
 .kviz-cta {
   margin-top: 70px;
   padding: 50px 40px;
-  max-width: 1100px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -861,7 +861,7 @@
   font-size: 2rem;
   font-weight: 700;
   color: #09949b;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
 }
 
 /* tekst */
@@ -1145,104 +1145,95 @@
 }
 
 
-/* STO SVE ZNAM */
+/* ŠTO SVE ZNAM */
 
-  .stosveznam-intro {
-    width: auto;
-    max-width: 1200px;
-    height: auto; 
-    margin: 50px auto;
-    padding: 20px 25px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(3px);
-  }
-
-  .stosveznam-intro h1 {
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-    font-weight: 700;
-  }
-
-  .stosveznam-intro p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    max-width: 1100px;
-    color: #333;
-  }
-
-  .naslovna {
-    padding: 50px 20px 20px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .content-container.stosveznam {
-    max-width: 1100px;
-    width: 100%;
-    text-align: center;
-  }
-
-  .glavni-naslov {
-    font-size: 2.2rem;
-    font-weight: 600;
-    margin-bottom: 25px;
-    color: #2f3e34;
-    letter-spacing: 0.5px;
-  }
-
-  .slika-stosveznam {
-    display: flex;
-    justify-content: center;
-  }
-
-  .slika-stosveznam img {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    border-radius: 6px;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-    border-radius: 20px;
-  }
-
-  .stosveznam-intro h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    color: #2f3e34;
-  }
-
-  .stosveznam-intro p {
-    font-size: 1.05rem;
-    color: #2f3e34;
-  }
-
-/* INVENTAR */
-
-.naslovna-inventar {
-  padding: 50px 20px 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.content-container.inventar {
+.content-container.stosveznam {
   max-width: 1100px;
   width: 100%;
   text-align: center;
 }
 
-.content-container.inventar .glavni-naslov {
-  font-size: 2.2rem;
-  font-weight: 600;
-  color: #28837d;
-  margin-bottom: 25px;
-  letter-spacing: normal;
+.glavni-naslov {
+  color: #28837d; 
+  margin-top: 30px;
 }
+
+.slika-stosveznam {
+  display: flex;
+  justify-content: center;
+}
+
+.slika-stosveznam img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.stosveznam-intro {
+  width: 100%;
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 60px 8vw;
+  text-align: left;
+  border-radius: 14px;
+  background: linear-gradient(
+    to bottom,
+    rgba(110, 220, 210, 0.15),
+    rgba(255, 255, 255, 0.6)
+  );
+  backdrop-filter: blur(4px);
+  box-shadow: 0 10px 25px rgba(110, 220, 210, 0.15);
+}
+
+.stosveznam-intro h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #2f3e34;
+}
+
+.stosveznam-intro h3 {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  color: #3aa6a0;
+}
+
+.stosveznam-intro p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: #2f3e34;
+}
+
+.stosveznam-intro ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.stosveznam-intro li {
+  margin-bottom: 8px;
+}
+
+.primjer-box {
+  background: rgba(110, 220, 210, 0.1);
+  border-left: 4px solid #6edcd2;
+  padding: 15px 20px;
+  margin: 25px 0;
+  border-radius: 10px;
+}
+
+.primjer {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+
+/* INVENTAR */
 
 .uvodna-definicija {
   width: 100%;
-  max-width: none;
-  margin: 30px 0 40px 0;
+  max-width: 1400px;
   padding: 30px 60px;
   background: linear-gradient(
     135deg,
@@ -1254,32 +1245,20 @@
   color: #2c3e50;
   font-size: 1.05rem;
   line-height: 1.8;
-}
-
-.slika-inventar {
-  display: flex;
-  justify-content: center;
-  margin: 30px 0 20px;
-}
-
-.slika-inventar img {
-  width: 100%;
-  max-width: 650px;
-  height: auto;
-  border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0, 148, 155, 0.12);
-  border: 1px solid rgba(0, 148, 155, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.slika-inventar img:hover {
-  transform: scale(1.01);
+  margin-top: 30px;
 }
 
 .inventar-sadrzaj {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 20px 25px 60px 25px;
+  width: 100%;
+  margin: 50px auto;
+  padding: 60px 8vw;
+  text-align: left;
+  border-radius: 14px;
+  background: rgba(110, 220, 210, 0.15);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 10px 25px rgba(110, 220, 210, 0.15);
 }
 
 .inventar-intro {
@@ -1483,11 +1462,11 @@
 }
 
 .ostali-prozodemi {
-  background: linear-gradient(145deg, #f8fbfb, #f0f7f6);
   padding: 40px;
   border-radius: 24px;
   margin-bottom: 45px;
-  border: 1px solid rgba(42, 163, 154, 0.1);
+  border: 3px solid rgba(42, 163, 154, 0.1);
+  box-shadow: 0 6px 18px rgba(42, 163, 154, 0.15);
 }
 
 .ostali-prozodemi h2 {
@@ -1497,6 +1476,7 @@
   border-left: 6px solid #2aa39a;
   padding-left: 25px;
   font-weight: 700;
+  text-align: left;
 }
 
 .ostali-prozodemi p {
@@ -1504,6 +1484,7 @@
   line-height: 1.8;
   color: #2c3e50;
   margin-bottom: 18px;
+  text-align: left;
 }
 
 .ostali-prozodemi strong {
@@ -1524,6 +1505,7 @@
   color: #1a4a47;
   margin-bottom: 25px;
   font-weight: 700;
+  text-align: left;
 }
 
 .biljezenje-naglasaka p {
@@ -1531,6 +1513,7 @@
   line-height: 1.8;
   color: #2c3e50;
   margin-bottom: 18px;
+  text-align: left;
 }
 
 .biljezenje-naglasaka .link-container {
@@ -1567,6 +1550,7 @@
 
 .ipa-znakovlje h2 {
   font-size: 2rem;
+  text-align: left;
   color: #1a4a47;
   margin-bottom: 25px;
   border-left: 6px solid #2aa39a;
@@ -1582,20 +1566,23 @@
 }
 
 .fonetska-analiza {
-  background: linear-gradient(135deg, #e8f6f5, #ddf0ee);
   padding: 40px;
   border-radius: 24px;
   margin-bottom: 45px;
+  border: 3px solid rgba(42, 163, 154, 0.1);
+  box-shadow: 0 6px 18px rgba(42, 163, 154, 0.15);
 }
 
 .fonetska-analiza h2 {
   font-size: 2rem;
+  text-align: left;
   color: #1a4a47;
   margin-bottom: 25px;
   font-weight: 700;
 }
 
 .fonetska-analiza p {
+  text-align: left;
   font-size: 1.05rem;
   line-height: 1.8;
   color: #2c3e50;
@@ -1643,7 +1630,7 @@
 }
 
 .mjesta-provjera {
-  background: linear-gradient(135deg, #e8f6f5, #ddf0ee);;
+  background: #09949b15;
   padding: 40px;
   border-radius: 24px;
   color: #1a4a47;
@@ -1769,6 +1756,37 @@
   }
 }
 
+.content-container,
+.inventar-sadrzaj,
+.uvodna-definicija,
+.inventar-tablica,
+.prozodemi-tablica,
+.ipa-tablica {
+  max-width: 1400px; 
+}
+
+.inventar-sadrzaj,
+.uvodna-definicija {
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+@media (max-width: 900px) {
+  .content-container,
+  .inventar-sadrzaj,
+  .uvodna-definicija,
+  .inventar-tablica,
+  .prozodemi-tablica,
+  .ipa-tablica {
+    max-width: 100%;
+  }
+
+  .inventar-sadrzaj,
+  .uvodna-definicija {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
   /* DISTRIBUCIJSKA PRAVILA */
 
   .distribucijska-intro {
@@ -1912,6 +1930,7 @@
 .rijec-intro h3 {
   margin-top: 40px;
   margin-bottom: 10px;
+  font-size: 1.5rem;
   color: #3aa6a0;
 }
 
@@ -1981,6 +2000,37 @@
   color: #5f7f7c;
   font-style: normal;
 }
+
+.rijec-intro {
+  max-width: 1400px;   
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.slika-rijec img {
+  max-width: 800px;
+}
+
+.citat-blok {
+  max-width: 900px;
+}
+
+/* mobile */
+@media (max-width: 900px) {
+  .rijec-intro {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .slika-rijec img,
+  .citat-blok {
+    max-width: 100%;
+  }
+}
+
 
 /* NAGLASCI U PARADIGMI */
 
