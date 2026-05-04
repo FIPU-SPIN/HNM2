@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Burger from "./Burger";
+import { User } from "lucide-react";
 
 export default function MainNav() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -180,6 +181,12 @@ export default function MainNav() {
             <ul className={`dropdown-menu ${openDropdown === "glagoli-u-mrezi" ? "open" : ""}`}>
               <li><Link href="/glagoli-u-mrezi/placeholder1">placeholder</Link></li>
             </ul>
+          </li>
+
+          <li className="nav-login-icon">
+            <Link href="/login">
+              <User size={22} />
+            </Link>
           </li>
 
         </ul>
