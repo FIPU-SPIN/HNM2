@@ -3,10 +3,19 @@
 import Image from "next/image";
 import Quiz from "../../components/Quiz";
 import kviz3 from "../../data/kviz3";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function NaglasciUParadigmiPage() {
   const [showQuiz, setShowQuiz] = useState(false);
+  const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+      setIsLoggedIn(!!token);  
+    }, []);
+
   return (
     <main className="bodydruga">
 
@@ -151,7 +160,7 @@ export default function NaglasciUParadigmiPage() {
         </div>
       )}
 
-      {showQuiz && <Quiz steps={kviz3} />}
+      {isLoggedIn && showQuiz && <Quiz steps={kviz3} />}
      
     </main>
   );

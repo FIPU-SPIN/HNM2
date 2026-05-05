@@ -1,15 +1,50 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const handleSubmit = (e) => {
+  const [error, setError] = useState("");
+  const router = useRouter();
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ email, password });
-  };
+    setError("");
+
+    try {
+      const res = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+
+      const data = await res.json();
+
+      console.log("LOGIN RESPONSE:", data);
+
+      if (res.ok) {
+        localStorage.setItem("token", data.token);
+        window.dispatchEvent(new Event("authChange"));
+        alert("Uspješna prijava!");
+        router.push("/");
+      } 
+        else {
+          setError(data.error);
+        }
+
+      } catch (err) {
+       console.log(err);
+       alert("Greška na serveru");
+      }
+   };
 
   return (
     <div className="login-page">
@@ -31,8 +66,14 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+        {error && <p className="error-text">{error}</p>}
 
         <button type="submit">Login</button>
+
+        <p className="register-link">
+          Nemaš račun? <Link href="/register">Izradi račun</Link>
+        </p>
+
       </form>
     </div>
   );

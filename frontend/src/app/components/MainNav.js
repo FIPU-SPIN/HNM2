@@ -1,13 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Burger from "./Burger";
-import { User } from "lucide-react";
+import { User, LogOut } from "lucide-react";
 
 export default function MainNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setDropdownOpen] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+  const checkAuth = () => {
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token);
+  };
+  checkAuth();
+  window.addEventListener("storage", checkAuth);
+  return () => window.removeEventListener("storage", checkAuth);
+  }, []);
 
   const toggleDropdown = (dropdownName) => {
     if (openDropdown === dropdownName) {
@@ -15,6 +26,13 @@ export default function MainNav() {
     } else {
       setDropdownOpen(dropdownName);
     }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+    window.dispatchEvent(new Event("authChange"));
+    window.location.href = "/";
   };
 
   return (
@@ -135,7 +153,7 @@ export default function MainNav() {
             </ul>
           </li>
 
-          {/* SVA 4 */}
+          {/* SVA 4 PONAVLJAM */}
           <li className="dropdown">
             <div className="dropdown-header">
               <Link href="/sva4ponavljam" className="dropdown-trigger">
@@ -159,7 +177,7 @@ export default function MainNav() {
             </ul>
           </li>
 
-          {/* GLAGOLI */}
+          {/* GLAGOLI U MREZI */}
           <li className="dropdown">
             <div className="dropdown-header">
               <Link href="/glagoli-u-mrezi" className="dropdown-trigger">
@@ -183,18 +201,29 @@ export default function MainNav() {
             </ul>
           </li>
 
+
+          {/* LOGIN/REG/LOGOUT */}
+          
           <li className="nav-login-icon">
-            <Link href="/login">
-              <User size={22} />
-            </Link>
+            {isLoggedIn ? (
+              <button onClick={handleLogout} title="Odjava">
+                <LogOut size={22} />
+              </button>
+            ) : (
+              <Link href="/login">
+                <User size={22} />
+              </Link>
+            )}
           </li>
 
         </ul>
+
       </div>
 
       {menuOpen && (
         <div className="nav-overlay active" onClick={() => setMenuOpen(false)} />
       )}
+
     </nav>
   );
 }

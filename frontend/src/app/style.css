@@ -2591,6 +2591,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 20px;
 }
 
 .nav-login-icon a {
@@ -2606,4 +2607,122 @@
 .nav-login-icon a:hover {
   background: rgba(255,255,255,0.25);
   transform: scale(1.1);
+}
+
+.login-link {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  color: #2c3e50;
+}
+
+.login-link a {
+  color: #00949b;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+.error-text {
+  color: #e74c3c;
+  margin-top: 10px;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* registracija */
+
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 148, 155, 0.15),
+    rgba(255, 255, 255, 1)
+  );
+}
+
+.register-card {
+  width: 100%;
+  max-width: 520px;
+  background: white;
+  padding: 55px;
+  border-radius: 28px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.10);
+  border: 1px solid rgba(0, 148, 155, 0.15);
+  text-align: center;
+}
+
+.register-card h2 {
+  font-size: 2.2rem;
+  color: #00949b;
+  margin-bottom: 25px;
+}
+
+.register-card input {
+  width: 100%;
+  padding: 16px 18px;
+  margin-bottom: 10px;
+  border-radius: 14px;
+  border: 1px solid #dcdde1;
+  background: #fafafa;
+  font-size: 1.05rem;
+}
+
+.register-card input:focus {
+  outline: none;
+  border-color: #00949b;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(0, 148, 155, 0.15);
+}
+
+.register-card button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 999px;
+  border: none;
+  background: #00949b;
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+  box-shadow: 0 10px 22px rgba(0, 148, 155, 0.25);
+}
+
+.register-card button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0, 148, 155, 0.35);
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.required-text {
+  font-size: 0.8rem;
+  color: #e74c3c;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.register-link {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  color: #2c3e50;
+}
+
+.register-link a {
+  color: #00949b;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
 }

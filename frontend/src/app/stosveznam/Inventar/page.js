@@ -3,10 +3,19 @@
 import Image from "next/image";
 import Quiz from "../../components/Quiz";
 import kviz4 from "../../data/kviz4";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function InventarPage() {
   const [showQuiz, setShowQuiz] = useState(false);
+  const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+      setIsLoggedIn(!!token);
+    }, []);
+
   return (
     <main className="bodydruga">
 
@@ -349,7 +358,7 @@ export default function InventarPage() {
         </div>
       )}
 
-      {showQuiz && <Quiz steps={kviz4} />}
+      {isLoggedIn && showQuiz && <Quiz steps={kviz4} />}
 
     </main>
   );

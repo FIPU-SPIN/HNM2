@@ -3,10 +3,19 @@
 import Image from "next/image";
 import Quiz from "../../components/Quiz";
 import kviz2 from "../../data/kviz2";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function GovornaRijecPage() {
-const [showQuiz, setShowQuiz] = useState(false);
+  const [showQuiz, setShowQuiz] = useState(false);
+  const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+        setIsLoggedIn(!!token);
+    }, []);
+
   return (
     <main className="bodydruga">
 
@@ -214,7 +223,7 @@ const [showQuiz, setShowQuiz] = useState(false);
           </div>
         )}
 
-      {showQuiz && <Quiz steps={kviz2} />}
+      {isLoggedIn && showQuiz && <Quiz steps={kviz2} />}
 
     </main>
   );

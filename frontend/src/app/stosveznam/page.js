@@ -3,11 +3,18 @@
 import Image from "next/image";
 import Quiz from "../components/Quiz";
 import kviz1 from "../data/kviz1";
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function StoSveZnamPage() {
- const [showQuiz, setShowQuiz] = useState(false);
+  const [showQuiz, setShowQuiz] = useState(false);
+  const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+        setIsLoggedIn(!!token);
+    }, []);
 
   return (
     <main className="bodydruga">
@@ -152,7 +159,7 @@ export default function StoSveZnamPage() {
         </div>
       )}
 
-      {showQuiz && <Quiz steps={kviz1} />}
+      {isLoggedIn && showQuiz && <Quiz steps={kviz1} />}
 
     </main>
   );
