@@ -5,6 +5,8 @@ export default function Footer() {
         <div className="footerlijevo">
           <img src="/assets/images/knjiga1.png" alt="KSTR" />
           <img src="/assets/images/knjiga2.png" alt="KSTR" />
+          <img src="/assets/images/eu.png" alt="EU" className="footer-logo" />
+          <img src="/assets/images/ffpu.png" alt="FFPU" className="footer-logo" />
         </div>
 
         <div className="footerdesno">
