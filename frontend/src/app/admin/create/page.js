@@ -57,7 +57,7 @@ export default function CreateAdminPage() {
   };
 
   return (
-    <div className="login-page">
+    <div className="create-dashboard">
       <form className="login-card" onSubmit={handleSubmit}>
         <h2>Create Admin</h2>
 
@@ -96,7 +96,7 @@ export default function CreateAdminPage() {
           <option value="moderator">Moderator</option>
         </select>
 
-        <button type="submit">Create Admin</button>
+        <button type="submit">Create</button>
 
         {error && <p className="error-text">{error}</p>}
         {success && <p style={{ color: "green" }}>{success}</p>}
