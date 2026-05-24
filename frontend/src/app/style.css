@@ -2931,3 +2931,20 @@
   background: white;
   box-shadow: 0 0 0 3px rgba(0, 148, 155, 0.15);
 }
+
+.admin-search {
+  width: 100%;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  border-radius: 14px;
+  border: 1px solid #dcdde1;
+  background: #fafafa;
+  font-size: 1rem;
+}
+
+.admin-search:focus {
+  outline: none;
+  border-color: #00949b;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(0, 148, 155, 0.15);
+}

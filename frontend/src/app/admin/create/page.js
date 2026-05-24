@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import AdminGuard from "@/app/components/AdminGuard";
 
 export default function CreateAdminPage() {
   const [form, setForm] = useState({
@@ -51,56 +52,74 @@ export default function CreateAdminPage() {
         password: "",
         role: "admin",
       });
+
     } catch (err) {
       setError("Server error");
     }
   };
 
   return (
-    <div className="create-dashboard">
-      <form className="login-card" onSubmit={handleSubmit}>
-        <h2>Create Admin</h2>
+    <AdminGuard allowedRoles={["super_admin"]}>
 
-        <input
-          name="username"
-          placeholder="Username"
-          value={form.username}
-          onChange={handleChange}
-          required
-        />
+      <div className="create-dashboard">
 
-        <input
-          name="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-          required
-        />
+        <form className="login-card" onSubmit={handleSubmit}>
+          <h2>Create Admin</h2>
 
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={form.password}
-          onChange={handleChange}
-          required
-        />
+          <input
+            name="username"
+            placeholder="Username"
+            value={form.username}
+            onChange={handleChange}
+            required
+          />
 
-        <select
-          name="role"
-          value={form.role}
-          onChange={handleChange}
-        >
-          <option value="admin">Admin</option>
-          <option value="super_admin">Super Admin</option>
-          <option value="moderator">Moderator</option>
-        </select>
+          <input
+            name="email"
+            placeholder="Email"
+            value={form.email}
+            onChange={handleChange}
+            required
+          />
 
-        <button type="submit">Create</button>
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={form.password}
+            onChange={handleChange}
+            required
+          />
 
-        {error && <p className="error-text">{error}</p>}
-        {success && <p style={{ color: "green" }}>{success}</p>}
-      </form>
-    </div>
+          <select
+            name="role"
+            value={form.role}
+            onChange={handleChange}
+          >
+            <option value="admin">Admin</option>
+            <option value="super_admin">Super Admin</option>
+            <option value="moderator">Moderator</option>
+          </select>
+
+          <button type="submit">
+            Create
+          </button>
+
+          {error && (
+            <p className="error-text">
+              {error}
+            </p>
+          )}
+
+          {success && (
+            <p style={{ color: "green" }}>
+              {success}
+            </p>
+          )}
+        </form>
+
+      </div>
+
+    </AdminGuard>
   );
 }
