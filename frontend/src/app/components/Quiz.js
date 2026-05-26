@@ -88,12 +88,12 @@ export default function Quiz({ steps }) {
           </>
         )}
 
-        {/* Audio */}
+        {/* Audio - POPRAVLJENO */}
         {(current.type === "audio" || current.type === "audio2") && (
           <>
             <h2>{current.title}</h2>
 
-             {current.image && (
+            {current.image && (
               <Image
                 src={current.image}
                 width={600}
@@ -105,12 +105,29 @@ export default function Quiz({ steps }) {
             )}
 
             <div className="audio-grid">
-              {current.voices.map((v, i) => (
-                <div key={i} className="audio-item disabled">
-                  <div className="play-btn">▶</div>
-                  <span>{v}</span>
-                </div>
-              ))}
+              {current.voices.map((v, i) => {
+                let audioUrl = null;
+                if (current.audioFiles && current.audioFiles[v]) {
+                  audioUrl = current.audioFiles[v];
+                } else {
+                  audioUrl = `http://localhost:5000/${v.replace(/ /g, "_")}.wav`;
+                }
+                return (
+                  <button
+                    key={i}
+                    className="play-audio-btn"
+                    onClick={() => {
+                      if (audioUrl) {
+                        new Audio(audioUrl).play();
+                      } else {
+                        console.log("Nema audio datoteke za:", v);
+                      }
+                    }}
+                  >
+                    🔊 {v}
+                  </button>
+                );
+              })}
             </div>
           </>
         )}
@@ -130,6 +147,29 @@ export default function Quiz({ steps }) {
                 style={{ display: "block", margin: "0 auto" }}
               />
             )}
+
+            {current.zvukovi && (
+  <div className="audio-examples">
+    <p><strong>🎵 Poslušaj primjere:</strong></p>
+    <div className="audio-grid">
+      {current.zvukovi.map((zvuk, idx) => (
+        <button
+          key={idx}
+          className="play-audio-btn"
+          onClick={() => {
+            const audio = new Audio(zvuk.url);
+            audio.play().catch(err => {
+              console.error("Greška pri reprodukciji:", err);
+              console.log("URL koji pokušava:", zvuk.url);
+            });
+          }}
+        >
+          🔊 {zvuk.label}
+        </button>
+      ))}
+    </div>
+  </div>
+)}
 
             <div className="options-grid">
               {current.options.map((opt, i) => (

@@ -24,10 +24,9 @@ const kviz1 = [
       question:
         "Govor mojih roditelja/staratelja pripada ______ narječju.",
       options: ["istom", "različitom"],
-        },
+    },
 
     /* --- 2. --- */ 
-  
     {
       type: "select",
       title: "Odredi regiju koja je obilježila Vaš govor. ",
@@ -36,10 +35,9 @@ const kviz1 = [
         "Moje mjesto najdužega boravka pripada _________________ regiji.",
       options: ["zapadnoj", "sjevernoj", "južnoj", "istočnoj"],
       lamp: "Ovisno o podrijetlu roditelja/staratelja, migracijama i obrazovanju, Vaš se naglasni sustav može razlikovati od regionalnog. Tada je sustav miješani ili prijelazni.",
-        },
+    },
 
     /* --- 3. ---*/ 
-
     {
       type: "audio",
       title: "Poslušajte rečenice Ponovo je zasjalo sunce. Nakon kiše pojavi se duga.",
@@ -78,15 +76,20 @@ const kviz1 = [
       type: "select",
       title: "Ako je Vaš izgovor sličniji prvome govorniku, vjerojatno je Vaš naglasni sustav VISINSKI, a ako je sličniji drugome, onda je Vaš naglasni sustav vjerojatno UDARNI. Postoje i sustavi u kojemu su značajke i jednoga i drugoga, nastale dodirom dvaju sustava (često migracijama govornika) pa se takav sustav ponegdje naziva prijelazni ili miješani.",
       id: "q5",
-      question:
-        "Moj je naglasni sustav __________.",
+      question: "Moj je naglasni sustav __________.",
       options: ["udarni", "visinski", "miješani", "prijelazni"],
-      lamp:
-        "Na području štokavskoga narječja ostvaruje se primarno visinski naglasni sustav, a na području čakavskoga i kajkavskoga narječja visinski i udarni naglasni sustav. Kada analiziramo urbanolekte većih gradova na području čakavskoga narječja zapadne Hrvatske i na području kajkavskoga narječja sjeverne Hrvatske, čujemo pretežno udarni naglasni sustav.",
+      lamp: "Na području štokavskoga narječja ostvaruje se primarno visinski naglasni sustav, a na području čakavskoga i kajkavskoga narječja visinski i udarni naglasni sustav. Kada analiziramo urbanolekte većih gradova na području čakavskoga narječja zapadne Hrvatske i na području kajkavskoga narječja sjeverne Hrvatske, čujemo pretežno udarni naglasni sustav.",
+      
+      zvukovi: [
+        { label: "Primjer 1 (1-1-2a)", url: "http://localhost:5000/1-1-2a.wav" },
+        { label: "Primjer 2 (1-1-2b)", url: "http://localhost:5000/1-1-2b.wav" },
+        { label: "Primjer 3 (1-1-2c)", url: "http://localhost:5000/1-1-2c.wav" },
+        { label: "Primjer 4 (1-1-2d)", url: "http://localhost:5000/1-1-2d.wav" }
+      ]
     },
 
     /* --- 6. --- */ 
-     {
+    {
       type: "audio",
       title: "Poslušajte izgovor rečenica Ovo je naglasni priručnik. \"Nakon kiše pojavi se duga.\" dviju govornica iz visinskoga naglasnog sustava i dviju govornica iz udarnoga sustava.",
       voices: ["govornica iz Osijeka", "govornica iz Splita", "govornica iz Rijeke", "govornica iz Pule"],
@@ -123,7 +126,7 @@ const kviz1 = [
       id: "q7_2",
       question: "Koji izgovor percipirate kao „visoki stil”,„naučen”, „akademski”, „biraniji stil”?",
       options: ["1", "2", "3"],
-      lamp:"Iako se Izgovor 1 smatra visokim i biranijim stilom, mnogi ga danas doživljavaju zastarjelim ili regionalno obilježenim (ovisno o podrijetlu i dobi onoga tko procjenjuje izgovore). Ovaj bi izgovor mogao biti najbliži onima iz južne regije (zbog izgovora posuđenice televizija).",
+      lamp:"Iako se Izgovor 1 smatra visokim i biranijim stilom, mnogi ga danas doživljaju zastarjelim ili regionalno obilježenim (ovisno o podrijetlu i dobi onoga tko procjenjuje izgovore). Ovaj bi izgovor mogao biti najbliži onima iz južne regije (zbog izgovora posuđenice televizija).",
     },
     {
       type: "select",
@@ -150,4 +153,4 @@ const kviz1 = [
     }
   ];
 
-  export default kviz1;
+export default kviz1;
