@@ -630,7 +630,20 @@
     }
 }
 
-/* KVIZ */
+/* =======================
+   QUIZ LAYOUT
+======================= */
+
+.quiz-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  background: #f6f8fb;
+}
+
+/* =======================
+   PROGRESS BAR
+======================= */
 
 .progress-bar {
   width: 100%;
@@ -648,10 +661,22 @@
   transition: width 0.3s ease;
 }
 
-.quiz-page {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 60px 20px;
+/* =======================
+   QUIZ CARD
+======================= */
+
+.quiz-card {
+  background: white;
+  border-radius: 24px;
+  padding: 35px;
+  margin-bottom: 35px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.quiz-card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: #2d3436;
 }
 
 .quiz-text {
@@ -661,53 +686,9 @@
   font-size: 1rem;
 }
 
-.quiz-card {
-  background: white;
-  border-radius: 24px;
-  padding: 35px;
-  margin-bottom: 35px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-}
-
-.quiz-card h2 {
-  font-size: 1.4rem;
-  margin-bottom: 12px;
-  margin-top: 10px;
-  color: #2d3436;
-}
-
-.quiz-card p {
-  line-height: 1.6;
-  color: #444;
-}
-
-.quiz-card .option-pill {
-  background: #f0f0f0;  
-  color: #333;
-  font-weight: 600;
-}
-
-.quiz-card .option-pill.active {
-  background: #09949b; 
-  color: white;
-}
-
-.quiz-card .option-pill:hover {
-  transform: translateY(-2px);
-  background: #dfe6e9;  
-}
-
-.quiz-card:has(.feedback-message) {
-  text-align: center;
-}
-
-.glavni-naslov {
-  font-size: 2.2rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 20px;
-  color: #09949b;
-}
+/* =======================
+   INTRO BOX
+======================= */
 
 .quiz-image {
   display: flex;
@@ -720,14 +701,6 @@
   box-shadow: 0 10px 20px rgba(0,0,0,0.12);
 }
 
-.quiz-intro-box {
-  background: #f5f7ff;
-  padding: 20px;
-  border-radius: 18px;
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-
 .note-box {
   margin-top: 10px;
   padding: 10px 14px;
@@ -736,17 +709,15 @@
   font-weight: 500;
 }
 
-.question-text {
-  font-size: 1.2rem;
-  margin-bottom: 18px;
-  margin-top: 10px;
-  line-height: 1.5;
-}
+/* =======================
+   OPTIONS
+======================= */
 
 .options-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  margin-top: 15px;
 }
 
 .option-pill {
@@ -755,18 +726,14 @@
   border: none;
   background: #eef1f4;
   cursor: pointer;
-  transition: all 0.2s ease;
   font-size: 0.95rem;
   font-weight: 500;
+  transition: all 0.2s ease;
 }
 
-.option-pill:hover:not(.active) {
+.option-pill:hover {
   transform: translateY(-2px);
   background: #dfe6e9;
-}
-
-.option-pill:active {
-  transform: scale(0.98);
 }
 
 .option-pill.active {
@@ -775,12 +742,10 @@
   box-shadow: 0 6px 14px rgba(9, 148, 155, 0.25);
 }
 
-.option-pill.active:hover {
-  transform: none;
-  background: #09949b;
-}
+/* =======================
+   AUDIO
+======================= */
 
-/* Audio */
 .audio-grid {
   display: flex;
   flex-direction: column;
@@ -797,223 +762,54 @@
   background: #f3f6ff;
 }
 
-.play-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #d5d9da;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.disabled {
-  opacity: 0.6;
-}
-
-.disabled-btn {
-  opacity: 0.4;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
-/* Upisivanje */
-
-.quiz-input {
-  width: 100%;
-  padding: 14px 16px;
-  border-radius: 14px;
-  border: 1px solid #dcdde1;
-  font-size: 1rem;
-  margin-top: 12px;
-  background: #fafafa;
-  transition: all 0.2s ease;
-}
-
-.quiz-input:hover {
-  border-color: #b2bec3;
-}
-
-.quiz-input:focus {
-  outline: none;
-  border-color: #09949b;
-  background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(9, 148, 155, 0.15);
-}
-
-.kviz-cta {
-  margin-top: 70px;
-  padding: 50px 40px;
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  background: linear-gradient(145deg, #ffffff, #f4fbfb);
-  border-radius: 28px;
-  border: 1px solid rgba(9, 148, 155, 0.12);
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 30px;
-}
-
-/* naslov */
-.kviz-cta h3 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #09949b;
-  margin-bottom: 15px;
-}
-
-/* tekst */
-.kviz-cta p {
-  font-size: 1.1rem;
-  color: #2c3e50;
-  max-width: 650px;
-  margin: 0 auto 25px auto;
-  line-height: 1.7;
-}
-
-.start-quiz-btn {
-  padding: 16px 32px;
-  border: none;
-  border-radius: 999px;
-  background: #09949b;
-  color: white;
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  box-shadow: 0 10px 22px rgba(9, 148, 155, 0.3);
-  transition: all 0.25s ease;
-  position: relative;
-  z-index: 2;
-}
-
-.start-quiz-btn:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 18px 40px rgba(9, 148, 155, 0.4);
-}
-
-.start-quiz-btn:active {
-  transform: translateY(-1px) scale(0.99);
-}
-
-/* grupe*/
-
-.group-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 16px;
-  margin-top: 20px;
-}
-
-.group-box {
-  background: #f8fafc;
-  padding: 14px;
-  border-radius: 14px;
-  border: 1px solid #eef1f4;
-  min-height: 120px;
-}
-
-.group-box h4 {
-  font-size: 0.95rem;
-  margin-bottom: 10px;
-  color: #09949b;
-}
-
-.word-pill {
-  display: block;
-  width: 100%;
-  margin-bottom: 6px;
-  padding: 8px 10px;
-  border-radius: 10px;
-  border: none;
-  background: #e9ecef;
-  cursor: pointer;
-}
-
-/* povezivanje */
-
-.match-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  margin-top: 20px;
-}
-
-.match-column {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.match-item {
-  padding: 10px 14px;
-  background: #f3f3f3;
-  border-radius: 10px;
-}
-
-/* Lampica */
-
-.lamp-btn {
-  margin-top: 18px;
-  padding: 10px 14px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border-radius: 999px;
-  border: 1px solid rgba(110, 148, 235, 0.25);
-  background: rgba(110, 148, 235, 0.08);
-  color: #00949b;
-  font-weight: 600;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.05);
-}
-
-.lamp-btn:hover {
-  transform: translateY(-2px) scale(1.02);
-  background: #09949b;
-  box-shadow: 0 10px 22px rgba(110, 148, 235, 0.18);
-}
-
-/* segmenti*/
-
-.segment-row {
-  background: #f8fafc;
-  padding: 16px;
-  border-radius: 16px;
-  margin-bottom: 18px;
-  border: 1px solid #eef1f4;
-}
-
-.segment-prompt {
-  font-weight: 600;
-  margin-bottom: 10px;
+.audio-item p {
+  margin: 0;
+  font-weight: 500;
   color: #2d3436;
 }
 
-.segment-inputs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+/* =======================
+   LAMPICA (hint)
+======================= */
+
+.lamp-btn {
+  margin-top: 18px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: rgba(9, 148, 155, 0.08);
+  border: 1px solid rgba(9, 148, 155, 0.25);
+  color: #09949b;
+  font-weight: 600;
+  display: inline-block;
+  line-height: 1.5;
 }
 
-.quiz-input.small {
-  width: 80px;
+/* =======================
+   FEEDBACK SCREEN
+======================= */
+
+.feedback-message {
+  font-size: 1.3rem;
+  margin: 20px 0;
+  color: #09949b;
   text-align: center;
 }
 
-/* Objašnjenje */
+.feedback-details {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  color: #555;
+  text-align: center;
+}
 
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.45);
+  background: rgba(0,0,0,0.55);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 999;
 }
 
 .modal {
@@ -1021,129 +817,89 @@
   background: white;
   padding: 30px;
   border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.modal h2 {
+  color: #09949b;
+  margin-bottom: 15px;
 }
 
 .modal p {
-  line-height: 1.7;
-  font-size: 1.05rem;
-  color: #2d3436;
-  letter-spacing: 0.2px;
-}
-
-.nav-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 25px;
-}
-
-.nav-buttons button {
-  padding: 10px 18px;
-  border-radius: 999px;
-  border: none;
-  background-color: #09949b !important;
-  color: white;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.nav-buttons button:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-  background-color: #042a2c;
-}
-
-.nav-buttons button:hover {
-  transform: scale(1.05);
-}
-
-.modal-close {
-  margin-top: 18px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  border: none;
-  background: #f1f3f5;
-  color: #2d3436;
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  transition: all 0.2s ease;
-}
-
-.modal-close:hover {
-  background: #e9ecef;
-  transform: scale(1.05);
-}
-
-.modal-close {
-  border: 1px solid rgba(0,0,0,0.08);
-}
-
-.feedback-screen {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.feedback-screen {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.feedback-message {
-  font-size: 1.3rem;
-  margin: 20px 0;
-  color: #09949b;
-}
-
-.feedback-details {
-  font-size: 1rem;
-  margin-bottom: 30px;
-  color: #555;
-}
-
-.feedback-button {
-  background: #09949b;
-  color: white;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 999px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.2s;
-  margin-top: 20px;
-}
-
-.feedback-button:hover {
-  background: #077a80;
-  transform: scale(1.05);
-}
-
-.answers-review {
-  text-align: left;
-  background: #f5f5f5;
-  padding: 20px;
-  border-radius: 16px;
-  margin: 20px 0;
-}
-
-.answers-review h3 {
   margin-bottom: 10px;
-  color: #09949b;
+  color: #333;
 }
 
-.answers-review ul {
-  list-style: none;
-  padding: 0;
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
 
-.answers-review li {
-  padding: 8px 0;
-  border-bottom: 1px solid #ddd;
+.modal {
+  width: 420px;
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
 }
 
+.start-quiz-btn2 {
+  padding: 16px 34px;
+  border: none;
+  border-radius: 999px;
+
+  background: linear-gradient(135deg, #09949b, #68b0b4);
+  color: white;
+
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+  cursor: pointer;
+
+  box-shadow: 0 12px 25px rgba(9, 148, 155, 0.35);
+
+  transition: all 0.25s ease;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* hover */
+.start-quiz-btn2:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(9, 148, 155, 0.45);
+}
+
+/* click */
+.start-quiz-btn2:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 10px 20px rgba(9, 148, 155, 0.3);
+}
+
+/* shine efekt */
+.start-quiz-btn2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255,255,255,0.25);
+  transform: skewX(-25deg);
+  transition: left 0.6s ease;
+}
+
+.start-quiz-btn2:hover::before {
+  left: 130%;
+}
 
 /* ŠTO SVE ZNAM */
 
@@ -3135,4 +2891,75 @@
 /* Sakrij stare nefunkcionalne audio gumbe */
 .audio-item.disabled {
   display: none;
+}
+
+/* KVIZ1 */
+
+/* Kviz container */
+.kviz-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  font-family: Arial, sans-serif;
+  background: #f7f7fb;
+}
+
+/* Svako pitanje */
+.kviz-question {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* Naslov */
+.kviz-question h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+/* Tekst */
+.kviz-question p {
+  margin: 6px 0;
+}
+
+/* Slika */
+.kviz-question img {
+  margin-top: 10px;
+  border-radius: 10px;
+  max-width: 100%;
+}
+
+/* Gumbi (options) */
+.kviz-question button {
+  display: block;
+  width: 100%;
+  margin: 6px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #e6e6ff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.kviz-question button:hover {
+  background: #cfcfff;
+}
+
+/* Audio blok */
+.kviz-question audio {
+  width: 100%;
+  margin-top: 8px;
+}
+
+/* Lamp (hint) */
+.lamp {
+  margin-top: 10px;
+  font-style: italic;
+  color: #666;
+  background: #f0f0f0;
+  padding: 10px;
+  border-radius: 8px;
 }
