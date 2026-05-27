@@ -143,14 +143,7 @@ const kviz1 = [
       options: ["1", "2", "3"],
       lamp:"Ako je Vaš govor najsličniji izgovoru 3, ponovno ste potvrdili da je Vaš naglasni sustav udarni, a ako je Vaš odgovor izgovor 1 ili 2, potvrdili ste da je Vaš naglasni sustav visinski ili miješani/prijelazni. Za detaljniju analizu Vašega naglasnog sutava potrebno je testirati i percepciju (izgovor), a to činimo naknadno, u aplikaciji Izgovaram.",
     },
-        
-    {
-      type: "feedback",
-      title: "🎉 Čestitamo! 🎉",
-      message: "Uspješno ste riješili kviz o naglasnim sustavima!",
-      details: "Vaši odgovori su pohranjeni. Hvala vam što ste sudjelovali u istraživanju naglasaka hrvatskoga jezika.",
-      buttonText: "Pogledaj svoje odgovore",
-    }
+
   ];
 
 export default kviz1;

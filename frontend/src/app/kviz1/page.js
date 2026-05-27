@@ -13,7 +13,8 @@ export default function Page() {
     fetch("http://localhost:5000/api/quiz/kviz1")
       .then((res) => res.json())
       .then((data) => {
-        setKviz(data);
+        const sorted = data.sort((a, b) => a.order - b.order);
+        setKviz(sorted);
         setLoading(false);
       })
       .catch((err) => {
@@ -29,7 +30,18 @@ export default function Page() {
     }));
   };
 
+  const isQuestionAnswered = (q) => {
+    if (!q.id) return true; // intro i audio blokovi
+    return answers[q.id] !== undefined;
+  };
+
+  const allAnswered = kviz
+    .filter((q) => q.id)
+    .every((q) => isQuestionAnswered(q));
+
   const handleSubmit = async () => {
+    if (!allAnswered) return;
+
     try {
       await fetch("http://localhost:5000/api/quiz/submit", {
         method: "POST",
@@ -52,19 +64,35 @@ export default function Page() {
     <div className="quiz-page">
 
       {kviz.map((q) => (
-        <div key={q._id} className="quiz-card">
+        <div
+          key={q._id}
+          className={`quiz-card ${q.type === "intro" ? "intro-card" : ""}`}
+        >
 
-          <h2>{q.title || q.question}</h2>
+          {/* INTRO LAYOUT */}
+          {q.type === "intro" ? (
+            <>
+              <h1>{q.title}</h1>
 
-          {q.text && <p className="quiz-text">{q.text}</p>}
-          {q.note && <div className="note-box">{q.note}</div>}
+              {q.image && (
+                <div className="quiz-image">
+                  <img src={`http://localhost:5000${q.image}`} />
+                </div>
+              )}
 
-          {q.image && (
-            <div className="quiz-image">
-              <img src={`http://localhost:5000${q.image}`} />
-            </div>
+              {q.text && <p className="quiz-text">{q.text}</p>}
+              {q.note && <div className="note-box">{q.note}</div>}
+            </>
+          ) : (
+            <>
+              <h2>{q.title || q.question}</h2>
+
+              {q.text && <p className="quiz-text">{q.text}</p>}
+              {q.note && <div className="note-box">{q.note}</div>}
+            </>
           )}
 
+          {/* OPTIONS */}
           {q.options?.length > 0 && (
             <div className="options-grid">
               {q.options.map((o, i) => (
@@ -81,6 +109,7 @@ export default function Page() {
             </div>
           )}
 
+          {/* VOICES */}
           {q.voices?.length > 0 && (
             <div className="audio-grid">
               {q.voices.map((v, i) => (
@@ -95,6 +124,7 @@ export default function Page() {
             </div>
           )}
 
+          {/* ZVUKOVI */}
           {q.zvukovi?.length > 0 && (
             <div className="audio-grid">
               {q.zvukovi.map((z, i) => (
@@ -109,6 +139,7 @@ export default function Page() {
             </div>
           )}
 
+          {/* LAMP */}
           {q.lamp && <div className="lamp-btn">💡 {q.lamp}</div>}
 
         </div>
@@ -116,8 +147,12 @@ export default function Page() {
 
       {/* BUTTON */}
       <div style={{ textAlign: "center", marginTop: "40px" }}>
-        <button className="start-quiz-btn2" onClick={handleSubmit}>
-          Pohrani moje odgovore
+        <button
+          className="start-quiz-btn"
+          disabled={!allAnswered}
+          onClick={handleSubmit}
+        >
+          SPREMI KVIZ
         </button>
       </div>
 
@@ -127,15 +162,17 @@ export default function Page() {
           <div className="modal">
             <h2>🎉 Čestitamo! 🎉</h2>
 
-            <p>Uspješno ste završili kviz.</p>
-            <p>Vaši su odgovori uspješno pohranjeni.</p>
+            <p>Uspješno ste riješili kviz o naglasnim sustavima.</p>
+            <p>Vaši odgovori su spremljeni.</p>
 
             <button
               className="start-quiz-btn"
-              onClick={() => setSubmitted(false)}
-              style={{ marginTop: "20px" }}
+              onClick={() => {
+                setSubmitted(false);
+                setAnswers({});
+              }}
             >
-              OK
+              Zatvori
             </button>
           </div>
         </div>
