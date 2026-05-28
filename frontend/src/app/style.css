@@ -630,275 +630,497 @@
     }
 }
 
-/* =======================
-   QUIZ LAYOUT
-======================= */
+/* QUIZ LAYOUT */
+/* =========================
+   PAGE WRAPPER (FIXED CENTER LAYOUT)
+========================= */
 
 .quiz-page {
-  max-width: 1400px;
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 40px 16px;
+
+  background:
+    radial-gradient(circle at top left, #f4fbfc, transparent 30%),
+    radial-gradient(circle at bottom right, #eef6ff, transparent 35%),
+    #f6f8fb;
+}
+.quiz-content {
+  width: 100%;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 60px 20px;
-  background: #f6f8fb;
 }
 
-/* =======================
-   PROGRESS BAR
-======================= */
+.quiz-page > :not(.modal-overlay) {
+  width: 100%;
+  max-width: 900px;
+}
+
+/* PROGRESS BAR */
 
 .progress-bar {
-  width: 100%;
-  height: 10px;
-  background: #e6e1ea;
+  height: 12px;
+  background: #e5e9ef;
   border-radius: 999px;
-  margin-bottom: 25px;
   overflow: hidden;
+
+  margin: 0 auto 24px auto;
 }
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #09949b, #68b0b4);
-  border-radius: 999px;
-  transition: width 0.3s ease;
+  background: linear-gradient(90deg, #09949b, #4fb2b7);
+  transition: width 0.35s ease;
 }
 
-/* =======================
-   QUIZ CARD
-======================= */
+/* QUIZ CARD */
 
 .quiz-card {
-  background: white;
-  border-radius: 24px;
-  padding: 35px;
-  margin-bottom: 35px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  background: rgba(255,255,255,0.95);
+
+  border-radius: 28px;
+
+  padding: 40px;
+
+  margin: 0 auto 30px auto;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+
+  border: 1px solid rgba(255,255,255,0.6);
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* =========================
+   TITLES
+========================= */
+
+.quiz-card h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .quiz-card h2 {
   font-size: 1.4rem;
-  margin-bottom: 12px;
-  color: #2d3436;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
+.question-text,
 .quiz-text {
-  margin: 10px 0 18px 0;
-  color: #444;
-  line-height: 1.6;
-  font-size: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #4b5563;
 }
 
-/* =======================
-   INTRO BOX
-======================= */
+/* =========================
+   IMAGE FIX (no stretching)
+========================= */
 
 .quiz-image {
   display: flex;
   justify-content: center;
-  margin-bottom: 25px;
+  margin: 10px 0 20px 0;
 }
 
 .quiz-image img {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
   border-radius: 18px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  object-fit: contain;
 }
+
+/* =========================
+   NOTE BOX
+========================= */
 
 .note-box {
-  margin-top: 10px;
-  padding: 10px 14px;
-  border-radius: 14px;
-  background: #e8f0fe;
-  font-weight: 500;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #eef8ff;
+  border: 1px solid rgba(9,148,155,0.15);
 }
 
-/* =======================
+/* =========================
    OPTIONS
-======================= */
+========================= */
 
 .options-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .option-pill {
   padding: 12px 18px;
   border-radius: 999px;
-  border: none;
-  background: #eef1f4;
+
+  border: 2px solid #e5e7eb;
+  background: white;
+
   cursor: pointer;
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: all 0.2s ease;
+
+  font-weight: 600;
+
+  transition: 0.2s ease;
 }
 
 .option-pill:hover {
   transform: translateY(-2px);
-  background: #dfe6e9;
+  border-color: #09949b;
 }
 
 .option-pill.active {
   background: #09949b;
   color: white;
-  box-shadow: 0 6px 14px rgba(9, 148, 155, 0.25);
+  border-color: transparent;
 }
 
-/* =======================
+/* =========================
    AUDIO
-======================= */
+========================= */
 
 .audio-grid {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin: 15px 0;
 }
 
 .audio-item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 12px;
+
   padding: 14px;
+
   border-radius: 16px;
+
   background: #f3f6ff;
 }
 
 .audio-item p {
-  margin: 0;
-  font-weight: 500;
-  color: #2d3436;
+  font-weight: 600;
 }
 
-/* =======================
-   LAMPICA (hint)
-======================= */
+/* =========================
+   LAMP
+========================= */
 
 .lamp-btn {
-  margin-top: 18px;
-  padding: 12px 16px;
-  border-radius: 999px;
-  background: rgba(9, 148, 155, 0.08);
-  border: 1px solid rgba(9, 148, 155, 0.25);
-  color: #09949b;
-  font-weight: 600;
-  display: inline-block;
-  line-height: 1.5;
+  padding: 14px;
+  border-radius: 16px;
+  background: #e8f7f8;
 }
 
-/* =======================
-   FEEDBACK SCREEN
-======================= */
+/* =========================
+   NAV BUTTONS (MODERN UI)
+========================= */
 
-.feedback-message {
-  font-size: 1.3rem;
-  margin: 20px 0;
-  color: #09949b;
-  text-align: center;
-}
+.nav-buttons {
+  width: 100%;
+  max-width: 900px;
 
-.feedback-details {
-  font-size: 1rem;
-  margin-bottom: 30px;
-  color: #555;
-  text-align: center;
-}
+  margin: 30px auto 10px auto;
 
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
   display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
+  justify-content: space-between;
+  gap: 14px;
 }
 
-.modal {
-  width: 420px;
+/* base button */
+.nav-buttons button {
+  flex: 1;
+
+  padding: 14px 18px;
+
+  border-radius: 14px;
+
+  border: 1px solid #e5e7eb;
+
   background: white;
-  padding: 30px;
-  border-radius: 18px;
-  text-align: center;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-}
 
-.modal h2 {
-  color: #09949b;
-  margin-bottom: 15px;
-}
+  color: #1f2937;
 
-.modal p {
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.modal {
-  width: 420px;
-  background: white;
-  padding: 30px;
-  border-radius: 18px;
-  text-align: center;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-}
-
-.start-quiz-btn2 {
-  padding: 16px 34px;
-  border: none;
-  border-radius: 999px;
-
-  background: linear-gradient(135deg, #09949b, #68b0b4);
-  color: white;
-
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.5px;
 
   cursor: pointer;
 
-  box-shadow: 0 12px 25px rgba(9, 148, 155, 0.35);
+  transition: all 0.2s ease;
 
-  transition: all 0.25s ease;
-
-  position: relative;
-  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
 }
 
 /* hover */
-.start-quiz-btn2:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 18px 40px rgba(9, 148, 155, 0.45);
+.nav-buttons button:hover {
+  transform: translateY(-2px);
+  border-color: #09949b;
+  box-shadow: 0 10px 20px rgba(9,148,155,0.15);
 }
 
-/* click */
-.start-quiz-btn2:active {
-  transform: translateY(-1px) scale(0.98);
-  box-shadow: 0 10px 20px rgba(9, 148, 155, 0.3);
+/* active click */
+.nav-buttons button:active {
+  transform: translateY(0px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
-/* shine efekt */
-.start-quiz-btn2::before {
-  content: "";
+/* disabled */
+.nav-buttons button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* NEXT / PRIMARY button (desni) */
+.nav-buttons button:last-child {
+  background: linear-gradient(135deg, #09949b, #4fb2b7);
+  color: white;
+
+  border: none;
+
+  box-shadow: 0 10px 24px rgba(9,148,155,0.25);
+}
+
+/* hover primary */
+.nav-buttons button:last-child:hover {
+  box-shadow: 0 14px 30px rgba(9,148,155,0.35);
+}
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+
+.start-quiz-btn {
+  margin: 20px auto 0 auto;
+
+  display: block;
+
+  padding: 16px 34px;
+
+  border-radius: 999px;
+
+  border: none;
+
+  background: linear-gradient(135deg, #09949b, #4fb2b7);
+
+  color: white;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.start-quiz-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  .quiz-card {
+    padding: 24px;
+  }
+
+  .options-grid {
+    flex-direction: column;
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+  }
+}
+
+/* =========================
+   MODAL OVERLAY (FULL SCREEN)
+========================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.6);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+
+  backdrop-filter: blur(6px);
+}
+
+/* =========================
+   MODAL BOX
+========================= */
+
+.modal {
+  width: 90%;
+  max-width: 520px;
+
+  background: white;
+
+  padding: 30px 28px;
+
+  border-radius: 24px;
+
+  box-shadow: 0 25px 70px rgba(0,0,0,0.3);
+
+  animation: popIn 0.25s ease;
+}
+
+/* animation */
+@keyframes popIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* =========================
+   MODAL TEXT
+========================= */
+
+.modal p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #374151;
+
+  margin-bottom: 20px;
+}
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.modal-close {
+  padding: 12px 20px;
+
+  border-radius: 999px;
+
+  border: none;
+
+  background: #09949b;
+
+  color: white;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.modal-close:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(9,148,155,0.25);
+}
+
+/* feedback */
+.finished-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgba(0,0,0,0.05);
+}
+
+.finished-card {
+  margin-top: none;
+  position: relative;
+  background: white;
+  padding: 50px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 420px;
+  width: 90%;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.finished-title {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.finished-text {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.finished-subtext {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 25px;
+}
+
+.finished-button {
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  background: #09949b;
+  color: white;
+  cursor: pointer;
+}
+
+.finished-button:hover {
+  background: #c7cddd;
+}
+
+.finished-top {
+  position: relative;
+  margin-top: 20px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+/* X gumb gore desno */
+.close-x {
   position: absolute;
   top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: rgba(255,255,255,0.25);
-  transform: skewX(-25deg);
-  transition: left 0.6s ease;
+  right: 0;
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+  color: inherit;
 }
 
-.start-quiz-btn2:hover::before {
-  left: 130%;
+/* malo “spacing” da izgleda kao kviz blok */
+.finished-top h1 {
+  margin-bottom: 10px;
+}
+
+.finished-top .feedback-message {
+  margin-bottom: 6px;
+}
+
+.finished-top .feedback-details {
+  margin-bottom: 20px;
+}
+
+/* button da ostane u tvom stilu kviza */
+.finished-top .feedback-button {
+  display: inline-block;
 }
 
 /* ŠTO SVE ZNAM */
