@@ -14,8 +14,8 @@ export default function StoSveZnamPage() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-        setIsLoggedIn(!!token);
-    }, []);
+    setIsLoggedIn(!!token);
+  }, []);
 
   return (
     <main className="bodydruga">
@@ -23,9 +23,7 @@ export default function StoSveZnamPage() {
       {/* NASLOVNA */}
       <div className="naslovna">
         <div className="content-container stosveznam">
-          
           <h1 className="glavni-naslov">Što sve znam</h1>
-
           <div className="slika-stosveznam">
             <Image
               src="/assets/images/stosveznam.jpg"
@@ -35,7 +33,6 @@ export default function StoSveZnamPage() {
               priority
             />
           </div>
-
         </div>
       </div>
 
@@ -84,12 +81,8 @@ export default function StoSveZnamPage() {
         </p>
 
         <div className="primjer-box">
-          <p>
-            Regionalne razlike mogu se uočiti u gradovima poput:
-          </p>
-          <p className="primjer">
-            Zagreb • Rijeka • Osijek • Split
-          </p>
+          <p>Regionalne razlike mogu se uočiti u gradovima poput:</p>
+          <p className="primjer">Zagreb • Rijeka • Osijek • Split</p>
         </div>
 
         <h3>Visinski naglasni sustav</h3>
@@ -107,14 +100,18 @@ export default function StoSveZnamPage() {
           čakavski, kajkavski i staroštokavski govori.
         </p>
 
-        {/* PLACEHOLDER ZA SLIKU - zamijeni naziv_slike s pravim imenom */}
+        {/* SLIKA - zamijeni src putanjom */}
         <div className="slika-placeholder">
           <Image
             src="/assets/images/ikona.png"
-            alt=""
+            alt="Ilustracija naglasnog sustava"
             width={800}
             height={400}
+            className="slika-primjer"
           />
+          <p className="slika-napomena">
+            <em>Slika 01 - Prikaz naglasnog sustava</em>
+          </p>
         </div>
 
         <h3>Udarni naglasni sustav</h3>
@@ -141,12 +138,8 @@ export default function StoSveZnamPage() {
         </p>
 
         <div className="primjer-box">
-          <p>
-            Ključna razlika:
-          </p>
-          <p className="primjer">
-            visinski = ton + duljina • udarni = pozicija naglaska
-          </p>
+          <p>Ključna razlika:</p>
+          <p className="primjer">visinski = ton + duljina • udarni = pozicija naglaska</p>
         </div>
 
         <h3>Prepoznavanje govora</h3>
@@ -163,7 +156,7 @@ export default function StoSveZnamPage() {
           Kod govornika koji ostvaruju udarni naglasni sustav teško je jednoznačno odrediti
           geografsko porijeklo samo na primjeru nekoliko riječi ili rečenica jer su udarni
           naglasci zagrebačke i riječke makroregije, tj. Zagreba, Varaždina, Karlovca, Rijeke
-          ili Pule vrlo slični pa se uvriježilo nazivati takav govor „zagrebački".
+          ili Pule vrlo slični pa se uvriježilo nazivati takav govor "zagrebački".
         </p>
 
         <p>
@@ -175,15 +168,13 @@ export default function StoSveZnamPage() {
         </p>
 
       </div>
-      
+
       {!showQuiz && (
         <div className="kviz-cta">
           <h3>🧠 Provjeri svoje znanje</h3>
-
           <p>
             Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumiješ naglasne sustave.
           </p>
-
           <button
             onClick={() => setShowQuiz(true)}
             className="start-quiz-btn"

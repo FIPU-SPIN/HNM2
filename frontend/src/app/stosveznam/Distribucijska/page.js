@@ -1,8 +1,21 @@
 "use client";
 
 import Image from "next/image";
+import Quiz from "../../components/Quiz";
+import kviz3 from "../../data/kviz3";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function DistribucijskaPravilaPage() {
+  const [showQuiz, setShowQuiz] = useState(false);
+  const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token);
+  }, []);
+
   return (
     <main className="bodydruga">
 
@@ -49,9 +62,7 @@ export default function DistribucijskaPravilaPage() {
 
           <div className="pravilo-kartica">
             <span className="pravilo-broj">I.</span>
-
             <h3>Jednosložne riječi</h3>
-
             <p>
               Jednosložne riječi mogu imati samo silazne naglaske (pȁs, pȗž).
             </p>
@@ -59,9 +70,7 @@ export default function DistribucijskaPravilaPage() {
 
           <div className="pravilo-kartica">
             <span className="pravilo-broj">II.</span>
-
             <h3>Višesložne riječi</h3>
-
             <p>
               Višesložne riječi mogu imati bilo koji od četiriju naglasaka na prvom slogu
               (kȉša, ròsa, sȗnce, tráva), na središnjem slogu dolaze uzlazni naglasci
@@ -74,9 +83,7 @@ export default function DistribucijskaPravilaPage() {
 
           <div className="pravilo-kartica">
             <span className="pravilo-broj">III.</span>
-
             <h3>Dužina iza naglaska</h3>
-
             <p>
               Dužina se ostvaruje iza naglaska i pripada ili osnovi riječi
               (kàpūt, dȍdīr, kȁjkāvka, ȕ grād), ili sufiksima / sufiksalnim morfemima
@@ -90,12 +97,10 @@ export default function DistribucijskaPravilaPage() {
         {/* RASPODJELNA PRAVILA */}
         <div className="distribucijska-blok">
           <h2>Raspodjelna pravila</h2>
-
           <p>
             Uzmemo li u obzir, dakle, polifunkcionalnost standardnoga jezika raspodjelna pravila glase ovako:
             uzlazni naglasci mogu biti na bilo kojem slogu osim zadnjem, a silazni naglasci mogu biti na svim slogovima riječi.
           </p>
-
           <p>
             Prvo pravilo proizlazi iz činjenice da su za ostvarenje uzlaznih naglasaka potrebna dva sloga,
             tj. da se visoki ton mora zadržati na zanaglasnom slogu kako bismo ostvarili kratkouzlazni ili
@@ -106,7 +111,6 @@ export default function DistribucijskaPravilaPage() {
         {/* DRUGO PRAVILO */}
         <div className="distribucijska-blok">
           <h2>Silazni naglasci izvan početnoga sloga</h2>
-
           <p>
             Drugo pravilo u mnogim se priručnicima navodi restriktivno te se kaže da silazni naglasci mogu biti
             samo na prvom slogu. Uzus i norma pokazuju da silazni naglasci na nepočetnim slogovima nisu iznimka
@@ -114,7 +118,6 @@ export default function DistribucijskaPravilaPage() {
             (u vlastitim imenima, u posuđenicama, u nekim gramatičkim i tvorbenim oblicima) te nema razloga
             imati pravilo koje opovrgava tu činjenicu.
           </p>
-
           <p>
             U standardnojezičnom izgovoru silazni se naglasci ostvaruju uglavnom na prvom slogu višesložnih riječi
             (kȉša, jȁbuka, sȗnce, nȃgrada). Pojavljivanje silaznih naglasaka izvan početnoga sloga u neutralnom
@@ -129,7 +132,6 @@ export default function DistribucijskaPravilaPage() {
         {/* VARIJETETI */}
         <div className="distribucijska-blok">
           <h2>Visoki i niski varijetet</h2>
-
           <p>
             U visokom varijetetu, pogledamo li u suvremene priručnike, nije jednoznačno određeno kada je silazni ton
             izvan početnoga sloga dopušten. U ponekim rječnicima (u Školskom rječniku Instituta za hrvatski jezik i
@@ -137,12 +139,10 @@ export default function DistribucijskaPravilaPage() {
             ne dopušta iznimka od strogo zacrtanih raspodjelnih pravila (poljoprìvreda, brodòvlāsnīk), a u ponekim
             se gramatikama (npr. u Tvorbi riječi S. Babića) dopušta (poljoprȉvreda, brodovlȃsnīk).
           </p>
-
           <p>
             Ono što je zajedničko svima jest da se iznimke odnose prije svega na govornu riječ
             (uzimajući u obzir i broj slogova: nȁ vlāk, ali: na vlȁkovima).
           </p>
-
           <p>
             Pojavljivanje silaznoga naglaska na nepočetnom slogu specifično je za niski varijetet
             (pogledaj, ne vidim i sl.). Takvi naglasni ostvaraji kod glagola još uvijek nisu opisani
@@ -156,19 +156,16 @@ export default function DistribucijskaPravilaPage() {
         {/* UDARNI NAGLASAK */}
         <div className="distribucijska-blok">
           <h2>Udarni naglasak i akut</h2>
-
           <p>
             Govornici koji često ostvaruju silazne naglaske na nepočetnom slogu, osobito u glagolima,
             najčešće su govornici koji govore udarnim naglasnim sustavom pa se svi njihovi naglasci
             mogu tumačiti kao udarni naglasci.
           </p>
-
           <p>
             Budući da je najsličniji kratkosilaznome, udarni naglasak često i bilježimo jednako kao
             kratkosilazni, ali govornici iz udarnoga sustava na mjestu dugouzlaznoga naglaska ponekad
             ostvaruju i dugi naglašeni slog koji je teško interpretirati.
           </p>
-
           <p>
             Percipira se kao udarni, kao udarni dugi ili kao ravan, a ponekad se, zbog očekivanja
             dugouzlaznoga, i percipira kao dugouzlazni.
@@ -183,6 +180,24 @@ export default function DistribucijskaPravilaPage() {
         </div>
 
       </div>
+
+      {/* KVIZ DIO */}
+      {!showQuiz && (
+        <div className="kviz-cta">
+          <h3>🧠 Provjeri svoje znanje</h3>
+          <p>
+            Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumiješ distribucijska pravila.
+          </p>
+          <button
+            onClick={() => setShowQuiz(true)}
+            className="start-quiz-btn"
+          >
+            Pokreni kviz
+          </button>
+        </div>
+      )}
+
+      {isLoggedIn && showQuiz && <Quiz steps={kviz3} />}
 
     </main>
   );
