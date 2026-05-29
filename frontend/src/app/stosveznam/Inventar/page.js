@@ -242,6 +242,25 @@ export default function InventarPage() {
           </ul>
         </div>
       </div>
+
+      {/* KVIZ DIO */}
+      {!showQuiz && (
+        <div className="kviz-cta">
+          <h3>🧠 Provjeri svoje znanje</h3>
+          <p>
+            Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumiješ naglasne sustave.
+          </p>
+          <button
+            onClick={() => setShowQuiz(true)}
+            className="start-quiz-btn"
+          >
+            Pokreni kviz
+          </button>
+        </div>
+      )}
+
+      {isLoggedIn && showQuiz && <Quiz quizId="kviz4" />}
+
     </main>
   );
 }
