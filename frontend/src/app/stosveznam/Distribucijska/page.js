@@ -180,25 +180,6 @@ export default function DistribucijskaPravilaPage() {
         </div>
 
       </div>
-
-      {/* KVIZ DIO */}
-      {!showQuiz && (
-        <div className="kviz-cta">
-          <h3>🧠 Provjeri svoje znanje</h3>
-          <p>
-            Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumiješ distribucijska pravila.
-          </p>
-          <button
-            onClick={() => setShowQuiz(true)}
-            className="start-quiz-btn"
-          >
-            Pokreni kviz
-          </button>
-        </div>
-      )}
-
-      {isLoggedIn && showQuiz && <Quiz steps={kviz3} />}
-
     </main>
   );
 }

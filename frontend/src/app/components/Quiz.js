@@ -9,7 +9,8 @@ export default function Quiz({ steps }) {
   const [lamp, setLamp] = useState(null);
   const [groups, setGroups] = useState({});
   const [finished, setFinished] = useState(false);
-
+  const [selectedGroup, setSelectedGroup] = useState(null);
+  const [selectedWord, setSelectedWord] = useState(null);
   const current = steps[step];
 
   useEffect(() => {
@@ -218,16 +219,16 @@ export default function Quiz({ steps }) {
         )}
 
         {/* ================= SEGMENT INPUT ================= */}
-        {current.type === "segment-input" && (
-          <>
+        {current?.type === "segment-input" && (
+        <>
             <p className="question-text">{current.question}</p>
 
-            {current.sentences.map((s, si) => (
+            {(current.sentences || []).map((s, si) => (
               <div key={si} className="segment-row">
 
                 <p className="segment-prompt">{s.prompt}</p>
 
-                <div className="segment-inputs">
+                <div className="segment-inputs modern-segments">
                   {Array.from({ length: s.parts }).map((_, i) => (
                     <input
                       key={i}
@@ -250,7 +251,8 @@ export default function Quiz({ steps }) {
                           };
                         })
                       }
-                      className="quiz-input small"
+                       className="segment-box"
+                       placeholder="..."
                     />
                   ))}
                 </div>
@@ -295,49 +297,85 @@ export default function Quiz({ steps }) {
         )}
 
         {/* ================= GROUP SORT ================= */}
-        {current.type === "group-sort" && groups[current.id] && (
-          <>
-            <p className="question-text">{current.question}</p>
+        {current?.type === "group-sort" && current?.groups && groups[current.id] && (
+            <>
+              <p className="question-text">{current.question}</p>
 
-            <div className="group-container">
+              <div className="group-container">
 
-              {["a", "b", "c"].map((groupKey) => (
-                <div key={groupKey} className="group-box">
+                {/* GRUPE */}
+                {["a", "b", "c"].map((groupKey) => (
+                  <div
+                    key={groupKey}
+                    className="group-box clickable-box"
+                    onClick={() => {
+                      if (!selectedWord) return;
 
-                  <h4>{current.groups[groupKey]}</h4>
+                      setGroups((prev) => {
+                        const updated = { ...prev[current.id] };
 
-                  {groups[current.id][groupKey].map((item, i) => (
-                    <button
-                      key={i}
-                      className="word-pill"
-                      onClick={() => {
-                        setGroups((prev) => {
-                          const updated = { ...prev[current.id] };
+                        updated.pool = updated.pool.filter(x => x !== selectedWord);
+                        updated[groupKey] = [...updated[groupKey], selectedWord];
 
-                          updated[groupKey] =
-                            updated[groupKey].filter(
+                        return {
+                          ...prev,
+                          [current.id]: updated,
+                        };
+                      });
+
+                      setSelectedWord(null);
+                    }}
+                  >
+                    <h4>{current.groups[groupKey]}</h4>
+
+                    {groups[current.id][groupKey].map((item, i) => (
+                      <button
+                        key={i}
+                        className="word-pill"
+                        onClick={(e) => {
+                          e.stopPropagation();
+
+                          setGroups((prev) => {
+                            const updated = { ...prev[current.id] };
+
+                            updated[groupKey] = updated[groupKey].filter(
                               (x) => x !== item
                             );
 
-                          updated.pool.push(item);
+                            updated.pool = [...updated.pool, item];
 
-                          return {
-                            ...prev,
-                            [current.id]: updated,
-                          };
-                        });
-                      }}
+                            return {
+                              ...prev,
+                              [current.id]: updated,
+                            };
+                          });
+                        }}
+                      >
+                        {item}
+                      </button>
+                    ))}
+                  </div>
+                ))}
+
+                {/* POOL */}
+                <div className="group-box">
+                  <h4>Riječi</h4>
+
+                  {groups[current.id].pool.map((item, i) => (
+                    <button
+                      key={i}
+                      className={`word-pill ${selectedWord === item ? "selected" : ""}`}
+                      onClick={() => setSelectedWord(item)}
                     >
                       {item}
                     </button>
                   ))}
-
                 </div>
-              ))}
 
-            </div>
-          </>
+              </div>
+            </>
         )}
+
 
         {/* ================= FEEDBACK ================= */}
         {current.type === "feedback" && (
