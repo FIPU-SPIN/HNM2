@@ -65,12 +65,14 @@ export default function DistribucijskaPravilaPage() {
       {/* GLAVNI SADRŽAJ */}
       <div className="distribucijska-sadrzaj">
 
+        {/* UVOD */}
         <div className="distribucijska-intro">
           <p>
             Tri su osnovna pravila raspodjele ili distribucije prozodema u standardnom jeziku:
           </p>
         </div>
 
+        {/* TRI PRAVILA */}
         <div className="pravila-grid">
 
           <div className="pravilo-kartica">
@@ -107,6 +109,7 @@ export default function DistribucijskaPravilaPage() {
 
         </div>
 
+        {/* RASPODJELNA PRAVILA */}
         <div className="distribucijska-blok">
           <h2>Raspodjelna pravila</h2>
           <p>
@@ -120,6 +123,7 @@ export default function DistribucijskaPravilaPage() {
           </p>
         </div>
 
+        {/* DRUGO PRAVILO */}
         <div className="distribucijska-blok">
           <h2>Silazni naglasci izvan početnoga sloga</h2>
           <p>
@@ -140,6 +144,7 @@ export default function DistribucijskaPravilaPage() {
           </p>
         </div>
 
+        {/* VARIJETETI */}
         <div className="distribucijska-blok">
           <h2>Visoki i niski varijetet</h2>
           <p>
@@ -163,6 +168,7 @@ export default function DistribucijskaPravilaPage() {
           </p>
         </div>
 
+        {/* UDARNI NAGLASAK */}
         <div className="distribucijska-blok">
           <h2>Udarni naglasak i akut</h2>
           <p>
@@ -195,25 +201,16 @@ export default function DistribucijskaPravilaPage() {
         <div className="kviz-cta">
           <h3>🧠 Provjeri svoje znanje</h3>
           <p>Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumiješ distribucijska pravila.</p>
-          {isLoggedIn ? (
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setShowQuiz(true);
-              }}
-              className="start-quiz-btn"
-              type="button"
-            >
-              Pokreni kviz
-            </button>
-          ) : (
-            <button className="start-quiz-btn disabled" disabled>
-              Pokreni kviz
-            </button>
-          )}
-          <br />
-          <br />
-          <i>Napomena: za pristup kvizu potrebno je biti prijavljen u svoj korisnički račun.</i>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setShowQuiz(true);
+            }}
+            className="start-quiz-btn"
+            type="button"
+          >
+            Pokreni kviz
+          </button>
         </div>
       ) : (
         <div className="kviz-container">

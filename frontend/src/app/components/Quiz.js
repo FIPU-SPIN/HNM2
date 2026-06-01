@@ -154,26 +154,55 @@ export default function Quiz({ steps }) {
           )}
 
           {/* ================= AUDIO SELECT ================= */}
-          {current.type === "audio_select" && (
-            <>
-              <h2>{current.title}</h2>
+{current.type === "audio_select" && (
+  <>
+    <p className="question-text">{current.question}</p>
 
-              <div className="audio-grid">
-                {current.voices.map((v, i) => (
-                  <div key={i} className="audio-item">
-                    <button
-                      className="play-audio-btn"
-                      onClick={() => {
-                        new Audio(`http://localhost:5000${v.audio}`).play();
-                      }}
-                    >
-                      🔊 {v.label}
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
+    {/* Ako ima voices niz (više audio zapisa) */}
+    {current.voices && current.voices.length > 0 && (
+      <div className="audio-grid">
+        {current.voices.map((v, i) => (
+          <div key={i} className="audio-item">
+            <button
+              className="play-audio-btn"
+              onClick={() => {
+                new Audio(`http://localhost:5000${v.audio}`).play();
+              }}
+            >
+              🔊 {v.label}
+            </button>
+          </div>
+        ))}
+      </div>
+    )}
+
+    {/* Ako ima audio polje (jedan audio zapis) */}
+    {current.audio && (
+      <div className="audio-single">
+        <audio 
+          controls 
+          src={`http://localhost:5000${current.audio}`} 
+          className="audio-player"
+        />
+        <p className="audio-label">🔊 Poslušaj izgovor</p>
+      </div>
+    )}
+
+    <div className="options-grid">
+      {current.options.map((opt, i) => (
+        <button
+          key={i}
+          className={`option-pill ${
+            answers[current.id] === opt ? "active" : ""
+          }`}
+          onClick={() => handleSelect(current.id, opt)}
+        >
+          {opt}
+        </button>
+      ))}
+    </div>
+  </>
+)}
 
           {/* ================= SELECT ================= */}
           {current.type === "select" && (

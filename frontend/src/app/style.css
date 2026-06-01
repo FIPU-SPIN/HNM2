@@ -3156,6 +3156,18 @@
   transform: scale(1.02);
 }
 
+.audio-single {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.audio-player {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
+}
+
 /* Sakrij stare nefunkcionalne audio gumbe */
 .audio-item.disabled {
   display: none;
@@ -3353,4 +3365,120 @@
   padding: 14px;
   margin-bottom: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+/* AUDIO BUTTON - isti stil kao option-pill */
+.play-audio-btn {
+  background: white;
+  color: #2aa39a;
+  border: 2px solid #2aa39a;
+  border-radius: 40px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  max-width: 280px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.play-audio-btn:hover {
+  background: #bcd8d6;
+  color: #ffffff;
+  transform: scale(1.02);
+  box-shadow: 0 6px 18px rgba(42, 163, 154, 0.35);
+}
+
+/* Audio grid - isti stil kao options-grid */
+.audio-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.audio-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Audio single player - isti stil */
+.audio-single {
+  text-align: center;
+  margin: 20px 0;
+  padding: 16px;
+  background: #f3f6ff;
+  border-radius: 16px;
+}
+
+.audio-player {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 40px;
+}
+
+/* Label uz audio */
+.audio-label {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #6b8a87;
+  font-style: italic;
+}
+
+/* Zatvori kviz gumb - mali X */
+.zatvori-kviz-btn {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: transparent !important;
+  border: none !important;
+  font-size: 0 !important;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.zatvori-kviz-btn::after {
+  content: "✕";
+  font-size: 22px;
+  font-weight: normal;
+  color: #aaa;
+  transition: color 0.2s ease;
+  line-height: 1;
+}
+
+.zatvori-kviz-btn:hover::after {
+  color: #ff4444;
+}
+
+.zatvori-kviz-btn:hover {
+  background: transparent !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Kviz container - mora biti relative da X radi */
+.kviz-container {
+  position: relative;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 30px 20px 20px 20px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
