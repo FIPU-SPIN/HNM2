@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Quiz from "../../../components/Quiz";
+import Quiz from "../../components/Quiz";
 
 export default function Kviz4Page() {
   const [kviz, setKviz] = useState([]);
@@ -22,7 +22,19 @@ export default function Kviz4Page() {
   }, []);
 
   if (loading) {
-    return <p>Učitavanje kviza...</p>;
+    return (
+      <div className="quiz-loading">
+        <p>Učitavanje kviza...</p>
+      </div>
+    );
+  }
+
+  if (!kviz.length) {
+    return (
+      <div className="quiz-error">
+        <p>Nema pitanja za ovaj kviz.</p>
+      </div>
+    );
   }
 
   return <Quiz steps={kviz} />;
