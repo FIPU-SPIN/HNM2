@@ -8,16 +8,23 @@ import { User, LogOut } from "lucide-react";
 export default function MainNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setDropdownOpen] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
 
   useEffect(() => {
   const checkAuth = () => {
     const token = localStorage.getItem("token");
     setIsLoggedIn(!!token);
   };
+
   checkAuth();
+
   window.addEventListener("storage", checkAuth);
-  return () => window.removeEventListener("storage", checkAuth);
+  window.addEventListener("authChange", checkAuth);
+
+  return () => {
+    window.removeEventListener("storage", checkAuth);
+    window.removeEventListener("authChange", checkAuth);
+    };
   }, []);
 
   const toggleDropdown = (dropdownName) => {
@@ -205,14 +212,16 @@ export default function MainNav() {
           {/* LOGIN/REG/LOGOUT */}
           
           <li className="nav-login-icon">
-            {isLoggedIn ? (
-              <button onClick={handleLogout} title="Odjava">
-                <LogOut size={22} />
-              </button>
-            ) : (
-              <Link href="/login">
-                <User size={22} />
-              </Link>
+            {isLoggedIn === null ? null : (
+              isLoggedIn ? (
+                <button onClick={handleLogout} title="Odjava">
+                  <LogOut size={22} className="logout-icon"/>
+                </button>
+              ) : (
+                <Link href="/login">
+                  <User size={22} />
+                </Link>
+              )
             )}
           </li>
 

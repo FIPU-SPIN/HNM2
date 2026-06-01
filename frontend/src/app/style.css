@@ -903,29 +903,26 @@
 ========================= */
 
 .start-quiz-btn {
-  margin: 20px auto 0 auto;
-
-  display: block;
-
-  padding: 16px 34px;
-
-  border-radius: 999px;
-
-  border: none;
-
-  background: linear-gradient(135deg, #09949b, #4fb2b7);
-
+  display: inline-block;
+  width: auto;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: #2563eb;
   color: white;
-
-  font-weight: 700;
-
+  text-decoration: none;
+  font-weight: 600;
   cursor: pointer;
-
   transition: 0.2s ease;
 }
 
 .start-quiz-btn:hover {
   transform: translateY(-2px);
+}
+
+.start-quiz-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 /* =========================
@@ -2835,6 +2832,14 @@
   margin-top: 10px;
   font-size: 0.95rem;
   text-align: center;
+}
+
+.logout-icon {
+  transition: 0.2s ease;
+}
+
+.logout-icon:hover {
+  transform: translateX(2px);
 }
 
 /* registracija */
