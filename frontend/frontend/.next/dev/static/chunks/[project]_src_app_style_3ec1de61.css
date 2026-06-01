@@ -213,8 +213,8 @@ main {
 .footer .footerlijevo img {
   object-fit: contain;
   border-radius: 10px;
-  width: 120px;
-  height: 160px;
+  width: auto;
+  height: 70px;
 }
 
 .footer .footerdesno {
@@ -2265,52 +2265,65 @@ main {
   font-size: 1.05rem;
 }
 
-.page-op, .page-rezultati {
-  color: #000;
-  background-color: #fff;
+.page-op, .page-rezultati, .page-aplikacije {
+  background: linear-gradient(#6edcd226, #fff9);
   min-height: 100vh;
-  padding: 4rem;
+  padding: 60px 8vw;
 }
 
-.page-aplikacije {
-  color: #1a1a1a;
-  background-color: #fff;
-  min-height: 100vh;
-  padding: 4rem;
-}
-
-.content-container {
+.page-op .content-container, .page-rezultati .content-container, .page-aplikacije .content-container {
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  background: #fffffff2;
+  border-radius: 28px;
   max-width: 1100px;
   margin: 0 auto;
+  padding: 50px;
+  box-shadow: 0 10px 25px #6edcd226;
+}
+
+.glavni-naslov {
+  text-align: center;
+  color: #28837d;
+  letter-spacing: -.5px;
+  margin-bottom: 2rem;
+  font-size: 2.8rem;
+  font-weight: 800;
 }
 
 .podnaslov {
+  color: #1a4a47;
+  border-left: 6px solid #6edcd2;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  font-size: 1.5rem;
+  padding-left: 20px;
+  font-size: 1.8rem;
   font-weight: 600;
 }
 
 .tekst-odlomak {
   text-align: justify;
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-  line-height: 1.6;
+  color: #2c3e50;
+  margin-bottom: 1.2rem;
+  font-size: 1.05rem;
+  line-height: 1.8;
 }
 
 .rad-citat {
-  border-left: 4px solid #0003;
-  margin-bottom: 1.5rem;
-  padding-left: 1rem;
-  font-size: 1.1rem;
-  line-height: 1.5;
+  color: #2c3e50;
+  background: #6edcd214;
+  border-left: 4px solid #6edcd2;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+  padding: 15px 20px 15px 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .page-hub {
-  color: #000;
-  background-color: #fff;
+  background: linear-gradient(#6edcd226, #fff9);
   min-height: 100vh;
-  padding: 4rem 20px;
+  padding: 60px 20px;
 }
 
 .center-text {
@@ -2326,10 +2339,11 @@ main {
 }
 
 .slika-hub {
-  border-radius: 12px;
+  border: 1px solid #2aa39a26;
+  border-radius: 28px;
   max-width: 100%;
   height: auto;
-  box-shadow: 0 8px 15px #0003;
+  box-shadow: 0 10px 25px #6edcd240;
 }
 
 .botuni-container {
@@ -2343,30 +2357,61 @@ main {
 }
 
 .botun-op, .botun-rez, .botun-app {
-  background-color: #f6c078;
+  background: linear-gradient(135deg, #28837d, #1f6e69);
   border-radius: 12px;
   justify-content: center;
   align-items: center;
   width: 100%;
   max-width: 450px;
   margin: 0 auto;
-  padding: 1.5rem 2rem;
-  font-size: 1.3rem;
-  font-weight: 700;
-  transition: transform .2s, box-shadow .2s;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: all .3s;
   display: flex;
-  color: #1a1a1a !important;
+  box-shadow: 0 4px 12px #28837d4d;
+  color: #fff !important;
   text-decoration: none !important;
 }
 
 .botun-op:hover, .botun-rez:hover, .botun-app:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 15px #0003;
+  background: linear-gradient(135deg, #3aa6a0, #28837d);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px #28837d66;
 }
 
-.botun-app {
-  color: #1a1a1a;
-  background-color: #f7bb7b;
+@media (max-width: 768px) {
+  .page-op, .page-rezultati, .page-aplikacije, .page-op .content-container, .page-rezultati .content-container, .page-aplikacije .content-container {
+    padding: 30px 20px;
+  }
+
+  .glavni-naslov {
+    font-size: 2rem;
+  }
+
+  .podnaslov {
+    font-size: 1.4rem;
+  }
+
+  .tekst-odlomak {
+    font-size: 1rem;
+  }
+
+  .botun-op, .botun-rez, .botun-app {
+    max-width: 100%;
+    padding: 1rem 1.2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .glavni-naslov {
+    font-size: 1.6rem;
+  }
+
+  .podnaslov {
+    font-size: 1.2rem;
+  }
 }
 
 .login-page {

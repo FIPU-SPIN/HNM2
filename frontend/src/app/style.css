@@ -3549,3 +3549,41 @@
   cursor: not-allowed;
   pointer-events: none;
 }
+
+/* CENTRIRANJE NASLOVA I SLIKA NA PODSTRANICAMA */
+.content-container.stosveznam,
+.content-container.rijec,
+.content-container.paradigma,
+.content-container.distribucijska {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.content-container.stosveznam .glavni-naslov,
+.content-container.rijec .glavni-naslov,
+.content-container.paradigma .glavni-naslov,
+.content-container.distribucijska .glavni-naslov {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slika-stosveznam,
+.slika-rijec,
+.slika-paradigma,
+.slika-distribucijska {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.slika-stosveznam img,
+.slika-rijec img,
+.slika-paradigma img,
+.slika-distribucijska img {
+    display: block;
+    margin: 0 auto;
+}
