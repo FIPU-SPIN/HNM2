@@ -3,12 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import Quiz from "../components/Quiz";
-import kviz1 from "../data/kviz1";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 export default function StoSveZnamPage() {
-  const [showQuiz, setShowQuiz] = useState(false);
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(null);
 
@@ -169,23 +167,24 @@ export default function StoSveZnamPage() {
 
       </div>
 
-      {!showQuiz && (
         <div className="kviz-cta">
           <h3>🧠 Provjeri svoje znanje</h3>
           <p>
             Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumiješ naglasne sustave.
           </p>
-          <button
-            onClick={() => setShowQuiz(true)}
-            className="start-quiz-btn"
-          >
+          {isLoggedIn ? (
+          <Link href="/kviz1" className="start-quiz-btn">
             Pokreni kviz
+          </Link>
+        ) : (
+          <button className="start-quiz-btn disabled" disabled>
+            Pokreni kviz 
           </button>
+        )}
+        <br />
+        <br />
+           <i>Napomena: za pristup kvizu potrebno je biti prijavljen u svoj korisnički račun.</i> 
         </div>
-      )}
-
-      {isLoggedIn && showQuiz && <Quiz steps={kviz1} />}
-
-    </main>
+     </main>
   );
 }

@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import Quiz from "../../components/Quiz";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 export default function GovornaRijecPage() {
-  const [showQuiz, setShowQuiz] = useState(false);
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(null);
 
@@ -205,6 +205,24 @@ export default function GovornaRijecPage() {
 
         </div>
 
+      <div className="kviz-cta">
+          <h3>🧠 Provjeri svoje znanje</h3>
+          <p>
+            Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumiješ naglasne sustave.
+          </p>
+          {isLoggedIn ? (
+          <Link href="/kviz2" className="start-quiz-btn">
+            Pokreni kviz
+          </Link>
+        ) : (
+          <button className="start-quiz-btn disabled" disabled>
+            Pokreni kviz 
+          </button>
+        )}
+        <br />
+        <br />
+           <i>Napomena: za pristup kvizu potrebno je biti prijavljen u svoj korisnički račun.</i> 
+        </div>
 
     </main>
   );
