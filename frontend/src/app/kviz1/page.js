@@ -22,9 +22,32 @@ export default function Page() {
       });
   }, []);
 
+  const handleSubmit = async (answers) => {
+  const token = localStorage.getItem("token");
+
+  try {
+    const res = await fetch("http://localhost:5000/api/quizRez", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        quizId: "kviz1",
+        answers,
+      }),
+    });
+
+    const data = await res.json();
+    console.log("Rezultat spremljen:", data);
+    } catch (err) {
+      console.error("Greška pri slanju:", err);
+    }
+  };
+
   if (loading) {
     return <p>Učitavanje kviza...</p>;
   }
 
-  return <Quiz steps={kviz} />;
+  return <Quiz steps={kviz} onSubmit={handleSubmit} />;
 }
