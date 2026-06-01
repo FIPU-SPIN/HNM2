@@ -23,23 +23,28 @@ export default function InventarPage() {
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Greska:", err);
+        console.error("Greška:", err);
         setLoading(false);
       });
+  }, []);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token);
   }, []);
 
   // Funkcija za reprodukciju zvuka
   const playSound = (soundName) => {
     if (!soundName) return;
-    
+
     if (currentAudioRef.current) {
       currentAudioRef.current.pause();
       currentAudioRef.current.currentTime = 0;
     }
-    
+
     const audio = new Audio(`/assets/fix_sounds/${soundName}.wav`);
     currentAudioRef.current = audio;
-    audio.play().catch(error => console.error("Greska pri reprodukciji:", error));
+    audio.play().catch(error => console.error("Greška pri reprodukciji:", error));
   };
 
   const playZvukIzZnaka = (znak) => {
@@ -57,11 +62,6 @@ export default function InventarPage() {
       playSound(soundName);
     }
   };
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token);
-  }, []);
 
   useEffect(() => {
     const handleZnakClick = (e) => {
@@ -239,12 +239,12 @@ export default function InventarPage() {
           <h2>Biljezenje naglasaka na racunalu</h2>
           <p>Zelite li i Vi biljeziti naglaske pisući na racunalu, u Word dokumentu odaberite "Umetanje", zatim "Simbol" te ih potrazite medu fontovima. Uobicajeni fontovi, kao što su Times New Roman ili Arial, imaju samoglasnike sa znakovima za naglaske, no nemaju, primjerice, slogotvorni r s kratkouzlaznim naglaskom ili sa zanaglasnom duzinom.</p>
           <p>U dijalektoloskim se transkripcijama najcesce upotrebljava font <strong>ZRCola</strong>, koji se moze besplatno preuzeti na mreznoj stranici znanstvenoistrazivackoga centra Slovenske akademije znanosti i umjetnosti u Ljubljani.</p>
-          
+
           <div className="zrcola-slika-container">
             <Image src="/assets/images/Picture2.png" alt="ZRCola font naslovnica" width={600} height={400} className="zrcola-slika" />
             <p className="slika-napomena"><em>Slika 08a - Naslovnica mrezne stranice ZRCola</em></p>
           </div>
-          
+
           <div className="link-container">
             <a href="https://zrcola.zrc-sazu.si/" target="_blank" rel="noopener noreferrer" className="zrcola-link-button">🔗 ZRCola</a>
           </div>
@@ -286,7 +286,7 @@ export default function InventarPage() {
               <br />
               <button className="zvuk-gumb praat-zvuk-gumb" data-zvuk="zvuk-1-2-1" onClick={() => playSound("zvuk-1-2-1")}>🔊 Poslusaj izgovor</button>
             </p>
-            
+
             <div className="praat-slike-container">
               <Image src="/assets/images/Picture3.png" alt="Akusticki prikaz naglasaka u programu Praat" width={800} height={500} className="praat-slika" />
               <p className="slika-napomena"><em>Slika 08b - Akusticki prikaz naglasaka u programu Praat</em></p>
@@ -315,16 +315,25 @@ export default function InventarPage() {
         <div className="kviz-cta">
           <h3>🧠 Provjeri svoje znanje</h3>
           <p>Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumijes naglasne sustave.</p>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              setShowQuiz(true);
-            }}
-            className="start-quiz-btn"
-            type="button"
-          >
-            Pokreni kviz
-          </button>
+          {isLoggedIn ? (
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                setShowQuiz(true);
+              }}
+              className="start-quiz-btn"
+              type="button"
+            >
+              Pokreni kviz
+            </button>
+          ) : (
+            <button className="start-quiz-btn disabled" disabled>
+              Pokreni kviz
+            </button>
+          )}
+          <br />
+          <br />
+          <i>Napomena: za pristup kvizu potrebno je biti prijavljen u svoj korisnički račun.</i>
         </div>
       ) : (
         <div className="kviz-container">

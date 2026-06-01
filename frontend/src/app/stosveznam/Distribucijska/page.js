@@ -2,14 +2,29 @@
 
 import Image from "next/image";
 import Quiz from "../../components/Quiz";
-import kviz3 from "../../data/kviz3";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 export default function DistribucijskaPravilaPage() {
   const [showQuiz, setShowQuiz] = useState(false);
+  const [kviz, setKviz] = useState([]);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/quiz/kviz3")
+      .then((res) => res.json())
+      .then((data) => {
+        const sorted = data.sort((a, b) => a.order - b.order);
+        setKviz(sorted);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Greška:", err);
+        setLoading(false);
+      });
+  }, []);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -50,14 +65,12 @@ export default function DistribucijskaPravilaPage() {
       {/* GLAVNI SADRŽAJ */}
       <div className="distribucijska-sadrzaj">
 
-        {/* UVOD */}
         <div className="distribucijska-intro">
           <p>
             Tri su osnovna pravila raspodjele ili distribucije prozodema u standardnom jeziku:
           </p>
         </div>
 
-        {/* TRI PRAVILA */}
         <div className="pravila-grid">
 
           <div className="pravilo-kartica">
@@ -94,7 +107,6 @@ export default function DistribucijskaPravilaPage() {
 
         </div>
 
-        {/* RASPODJELNA PRAVILA */}
         <div className="distribucijska-blok">
           <h2>Raspodjelna pravila</h2>
           <p>
@@ -108,7 +120,6 @@ export default function DistribucijskaPravilaPage() {
           </p>
         </div>
 
-        {/* DRUGO PRAVILO */}
         <div className="distribucijska-blok">
           <h2>Silazni naglasci izvan početnoga sloga</h2>
           <p>
@@ -129,7 +140,6 @@ export default function DistribucijskaPravilaPage() {
           </p>
         </div>
 
-        {/* VARIJETETI */}
         <div className="distribucijska-blok">
           <h2>Visoki i niski varijetet</h2>
           <p>
@@ -153,7 +163,6 @@ export default function DistribucijskaPravilaPage() {
           </p>
         </div>
 
-        {/* UDARNI NAGLASAK */}
         <div className="distribucijska-blok">
           <h2>Udarni naglasak i akut</h2>
           <p>
@@ -180,6 +189,50 @@ export default function DistribucijskaPravilaPage() {
         </div>
 
       </div>
+
+      {/* KVIZ DIO */}
+      {!showQuiz ? (
+        <div className="kviz-cta">
+          <h3>🧠 Provjeri svoje znanje</h3>
+          <p>Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumiješ distribucijska pravila.</p>
+          {isLoggedIn ? (
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                setShowQuiz(true);
+              }}
+              className="start-quiz-btn"
+              type="button"
+            >
+              Pokreni kviz
+            </button>
+          ) : (
+            <button className="start-quiz-btn disabled" disabled>
+              Pokreni kviz
+            </button>
+          )}
+          <br />
+          <br />
+          <i>Napomena: za pristup kvizu potrebno je biti prijavljen u svoj korisnički račun.</i>
+        </div>
+      ) : (
+        <div className="kviz-container">
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setShowQuiz(false);
+            }}
+            className="zatvori-kviz-btn"
+            type="button"
+          >
+            ✕ Zatvori kviz
+          </button>
+          {loading && <p>Učitavanje kviza...</p>}
+          {!loading && kviz.length === 0 && <p>Nema pitanja za ovaj kviz.</p>}
+          {!loading && kviz.length > 0 && <Quiz steps={kviz} />}
+        </div>
+      )}
+
     </main>
   );
 }
