@@ -37,7 +37,7 @@ export default function OStraniciPage() {
 
         <h2 className="podnaslov">Tko je još zaslužan za sve što pronalazite na ovoj mrežnoj stranici?</h2>
         <p className="tekst-odlomak">
-          Strpljivo snimanje svih audiozapisa odradio je Jordan Bićanić, koji je u audiostudiju Odsjeka za fonetiku snimio većinu zvuka i obradio ga, zajedno s Elenmari Pletikos Olof. Ilustracije je izradio ak. slikar iz Splita Marin Baučić. Mrežno su mjesto uredile_________ s Fakulteta informatike u Puli.
+          Strpljivo snimanje svih audiozapisa odradio je Jordan Bićanić, koji je u audiostudiju Odsjeka za fonetiku snimio većinu zvuka i obradio ga, zajedno s Elenmari Pletikos Olof. Ilustracije je izradio ak. slikar iz Splita Marin Baučić. Mrežno su mjesto uredile Mia Rovis, mag. inf. i Marijela Miličević, mag. educ. inf. - stručne suradnice s Fakulteta informatike u Puli.
         </p>
       </div>
     </div>

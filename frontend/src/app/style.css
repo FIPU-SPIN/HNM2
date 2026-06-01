@@ -223,13 +223,12 @@
       gap: 15px;
   }
 
-  .footer .footerlijevo img {
-      height: 160px;
-      width: 120px;
-      object-fit: contain;
-      border-radius: 5px;
-      border-radius: 10px;
-  }
+.footer .footerlijevo img {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 10px;
+}
 
   .footer .footerdesno {
       display: flex;
@@ -2595,124 +2594,186 @@
     color: #2f3e34;
   }
 
+  /* O PROJEKTU - NOVI STIL (usklađen sa ostalim stranicama) */
 
-  /* --- STILOVI ZA PODSTRANICE 'O PROJEKTU' --- */
+.page-op,
+.page-rezultati,
+.page-aplikacije {
+  background: linear-gradient(
+    to bottom,
+    rgba(110, 220, 210, 0.15),
+    rgba(255, 255, 255, 0.6)
+  );
+  min-height: 100vh;
+  padding: 60px 8vw;
+}
 
-  .page-op {
-    background-color: #ffffff; 
-    color: #000000;
-    min-height: 100vh;
-    padding: 4rem;
-  }
+.page-op .content-container,
+.page-rezultati .content-container,
+.page-aplikacije .content-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 28px;
+  padding: 50px;
+  box-shadow: 0 10px 25px rgba(110, 220, 210, 0.15);
+  backdrop-filter: blur(4px);
+}
 
-  .page-rezultati {
-    background-color: #ffffff; 
-    color: #000000;
-    min-height: 100vh;
-    padding: 4rem;
-  }
+.glavni-naslov {
+  font-size: 2.8rem;
+  font-weight: 800;
+  text-align: center;
+  color: #28837d;
+  margin-bottom: 2rem;
+  letter-spacing: -0.5px;
+}
 
+.podnaslov {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #1a4a47;
+  border-left: 6px solid #6edcd2;
+  padding-left: 20px;
+}
+
+.tekst-odlomak {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+  text-align: justify;
+  color: #2c3e50;
+}
+
+.rad-citat {
+  margin-bottom: 1.2rem;
+  padding: 15px 20px;
+  padding-left: 1.5rem;
+  border-left: 4px solid #6edcd2;
+  background: rgba(110, 220, 210, 0.08);
+  border-radius: 12px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #2c3e50;
+}
+
+/* HUB STRANICA (centralna stranica) */
+
+.page-hub {
+  background: linear-gradient(
+    to bottom,
+    rgba(110, 220, 210, 0.15),
+    rgba(255, 255, 255, 0.6)
+  );
+  min-height: 100vh;
+  padding: 60px 20px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.slika-hub-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+
+.slika-hub {
+  border-radius: 28px;
+  box-shadow: 0 10px 25px rgba(110, 220, 210, 0.25);
+  max-width: 100%;
+  height: auto;
+  border: 1px solid rgba(42, 163, 154, 0.15);
+}
+
+.botuni-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* ZAJEDNIČKI IZGLED ZA SVA 3 BOTUNA - isti kao botun-ssz */
+.botun-op,
+.botun-rez,
+.botun-app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #28837d, #1f6e69);
+  color: #ffffff !important;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(40, 131, 125, 0.3);
+}
+
+.botun-op:hover,
+.botun-rez:hover,
+.botun-app:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(40, 131, 125, 0.4);
+  background: linear-gradient(135deg, #3aa6a0, #28837d);
+}
+
+/* MOBILNI RESPONSIVE */
+@media (max-width: 768px) {
+  .page-op,
+  .page-rezultati,
   .page-aplikacije {
-    background-color: #ffffff; 
-    color: #1a1a1a;
-    min-height: 100vh;
-    padding: 4rem;
+    padding: 30px 20px;
   }
 
-  .content-container {
-    max-width: 1100px;
-    margin: 0 auto;
+  .page-op .content-container,
+  .page-rezultati .content-container,
+  .page-aplikacije .content-container {
+    padding: 30px 20px;
+  }
+
+  .glavni-naslov {
+    font-size: 2rem;
   }
 
   .podnaslov {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    font-size: 1.4rem;
   }
 
   .tekst-odlomak {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    text-align: justify;
+    font-size: 1rem;
   }
 
-  .rad-citat {
-    margin-bottom: 1.5rem;
-    padding-left: 1rem;
-    border-left: 4px solid rgba(0, 0, 0, 0.2);
-    font-size: 1.1rem;
-    line-height: 1.5;
-  }
-
-  /* --- STILOVI ZA GLAVNU STRANICU (HUB S BOTUNIMA) --- */
-
-  .page-hub {
-    background-color: #ffffff; 
-    color: #000000; 
-    min-height: 100vh;
-    padding: 4rem 20px;
-  }
-
-  .center-text {
-    text-align: center;
-  }
-
-  /* Stil za kontejner slike */
-  .slika-hub-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2.5rem; 
-    width: 100%;
-  }
-
-  .slika-hub {
-    border-radius: 12px; 
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
-    max-width: 100%; 
-    height: auto;
-  }
-
-  .botuni-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 2rem;
-    align-items: center;
-    justify-content: center; 
-    width: 100%;
-  }
-
-  /* --- ZAJEDNIČKI IZGLED ZA SVA 3 BOTUNA --- */
-  .botun-op, .botun-rez, .botun-app {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 450px;
-    margin: 0 auto;
-    padding: 1.5rem 2rem;
-    font-size: 1.3rem;
-    font-weight: 700;
-    text-decoration: none !important; /* Ovo miče onu ružnu ljubičastu crtu od linka */
-    border-radius: 12px;
-    background-color: #f6c078; /* Ista boja breskve/pijeska za SVE botune */
-    color: #1a1a1a !important; /* Ista tamna slova za SVE botune */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  /* Efekt kad se prođe mišem - vrijedi za sva 3 */
-  .botun-op:hover, .botun-rez:hover, .botun-app:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-  }
-
+  .botun-op,
+  .botun-rez,
   .botun-app {
-    background-color: #f7bb7b; 
-    color: #1a1a1a;
+    padding: 1rem 1.2rem;
+    font-size: 1rem;
+    max-width: 100%;
   }
+}
+
+@media (max-width: 480px) {
+  .glavni-naslov {
+    font-size: 1.6rem;
+  }
+
+  .podnaslov {
+    font-size: 1.2rem;
+  }
+}
 
 /* login */
 
@@ -3481,4 +3542,10 @@
   background: white;
   border-radius: 24px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.start-quiz-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }

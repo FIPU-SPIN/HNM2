@@ -128,7 +128,7 @@ export default function Quiz({ steps }) {
                 />
               )}
 
-              <p className="question-text">{current.text}</p>
+              <p className="question-text" dangerouslySetInnerHTML={{ __html: current.text }} />
             </>
           )}
 
@@ -154,62 +154,134 @@ export default function Quiz({ steps }) {
           )}
 
           {/* ================= AUDIO SELECT ================= */}
-{current.type === "audio_select" && (
-  <>
-    <p className="question-text">{current.question}</p>
+          {current.type === "audio_select" && (
+            <>
+              <p className="question-text" dangerouslySetInnerHTML={{ __html: current.question }} />
 
-    {/* Ako ima voices niz (više audio zapisa) */}
-    {current.voices && current.voices.length > 0 && (
-      <div className="audio-grid">
-        {current.voices.map((v, i) => (
-          <div key={i} className="audio-item">
-            <button
-              className="play-audio-btn"
-              onClick={() => {
-                new Audio(`http://localhost:5000${v.audio}`).play();
-              }}
-            >
-              🔊 {v.label}
-            </button>
-          </div>
-        ))}
-      </div>
-    )}
+              {/* Ako ima voices niz (više audio zapisa) */}
+              {current.voices && current.voices.length > 0 && (
+                <div className="audio-grid">
+                  {current.voices.map((v, i) => (
+                    <div key={i} className="audio-item">
+                      <button
+                        className="play-audio-btn"
+                        onClick={() => {
+                          new Audio(`http://localhost:5000${v.audio}`).play();
+                        }}
+                      >
+                        🔊 {v.label}
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
 
-    {/* Ako ima audio polje (jedan audio zapis) */}
-    {current.audio && (
-      <div className="audio-single">
-        <audio 
-          controls 
-          src={`http://localhost:5000${current.audio}`} 
-          className="audio-player"
-        />
-        <p className="audio-label">🔊 Poslušaj izgovor</p>
-      </div>
-    )}
+              {/* Ako ima audio polje (jedan audio zapis) */}
+              {current.audio && (
+                <div className="audio-single">
+                  <audio 
+                    controls 
+                    src={`http://localhost:5000${current.audio}`} 
+                    className="audio-player"
+                  />
+                  <p className="audio-label">🔊 Poslušaj izgovor</p>
+                </div>
+              )}
 
-    <div className="options-grid">
-      {current.options.map((opt, i) => (
-        <button
-          key={i}
-          className={`option-pill ${
-            answers[current.id] === opt ? "active" : ""
-          }`}
-          onClick={() => handleSelect(current.id, opt)}
-        >
-          {opt}
-        </button>
-      ))}
-    </div>
-  </>
-)}
+              <div className="options-grid">
+                {current.options.map((opt, i) => (
+                  <button
+                    key={i}
+                    className={`option-pill ${
+                      answers[current.id] === opt ? "active" : ""
+                    }`}
+                    onClick={() => handleSelect(current.id, opt)}
+                  >
+                    {opt}
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
+
+                    {/* ================= AUDIO WITH INPUT ================= */}
+          {current.type === "audio_with_input" && (
+            <>
+              <p className="question-text" dangerouslySetInnerHTML={{ __html: current.question }} />
+
+              {/* Audio gumb - koristi voices niz */}
+              {current.voices && current.voices.length > 0 && (
+                <div className="audio-grid">
+                  {current.voices.map((v, i) => (
+                    <div key={i} className="audio-item">
+                      <button
+                        className="play-audio-btn"
+                        onClick={() => {
+                          new Audio(`http://localhost:5000${v.audio}`).play();
+                        }}
+                      >
+                        🔊 {v.label}
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Audio player - ako ima audio polje */}
+              {current.audio && (
+                <div className="audio-single">
+                  <audio 
+                    controls 
+                    src={`http://localhost:5000${current.audio}`} 
+                    className="audio-player"
+                  />
+                  <p className="audio-label">🔊 Poslušaj izgovor rečenica</p>
+                </div>
+              )}
+
+              {/* Input polja za svaku rečenicu */}
+              {(current.sentences || []).map((s, si) => (
+                <div key={si} className="segment-row">
+                  <p className="segment-prompt">{s.prompt}</p>
+                  <div className="segment-inputs modern-segments">
+                    {Array.from({ length: s.parts }).map((_, i) => (
+                      <input
+                        key={i}
+                        type="text"
+                        value={answers[current.id]?.[si]?.[i] || ""}
+                        onChange={(e) =>
+                          setAnswers((prev) => {
+                            const prevQ = prev[current.id] || {};
+                            const prevSentence = prevQ[si] || {};
+
+                            return {
+                              ...prev,
+                              [current.id]: {
+                                ...prevQ,
+                                [si]: {
+                                  ...prevSentence,
+                                  [i]: e.target.value,
+                                },
+                              },
+                            };
+                          })
+                        }
+                        className="segment-box"
+                        placeholder="..."
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
 
           {/* ================= SELECT ================= */}
           {current.type === "select" && (
             <>
               {current.title && <h2>{current.title}</h2>}
 
-              <p className="question-text">{current.question}</p>
+              <p className="question-text" dangerouslySetInnerHTML={{ __html: current.question }} />
 
               {current.image && (
                 <Image
@@ -241,7 +313,7 @@ export default function Quiz({ steps }) {
           {/* ================= INPUT ================= */}
           {current.type === "input" && (
             <>
-              <p className="question-text">{current.question}</p>
+              <p className="question-text" dangerouslySetInnerHTML={{ __html: current.question }} />
 
               {current.image && (
                 <Image
@@ -268,7 +340,7 @@ export default function Quiz({ steps }) {
           {/* ================= SEGMENT INPUT ================= */}
           {current?.type === "segment-input" && (
             <>
-              <p className="question-text">{current.question}</p>
+              <p className="question-text" dangerouslySetInnerHTML={{ __html: current.question }} />
 
               {current.image && (
                 <Image
@@ -323,7 +395,7 @@ export default function Quiz({ steps }) {
           {/* ================= MULTI SELECT ================= */}
           {current.type === "multi-select" && (
             <>
-              <p className="question-text">{current.question}</p>
+              <p className="question-text" dangerouslySetInnerHTML={{ __html: current.question }} />
 
               {current.image && (
                 <Image
@@ -368,7 +440,7 @@ export default function Quiz({ steps }) {
           {/* ================= GROUP SORT ================= */}
           {current?.type === "group-sort" && current?.groups && groups[current.id] && (
             <>
-              <p className="question-text">{current.question}</p>
+              <p className="question-text" dangerouslySetInnerHTML={{ __html: current.question }} />
 
               {current.image && (
                 <Image
@@ -598,6 +670,61 @@ export default function Quiz({ steps }) {
             </div>
           </div>
         )}
+
+                  {/* ================= AUDIO WITH INPUT ================= */}
+          {current.type === "audio_with_input" && (
+            <>
+              <p className="question-text" dangerouslySetInnerHTML={{ __html: current.question }} />
+
+              {/* Audio player */}
+              {current.audio && (
+                <div className="audio-single">
+                  <audio 
+                    controls 
+                    src={`http://localhost:5000${current.audio}`} 
+                    className="audio-player"
+                  />
+                  <p className="audio-label">🔊 Poslušaj izgovor rečenica</p>
+                </div>
+              )}
+
+              {/* Input polja za svaku rečenicu */}
+              {(current.sentences || []).map((s, si) => (
+                <div key={si} className="segment-row">
+                  <p className="segment-prompt">{s.prompt}</p>
+                  <div className="segment-inputs modern-segments">
+                    {Array.from({ length: s.parts }).map((_, i) => (
+                      <input
+                        key={i}
+                        type="text"
+                        value={answers[current.id]?.[si]?.[i] || ""}
+                        onChange={(e) =>
+                          setAnswers((prev) => {
+                            const prevQ = prev[current.id] || {};
+                            const prevSentence = prevQ[si] || {};
+
+                            return {
+                              ...prev,
+                              [current.id]: {
+                                ...prevQ,
+                                [si]: {
+                                  ...prevSentence,
+                                  [i]: e.target.value,
+                                },
+                              },
+                            };
+                          })
+                        }
+                        className="segment-box"
+                        placeholder="..."
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
+
       </div>
     </div>
   );

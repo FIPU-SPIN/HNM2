@@ -1,30 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import Quiz from "../../components/Quiz";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 export default function DistribucijskaPravilaPage() {
-  const [showQuiz, setShowQuiz] = useState(false);
-  const [kviz, setKviz] = useState([]);
-  const [loading, setLoading] = useState(true);
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(null);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/api/quiz/kviz3")
-      .then((res) => res.json())
-      .then((data) => {
-        const sorted = data.sort((a, b) => a.order - b.order);
-        setKviz(sorted);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Greška:", err);
-        setLoading(false);
-      });
-  }, []);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -44,7 +27,7 @@ export default function DistribucijskaPravilaPage() {
 
           <div className="slika-distribucijska">
             <Image
-              src="/assets/images/Distibucijska_pravila.png"
+              src="/assets/images/distribucijska_pravila.png"
               alt="Naslovna slika stranice distribucijska pravila"
               width={1000}
               height={800}
@@ -196,39 +179,23 @@ export default function DistribucijskaPravilaPage() {
 
       </div>
 
-      {/* KVIZ DIO */}
-      {!showQuiz ? (
-        <div className="kviz-cta">
-          <h3>🧠 Provjeri svoje znanje</h3>
-          <p>Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumiješ distribucijska pravila.</p>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              setShowQuiz(true);
-            }}
-            className="start-quiz-btn"
-            type="button"
-          >
+      {/* KVIZ CTA */}
+      <div className="kviz-cta">
+        <h3>🧠 Provjeri svoje znanje</h3>
+        <p>Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumiješ distribucijska pravila.</p>
+        {isLoggedIn ? (
+          <Link href="/kviz3" className="start-quiz-btn">
+            Pokreni kviz
+          </Link>
+        ) : (
+          <button className="start-quiz-btn disabled" disabled>
             Pokreni kviz
           </button>
-        </div>
-      ) : (
-        <div className="kviz-container">
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              setShowQuiz(false);
-            }}
-            className="zatvori-kviz-btn"
-            type="button"
-          >
-            ✕ Zatvori kviz
-          </button>
-          {loading && <p>Učitavanje kviza...</p>}
-          {!loading && kviz.length === 0 && <p>Nema pitanja za ovaj kviz.</p>}
-          {!loading && kviz.length > 0 && <Quiz steps={kviz} />}
-        </div>
-      )}
+        )}
+        <br />
+        <br />
+        <i>Napomena: za pristup kvizu potrebno je biti prijavljen u svoj korisnički račun.</i>
+      </div>
 
     </main>
   );

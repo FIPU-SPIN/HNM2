@@ -1,20 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import Quiz from "../../components/Quiz";
-import kviz3 from "../../data/kviz3";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 export default function NaglasciUParadigmiPage() {
-  const [showQuiz, setShowQuiz] = useState(false);
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-      setIsLoggedIn(!!token);  
-    }, []);
+    setIsLoggedIn(!!token);
+  }, []);
 
   return (
     <main className="bodydruga">
@@ -143,25 +141,27 @@ export default function NaglasciUParadigmiPage() {
         </p>
 
       </div>
-      {!showQuiz && (
-        <div className="kviz-cta">
-          <h3>🧠 Provjeri svoje znanje</h3>
 
-          <p>
-            Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumiješ naglasne sustave.
-          </p>
-
-          <button
-            onClick={() => setShowQuiz(true)}
-            className="start-quiz-btn"
-          >
+      {/* KVIZ CTA */}
+      <div className="kviz-cta">
+        <h3>🧠 Provjeri svoje znanje</h3>
+        <p>
+          Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumiješ naglasne sustave.
+        </p>
+        {isLoggedIn ? (
+          <Link href="/kviz5" className="start-quiz-btn">
+            Pokreni kviz
+          </Link>
+        ) : (
+          <button className="start-quiz-btn disabled" disabled>
             Pokreni kviz
           </button>
-        </div>
-      )}
+        )}
+        <br />
+        <br />
+        <i>Napomena: za pristup kvizu potrebno je biti prijavljen u svoj korisnički račun.</i>
+      </div>
 
-      {isLoggedIn && showQuiz && <Quiz steps={kviz3} />}
-     
     </main>
   );
 }

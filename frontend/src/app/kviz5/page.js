@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react";
 import Quiz from "../../components/Quiz";
 
-export default function Kviz3Page() {
+export default function Kviz5Page() {
   const [kviz, setKviz] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/quiz/kviz3")
+    fetch("http://localhost:5000/api/quiz/kviz5")
       .then((res) => res.json())
       .then((data) => {
         const sorted = data.sort((a, b) => a.order - b.order);
