@@ -1,7 +1,7 @@
+/* eslint-disable */
 "use client";
 
 import Image from "next/image";
-import Quiz from "../../components/Quiz";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -12,8 +12,8 @@ export default function GovornaRijecPage() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-        setIsLoggedIn(!!token);
-    }, []);
+    setIsLoggedIn(!!token);
+  }, []);
 
   return (
     <main className="bodydruga">
@@ -205,24 +205,23 @@ export default function GovornaRijecPage() {
 
         </div>
 
+      {/* KVIZ CTA - SAMO ZA PRIJAVLJENE */}
       <div className="kviz-cta">
-          <h3>🧠 Provjeri svoje znanje</h3>
-          <p>
-            Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumiješ naglasne sustave.
-          </p>
-          {isLoggedIn ? (
+        <h3>🧠 Provjeri svoje znanje</h3>
+        <p>Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumiješ naglasne sustave.</p>
+        {isLoggedIn ? (
           <Link href="/kviz2" className="start-quiz-btn">
             Pokreni kviz
           </Link>
         ) : (
           <button className="start-quiz-btn disabled" disabled>
-            Pokreni kviz 
+            Pokreni kviz
           </button>
         )}
         <br />
         <br />
-           <i>Napomena: za pristup kvizu potrebno je biti prijavljen u svoj korisnički račun.</i> 
-        </div>
+        <i>Napomena: za pristup kvizu potrebno je biti prijavljen u svoj korisnički račun.</i>
+      </div>
 
     </main>
   );

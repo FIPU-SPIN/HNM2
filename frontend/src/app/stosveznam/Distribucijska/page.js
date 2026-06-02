@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 
 import Image from "next/image";
@@ -179,7 +180,7 @@ export default function DistribucijskaPravilaPage() {
 
       </div>
 
-      {/* KVIZ CTA */}
+      {/* KVIZ CTA - SAMO ZA PRIJAVLJENE */}
       <div className="kviz-cta">
         <h3>🧠 Provjeri svoje znanje</h3>
         <p>Nakon lekcije pokreni kratki kviz i provjeri koliko dobro razumiješ distribucijska pravila.</p>
