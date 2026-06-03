@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Quiz from "../../components/Quiz";
+import Quiz from "../components/Quiz";
 
 export default function Kviz5Page() {
   const [kviz, setKviz] = useState([]);
