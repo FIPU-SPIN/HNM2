@@ -56,21 +56,33 @@ export default function Quiz({ steps }) {
       const data = await res.json();
       console.log("REZULTAT:", data);
       setResult(data);
+      setTimeout(() => {
       setFinished(true);
+    }, 300);
     } catch (err) {
       console.error("Greska pri slanju kviza:", err);
     }
   };
 
-  if (finished) {
+    if (finished && result) {
     return (
       <div className="quiz-page finished-screen">
         <div className="finished-card">
-          <button className="close-x" onClick={() => window.location.href = "/"}>✕</button>
-          <h1 className="finished-title">🎉 Cestitamo!</h1>
-          <p className="finished-text">Zavrsili ste kviz.</p>
-          <p className="finished-subtext">Vasi odgovori su uspjesno zabiljezeni.</p>
-          <button className="finished-button" onClick={() => window.location.href = "/"}>Povratak na pocetnu</button>
+
+          <h1 className="finished-title">🎉 Čestitamo!</h1>
+
+          <p className="finished-text">
+            {result.resultText?.text}
+          </p>
+
+          <p className="finished-subtext">
+            {result.resultText?.description}
+          </p>
+
+          <button onClick={() => window.location.href = "/"}>
+            Povratak na početnu
+          </button>
+
         </div>
       </div>
     );
@@ -271,16 +283,20 @@ export default function Quiz({ steps }) {
                 {current.options.map((opt, i) => (
                   <button
                     key={i}
-                    className={`option-pill ${answers[current.id]?.includes(i) ? "active" : ""}`}
+                    className={`option-pill ${answers[current.id]?.includes(current.options[i]) ? "active" : ""}`}
                     onClick={() => {
-                      setAnswers((prev) => {
-                        const prevArr = prev[current.id] || [];
-                        return {
-                          ...prev,
-                          [current.id]: prevArr.includes(i) ? prevArr.filter((x) => x !== i) : [...prevArr, i],
-                        };
-                      });
-                    }}
+                        const value = current.options[i];
+
+                        setAnswers((prev) => {
+                          const prevArr = prev[current.id] || [];
+                          return {
+                            ...prev,
+                            [current.id]: prevArr.includes(value)
+                              ? prevArr.filter((x) => x !== value)
+                              : [...prevArr, value],
+                          };
+                        });
+                      }}
                   >
                     {opt}
                   </button>
