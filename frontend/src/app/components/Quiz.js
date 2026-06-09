@@ -13,6 +13,7 @@ export default function Quiz({ steps }) {
   const [selectedWord, setSelectedWord] = useState(null);
   const current = steps[step];
   const [result, setResult] = useState(null);
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
     if (!current) return;
@@ -29,6 +30,14 @@ export default function Quiz({ steps }) {
       }));
     }
   }, [current, groups]);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (user?.name) {
+      setUserName(user.name);
+    }
+  }, []);
 
   const handleSelect = (id, value) => {
     setAnswers((prev) => ({
@@ -69,17 +78,19 @@ export default function Quiz({ steps }) {
       <div className="quiz-page finished-screen">
         <div className="finished-card">
 
-          <h1 className="finished-title">🎉 Čestitamo!</h1>
+          <h1 className="finished-title">
+          🎉 Čestitamo{userName ? `, ${userName}` : ""}!
+        </h1>
 
-          <p className="finished-text">
+          <p className="finished-text highlight">
             {result.resultText?.text}
           </p>
 
-          <p className="finished-subtext">
-            {result.resultText?.description}
-          </p>
 
-          <button onClick={() => window.location.href = "/"}>
+          <button
+            className="return-home-btn"
+            onClick={() => window.location.href = "/"}
+          >
             Povratak na početnu
           </button>
 

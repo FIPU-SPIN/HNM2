@@ -32,6 +32,7 @@ export default function Login() {
 
       if (res.ok) {
         localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
         window.dispatchEvent(new Event("authChange"));
         alert("Uspješna prijava!");
         router.push("/");

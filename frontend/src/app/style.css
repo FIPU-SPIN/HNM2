@@ -3533,6 +3533,42 @@
   box-shadow: none !important;
 }
 
+.return-home-btn {
+  margin-top: 1rem;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #09949b, #06767c);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 18px rgba(9, 148, 155, 0.25);
+}
+
+.return-home-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(9, 148, 155, 0.35);
+}
+
+.return-home-btn:active {
+  transform: translateY(0);
+}
+
+.return-home-btn::before {
+  content: "🏠 ";
+}
+
+.finished-text.highlight {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #088d94;
+  text-align: center;
+  margin: 20px 0;
+  line-height: 1.5;
+}
+
 /* Kviz container - mora biti relative da X radi */
 .kviz-container {
   position: relative;
