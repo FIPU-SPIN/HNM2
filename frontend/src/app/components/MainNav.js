@@ -54,7 +54,15 @@ export default function MainNav() {
           onClick={() => setMenuOpen(!menuOpen)} 
         />
 
-        <ul className={`nav-linkovi ${menuOpen ? "active" : ""}`}>
+        <ul
+          className={`nav-linkovi ${menuOpen ? "active" : ""}`}
+          onClick={(e) => {
+            if (e.target.tagName === "A") {
+              setMenuOpen(false);
+              setDropdownOpen(null);
+            }
+          }}
+        >
 
           {/* O PROJEKTU */}
           <li className="dropdown">
